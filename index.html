@@ -4,110 +4,161 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>MOBIXA — Choose Smarter. Compare Better.</title>
+<title>MOBIXA</title>
 
 <style>
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
 }
 
-body {
-    font-family: Arial, sans-serif;
-    background: #08090d;
-    color: white;
-    min-height: 100vh;
+body{
+    font-family:Arial,sans-serif;
+    background:#050507;
+    color:#fff;
+    min-height:100vh;
 }
 
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
-    border-bottom: 1px solid #20222b;
+header{
+    height:70px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 22px;
+    border-bottom:1px solid #1c1c22;
 }
 
-.logo {
-    font-size: 25px;
-    font-weight: 800;
-    letter-spacing: 2px;
+.logo{
+    font-size:25px;
+    font-weight:900;
+    letter-spacing:3px;
 }
 
-.menu {
-    font-size: 25px;
-    cursor: pointer;
+.menu{
+    font-size:26px;
 }
 
-.hero {
-    text-align: center;
-    padding: 70px 20px 40px;
+.hero{
+    text-align:center;
+    padding:70px 20px 35px;
 }
 
-.hero h1 {
-    font-size: 46px;
-    margin-bottom: 15px;
-    letter-spacing: -2px;
+.badge{
+    display:inline-block;
+    padding:8px 14px;
+    border:1px solid #292932;
+    border-radius:30px;
+    color:#aaa;
+    font-size:12px;
+    margin-bottom:25px;
 }
 
-.hero p {
-    color: #a9abb5;
-    font-size: 17px;
-    margin-bottom: 45px;
+.hero h1{
+    font-size:48px;
+    line-height:1;
+    letter-spacing:-2px;
+    margin-bottom:18px;
 }
 
-.options {
-    display: grid;
-    gap: 15px;
-    max-width: 500px;
-    margin: auto;
+.hero h1 span{
+    color:#8f8f99;
 }
 
-.option {
-    background: #11131a;
-    border: 1px solid #292c37;
-    border-radius: 20px;
-    padding: 25px;
-    cursor: pointer;
-    transition: 0.25s;
+.hero p{
+    color:#92929c;
+    max-width:450px;
+    margin:auto;
+    line-height:1.6;
 }
 
-.option:hover {
-    transform: translateY(-4px);
-    border-color: #ffffff;
-    background: #171923;
+.container{
+    width:92%;
+    max-width:900px;
+    margin:35px auto;
 }
 
-.icon {
-    font-size: 35px;
-    margin-bottom: 10px;
+.title{
+    font-size:16px;
+    color:#aaa;
+    margin-bottom:15px;
 }
 
-.option h2 {
-    font-size: 19px;
-    margin-bottom: 6px;
+.grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:12px;
 }
 
-.option p {
-    color: #8f929e;
-    font-size: 14px;
+.card{
+    background:#101014;
+    border:1px solid #24242c;
+    border-radius:20px;
+    padding:22px 16px;
+    min-height:145px;
+    cursor:pointer;
+    transition:.25s;
 }
 
-footer {
-    text-align: center;
-    color: #666976;
-    padding: 50px 20px 25px;
-    font-size: 13px;
+.card:hover{
+    transform:translateY(-5px);
+    border-color:#666;
+    background:#15151b;
 }
 
-@media (min-width: 700px) {
-    .options {
-        grid-template-columns: 1fr 1fr;
-        max-width: 800px;
+.icon{
+    font-size:32px;
+    margin-bottom:18px;
+}
+
+.card h2{
+    font-size:16px;
+    margin-bottom:7px;
+}
+
+.card p{
+    color:#777782;
+    font-size:12px;
+    line-height:1.5;
+}
+
+.ai{
+    margin-top:14px;
+    background:linear-gradient(135deg,#15151c,#0d0d11);
+    border:1px solid #30303a;
+    border-radius:22px;
+    padding:24px;
+    cursor:pointer;
+}
+
+.ai h2{
+    margin-bottom:8px;
+}
+
+.ai p{
+    color:#888894;
+    font-size:13px;
+}
+
+footer{
+    text-align:center;
+    color:#55555e;
+    font-size:11px;
+    padding:55px 20px 25px;
+}
+
+@media(max-width:500px){
+
+    .hero{
+        padding-top:55px;
     }
 
-    .hero h1 {
-        font-size: 70px;
+    .hero h1{
+        font-size:43px;
+    }
+
+    .grid{
+        grid-template-columns:1fr 1fr;
     }
 }
 </style>
@@ -121,41 +172,74 @@ footer {
 </header>
 
 <section class="hero">
-    <h1>Choose Smarter.</h1>
-    <p>Compare better. Find the phone that's right for you.</p>
 
-    <div class="options">
+    <div class="badge">SMART PHONE DISCOVERY</div>
 
-        <div class="option" onclick="alert('Compare Phones coming soon!')">
-            <div class="icon">📱</div>
+    <h1>
+        Find your<br>
+        <span>perfect phone.</span>
+    </h1>
+
+    <p>
+        Choose what matters to you.
+        MOBIXA helps you discover the right smartphone.
+    </p>
+
+</section>
+
+<div class="container">
+
+    <div class="title">What are you looking for?</div>
+
+    <div class="grid">
+
+        <div class="card" onclick="comingSoon('Compare Phones')">
+            <div class="icon">⚔️</div>
             <h2>Compare Phones</h2>
-            <p>Compare two phones side by side.</p>
+            <p>Put two phones side by side.</p>
         </div>
 
-        <div class="option" onclick="alert('Gaming recommendations coming soon!')">
+        <div class="card" onclick="comingSoon('Gaming')">
             <div class="icon">🎮</div>
-            <h2>Best for Gaming</h2>
-            <p>Find phones built for gaming.</p>
+            <h2>Gaming</h2>
+            <p>Find the best phone for gaming.</p>
         </div>
 
-        <div class="option" onclick="alert('Camera recommendations coming soon!')">
+        <div class="card" onclick="comingSoon('Camera')">
             <div class="icon">📸</div>
-            <h2>Best Camera</h2>
-            <p>Find the best phones for photography.</p>
+            <h2>Camera</h2>
+            <p>Discover phones with great cameras.</p>
         </div>
 
-        <div class="option" onclick="alert('Battery recommendations coming soon!')">
+        <div class="card" onclick="comingSoon('Battery')">
             <div class="icon">🔋</div>
-            <h2>Best Battery</h2>
-            <p>Find phones with great battery life.</p>
+            <h2>Battery</h2>
+            <p>Find phones with long battery life.</p>
         </div>
 
     </div>
-</section>
+
+    <div class="ai" onclick="comingSoon('MOBIXA AI')">
+        <h2>🤖 MOBIXA AI</h2>
+        <p>
+            Your personal smartphone assistant.
+            Ask, compare and discover.
+        </p>
+    </div>
+
+</div>
 
 <footer>
-    © 2026 MOBIXA — Choose smarter. Compare better.
+    © 2026 MOBIXA
 </footer>
+
+<script>
+
+function comingSoon(name){
+    alert(name + " — Coming Soon 🚀");
+}
+
+</script>
 
 </body>
 </html>
