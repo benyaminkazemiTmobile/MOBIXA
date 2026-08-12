@@ -16,7 +16,7 @@
 body{
     font-family:Arial,sans-serif;
     background:#050507;
-    color:#fff;
+    color:white;
     min-height:100vh;
 }
 
@@ -36,12 +36,12 @@ header{
 }
 
 .menu{
-    font-size:26px;
+    font-size:25px;
 }
 
 .hero{
     text-align:center;
-    padding:70px 20px 35px;
+    padding:55px 20px 30px;
 }
 
 .badge{
@@ -50,19 +50,19 @@ header{
     border:1px solid #292932;
     border-radius:30px;
     color:#aaa;
-    font-size:12px;
-    margin-bottom:25px;
+    font-size:11px;
+    margin-bottom:22px;
 }
 
 .hero h1{
-    font-size:48px;
+    font-size:44px;
     line-height:1;
     letter-spacing:-2px;
-    margin-bottom:18px;
+    margin-bottom:17px;
 }
 
 .hero h1 span{
-    color:#8f8f99;
+    color:#888892;
 }
 
 .hero p{
@@ -75,12 +75,12 @@ header{
 .container{
     width:92%;
     max-width:900px;
-    margin:35px auto;
+    margin:30px auto;
 }
 
 .title{
-    font-size:16px;
     color:#aaa;
+    font-size:15px;
     margin-bottom:15px;
 }
 
@@ -101,14 +101,13 @@ header{
 }
 
 .card:hover{
-    transform:translateY(-5px);
+    transform:translateY(-4px);
     border-color:#666;
-    background:#15151b;
 }
 
 .icon{
-    font-size:32px;
-    margin-bottom:18px;
+    font-size:31px;
+    margin-bottom:16px;
 }
 
 .card h2{
@@ -122,9 +121,118 @@ header{
     line-height:1.5;
 }
 
+.page{
+    display:none;
+    width:92%;
+    max-width:700px;
+    margin:30px auto;
+}
+
+.page.active{
+    display:block;
+}
+
+.back{
+    background:#111116;
+    border:1px solid #292932;
+    color:white;
+    border-radius:12px;
+    padding:10px 15px;
+    cursor:pointer;
+    margin-bottom:25px;
+}
+
+.page h2{
+    font-size:30px;
+    margin-bottom:10px;
+}
+
+.page-description{
+    color:#888894;
+    margin-bottom:25px;
+}
+
+.phone-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:12px;
+}
+
+.phone{
+    background:#101014;
+    border:1px solid #292932;
+    border-radius:18px;
+    padding:20px 15px;
+    cursor:pointer;
+    text-align:center;
+    transition:.2s;
+}
+
+.phone:hover{
+    transform:translateY(-4px);
+    border-color:#777;
+}
+
+.phone-icon{
+    font-size:42px;
+    margin-bottom:12px;
+}
+
+.phone h3{
+    font-size:15px;
+    margin-bottom:5px;
+}
+
+.phone p{
+    color:#777782;
+    font-size:11px;
+}
+
+.selected{
+    border-color:white;
+    background:#18181f;
+}
+
+.compare-button{
+    width:100%;
+    margin-top:20px;
+    padding:16px;
+    border:0;
+    border-radius:15px;
+    background:white;
+    color:black;
+    font-weight:bold;
+    cursor:pointer;
+    font-size:15px;
+}
+
+.result{
+    margin-top:25px;
+    display:none;
+}
+
+.result-box{
+    background:#101014;
+    border:1px solid #292932;
+    border-radius:20px;
+    padding:20px;
+}
+
+.result-row{
+    display:flex;
+    justify-content:space-between;
+    gap:10px;
+    padding:15px 0;
+    border-bottom:1px solid #24242c;
+}
+
+.result-row:last-child{
+    border-bottom:0;
+}
+
 .ai{
     margin-top:14px;
-    background:linear-gradient(135deg,#15151c,#0d0d11);
+    background:#111116;
     border:1px solid #30303a;
     border-radius:22px;
     padding:24px;
@@ -144,22 +252,15 @@ footer{
     text-align:center;
     color:#55555e;
     font-size:11px;
-    padding:55px 20px 25px;
+    padding:50px 20px 25px;
 }
 
 @media(max-width:500px){
 
-    .hero{
-        padding-top:55px;
-    }
-
-    .hero h1{
-        font-size:43px;
-    }
-
-    .grid{
+    .phone-grid{
         grid-template-columns:1fr 1fr;
     }
+
 }
 </style>
 </head>
@@ -171,9 +272,16 @@ footer{
     <div class="menu">☰</div>
 </header>
 
-<section class="hero">
 
-    <div class="badge">SMART PHONE DISCOVERY</div>
+<!-- HOME -->
+
+<section id="home">
+
+<div class="hero">
+
+    <div class="badge">
+        SMART PHONE DISCOVERY
+    </div>
 
     <h1>
         Find your<br>
@@ -185,18 +293,21 @@ footer{
         MOBIXA helps you discover the right smartphone.
     </p>
 
-</section>
+</div>
+
 
 <div class="container">
 
-    <div class="title">What are you looking for?</div>
+    <div class="title">
+        What are you looking for?
+    </div>
 
     <div class="grid">
 
-        <div class="card" onclick="comingSoon('Compare Phones')">
+        <div class="card" onclick="openCompare()">
             <div class="icon">⚔️</div>
             <h2>Compare Phones</h2>
-            <p>Put two phones side by side.</p>
+            <p>Compare two phones side by side.</p>
         </div>
 
         <div class="card" onclick="comingSoon('Gaming')">
@@ -219,24 +330,206 @@ footer{
 
     </div>
 
+
     <div class="ai" onclick="comingSoon('MOBIXA AI')">
+
         <h2>🤖 MOBIXA AI</h2>
+
         <p>
             Your personal smartphone assistant.
             Ask, compare and discover.
         </p>
+
     </div>
 
 </div>
 
+</section>
+
+
+<!-- COMPARE PAGE -->
+
+<section id="compare" class="page">
+
+<button class="back" onclick="goHome()">
+    ← Back
+</button>
+
+<h2>Compare Phones</h2>
+
+<p class="page-description">
+Choose two phones. No typing required.
+</p>
+
+
+<div class="phone-grid">
+
+<div class="phone" onclick="selectPhone(0,this)">
+    <div class="phone-icon">📱</div>
+    <h3>iPhone 16 Pro Max</h3>
+    <p>Apple</p>
+</div>
+
+<div class="phone" onclick="selectPhone(1,this)">
+    <div class="phone-icon">📱</div>
+    <h3>Galaxy S25 Ultra</h3>
+    <p>Samsung</p>
+</div>
+
+<div class="phone" onclick="selectPhone(2,this)">
+    <div class="phone-icon">📱</div>
+    <h3>Pixel 9 Pro XL</h3>
+    <p>Google</p>
+</div>
+
+<div class="phone" onclick="selectPhone(3,this)">
+    <div class="phone-icon">📱</div>
+    <h3>Xiaomi 15 Ultra</h3>
+    <p>Xiaomi</p>
+</div>
+
+</div>
+
+
+<button class="compare-button" onclick="comparePhones()">
+    COMPARE SELECTED PHONES
+</button>
+
+
+<div id="result" class="result">
+
+<div class="result-box">
+
+<h3 id="resultTitle">
+Comparison
+</h3>
+
+<div class="result-row">
+<span>Display</span>
+<span>Coming soon</span>
+</div>
+
+<div class="result-row">
+<span>Performance</span>
+<span>Coming soon</span>
+</div>
+
+<div class="result-row">
+<span>Camera</span>
+<span>Coming soon</span>
+</div>
+
+<div class="result-row">
+<span>Battery</span>
+<span>Coming soon</span>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
 <footer>
-    © 2026 MOBIXA
+© 2026 MOBIXA
 </footer>
+
 
 <script>
 
+let selectedPhones = [];
+
+function openCompare(){
+
+    document.getElementById("home").style.display="none";
+
+    document.getElementById("compare")
+    .classList.add("active");
+
+    window.scrollTo(0,0);
+}
+
+
+function goHome(){
+
+    document.getElementById("compare")
+    .classList.remove("active");
+
+    document.getElementById("home").style.display="block";
+
+    document.getElementById("result").style.display="none";
+
+    selectedPhones=[];
+
+    document.querySelectorAll(".phone")
+    .forEach(phone=>{
+        phone.classList.remove("selected");
+    });
+
+    window.scrollTo(0,0);
+}
+
+
+function selectPhone(index,element){
+
+    if(selectedPhones.includes(index)){
+
+        selectedPhones =
+        selectedPhones.filter(i=>i!==index);
+
+        element.classList.remove("selected");
+
+        return;
+    }
+
+    if(selectedPhones.length>=2){
+
+        alert("You can select only two phones.");
+
+        return;
+    }
+
+    selectedPhones.push(index);
+
+    element.classList.add("selected");
+}
+
+
+function comparePhones(){
+
+    if(selectedPhones.length!==2){
+
+        alert("Please select two phones.");
+
+        return;
+    }
+
+    const phones=[
+        "iPhone 16 Pro Max",
+        "Galaxy S25 Ultra",
+        "Pixel 9 Pro XL",
+        "Xiaomi 15 Ultra"
+    ];
+
+    document.getElementById("resultTitle").innerText =
+    phones[selectedPhones[0]]
+    +"  VS  "
+    +phones[selectedPhones[1]];
+
+    document.getElementById("result").style.display="block";
+
+    window.scrollTo({
+        top:document.body.scrollHeight,
+        behavior:"smooth"
+    });
+}
+
+
 function comingSoon(name){
-    alert(name + " — Coming Soon 🚀");
+
+    alert(name+" — Coming Soon 🚀");
+
 }
 
 </script>
