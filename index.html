@@ -71,10 +71,19 @@ header{
     line-height:1.6;
 }
 
-.container{
+.container,
+.page{
     width:92%;
-    max-width:900px;
+    max-width:950px;
     margin:30px auto;
+}
+
+.page{
+    display:none;
+}
+
+.page.active{
+    display:block;
 }
 
 .title{
@@ -83,25 +92,32 @@ header{
     margin-bottom:15px;
 }
 
-.grid{
+.grid,
+.items{
     display:grid;
-    grid-template-columns:1fr 1fr;
+    grid-template-columns:repeat(2,1fr);
     gap:12px;
 }
 
-.card{
+.card,
+.item{
     background:#101014;
     border:1px solid #24242c;
     border-radius:20px;
     padding:22px 16px;
-    min-height:145px;
     cursor:pointer;
     transition:.25s;
 }
 
-.card:hover{
+.card{
+    min-height:145px;
+}
+
+.card:hover,
+.item:hover{
     transform:translateY(-4px);
     border-color:#666;
+    background:#15151b;
 }
 
 .icon{
@@ -109,26 +125,35 @@ header{
     margin-bottom:16px;
 }
 
-.card h2{
+.card h2,
+.item h3{
     font-size:16px;
     margin-bottom:7px;
 }
 
-.card p{
+.card p,
+.item p{
     color:#777782;
     font-size:12px;
     line-height:1.5;
 }
 
-.page{
-    display:none;
-    width:92%;
-    max-width:800px;
-    margin:30px auto;
+.ai{
+    margin-top:14px;
+    background:#111116;
+    border:1px solid #30303a;
+    border-radius:22px;
+    padding:24px;
+    cursor:pointer;
 }
 
-.page.active{
-    display:block;
+.ai h2{
+    margin-bottom:8px;
+}
+
+.ai p{
+    color:#888894;
+    font-size:13px;
 }
 
 .back{
@@ -151,38 +176,43 @@ header{
     margin-bottom:25px;
 }
 
-.items{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:12px;
+.brand-card{
+    display:flex;
+    align-items:center;
+    gap:15px;
+    min-height:95px;
 }
 
-.item{
-    background:#101014;
-    border:1px solid #292932;
-    border-radius:18px;
-    padding:20px 15px;
-    cursor:pointer;
-    transition:.2s;
+.brand-logo{
+    width:46px;
+    height:46px;
+    object-fit:contain;
+    background:#fff;
+    border-radius:12px;
+    padding:7px;
+    flex-shrink:0;
 }
 
-.item:hover{
-    transform:translateY(-4px);
-    border-color:#777;
+.brand-name{
+    font-size:17px;
+    font-weight:700;
 }
 
-.item-icon{
-    font-size:34px;
-    margin-bottom:14px;
-}
-
-.item h3{
-    font-size:16px;
-    margin-bottom:6px;
-}
-
-.item p{
+.brand-series{
     color:#777782;
+    font-size:11px;
+    margin-top:5px;
+}
+
+.model-card{
+    min-height:105px;
+}
+
+.model-card h3{
+    font-size:15px;
+}
+
+.model-card p{
     font-size:11px;
 }
 
@@ -197,6 +227,7 @@ header{
 .compare-title{
     font-size:22px;
     margin-bottom:20px;
+    line-height:1.5;
 }
 
 .compare-grid{
@@ -213,6 +244,7 @@ header{
 
 .phone-result h3{
     margin-bottom:12px;
+    font-size:16px;
 }
 
 .spec{
@@ -231,24 +263,6 @@ header{
     margin-bottom:4px;
 }
 
-.ai{
-    margin-top:14px;
-    background:#111116;
-    border:1px solid #30303a;
-    border-radius:22px;
-    padding:24px;
-    cursor:pointer;
-}
-
-.ai h2{
-    margin-bottom:8px;
-}
-
-.ai p{
-    color:#888894;
-    font-size:13px;
-}
-
 footer{
     text-align:center;
     color:#55555e;
@@ -256,7 +270,13 @@ footer{
     padding:50px 20px 25px;
 }
 
-@media(max-width:500px){
+@media(max-width:600px){
+
+    .hero h1{
+        font-size:40px;
+    }
+
+    .grid,
     .items{
         grid-template-columns:1fr 1fr;
     }
@@ -274,9 +294,6 @@ footer{
     <div class="logo">MOBIXA</div>
     <div class="menu">☰</div>
 </header>
-
-
-<!-- HOME -->
 
 <section id="home">
 
@@ -298,7 +315,6 @@ footer{
 
 </div>
 
-
 <div class="container">
 
     <div class="title">
@@ -310,19 +326,19 @@ footer{
         <div class="card" onclick="openCompare()">
             <div class="icon">⚔️</div>
             <h2>Compare Phones</h2>
-            <p>Choose brands and compare smartphones.</p>
+            <p>Compare smartphones from different brands.</p>
         </div>
 
         <div class="card" onclick="comingSoon('Gaming')">
             <div class="icon">🎮</div>
             <h2>Gaming</h2>
-            <p>Find the best phone for gaming.</p>
+            <p>Find the best phones for gaming.</p>
         </div>
 
         <div class="card" onclick="comingSoon('Camera')">
             <div class="icon">📸</div>
             <h2>Camera</h2>
-            <p>Discover phones with great cameras.</p>
+            <p>Discover phones with powerful cameras.</p>
         </div>
 
         <div class="card" onclick="comingSoon('Battery')">
@@ -348,8 +364,6 @@ footer{
 </section>
 
 
-<!-- COMPARE -->
-
 <section id="compare" class="page">
 
 <button class="back" onclick="goHome()">
@@ -358,99 +372,11 @@ footer{
 
 <h2>Compare Phones</h2>
 
-<p class="description">
+<p id="description" class="description">
 Choose a brand for your first phone.
 </p>
 
-
-<div id="brandList" class="items">
-
-<div class="item" onclick="chooseBrand('Apple')">
-    <div class="item-icon">🍎</div>
-    <h3>Apple</h3>
-    <p>iPhone</p>
-</div>
-
-<div class="item" onclick="chooseBrand('Samsung')">
-    <div class="item-icon">📱</div>
-    <h3>Samsung</h3>
-    <p>Galaxy</p>
-</div>
-
-<div class="item" onclick="chooseBrand('Xiaomi')">
-    <div class="item-icon">📱</div>
-    <h3>Xiaomi</h3>
-    <p>Mi / Redmi / Poco</p>
-</div>
-
-<div class="item" onclick="chooseBrand('Google')">
-    <div class="item-icon">🔵</div>
-    <h3>Google</h3>
-    <p>Pixel</p>
-</div>
-
-<div class="item" onclick="chooseBrand('OnePlus')">
-    <div class="item-icon">🔴</div>
-    <h3>OnePlus</h3>
-    <p>OnePlus</p>
-</div>
-
-<div class="item" onclick="chooseBrand('Huawei')">
-    <div class="item-icon">🟣</div>
-    <h3>Huawei</h3>
-    <p>Huawei</p>
-</div>
-
-<div class="item" onclick="chooseBrand('Honor')">
-    <div class="item-icon">🟡</div>
-    <h3>Honor</h3>
-    <p>Magic / Number</p>
-</div>
-
-<div class="item" onclick="chooseBrand('Oppo')">
-    <div class="item-icon">🟢</div>
-    <h3>OPPO</h3>
-    <p>Find / Reno</p>
-</div>
-
-<div class="item" onclick="chooseBrand('Vivo')">
-    <div class="item-icon">🔷</div>
-    <h3>Vivo</h3>
-    <p>X / V Series</p>
-</div>
-
-<div class="item" onclick="chooseBrand('Realme')">
-    <div class="item-icon">🟨</div>
-    <h3>Realme</h3>
-    <p>GT / Number</p>
-</div>
-
-<div class="item" onclick="chooseBrand('Nothing')">
-    <div class="item-icon">⚪</div>
-    <h3>Nothing</h3>
-    <p>Phone Series</p>
-</div>
-
-<div class="item" onclick="chooseBrand('Motorola')">
-    <div class="item-icon">🔵</div>
-    <h3>Motorola</h3>
-    <p>Edge / Moto</p>
-</div>
-
-<div class="item" onclick="chooseBrand('Sony')">
-    <div class="item-icon">🎧</div>
-    <h3>Sony</h3>
-    <p>Xperia</p>
-</div>
-
-<div class="item" onclick="chooseBrand('ASUS')">
-    <div class="item-icon">🎮</div>
-    <h3>ASUS</h3>
-    <p>ROG / Zenfone</p>
-</div>
-
-</div>
-
+<div id="brandList" class="items"></div>
 
 <div id="modelArea"></div>
 
@@ -466,332 +392,317 @@ Choose a brand for your first phone.
 
 <script>
 
-/*
-MOBIXA local phone database.
-No API required for this version.
-*/
+const logoBase =
+"https://cdn.simpleicons.org/";
 
-const phones = {
 
-Apple: [
-    {
-        name:"iPhone 17 Pro Max",
-        display:"6.9-inch OLED",
-        chip:"A19 Pro",
-        camera:"48MP system",
-        battery:"Large battery",
-        storage:"256GB - 2TB"
-    },
-    {
-        name:"iPhone 17 Pro",
-        display:"6.3-inch OLED",
-        chip:"A19 Pro",
-        camera:"48MP system",
-        battery:"All-day battery",
-        storage:"128GB - 1TB"
-    },
-    {
-        name:"iPhone 17",
-        display:"6.3-inch OLED",
-        chip:"A19",
-        camera:"48MP",
-        battery:"All-day battery",
-        storage:"128GB - 512GB"
-    },
-    {
-        name:"iPhone 16 Pro Max",
-        display:"6.9-inch OLED",
-        chip:"A18 Pro",
-        camera:"48MP system",
-        battery:"Up to all day",
-        storage:"256GB - 1TB"
-    }
-],
+const brands = {
 
-Samsung: [
-    {
-        name:"Galaxy S25 Ultra",
-        display:"6.9-inch AMOLED",
-        chip:"Snapdragon 8 Elite",
-        camera:"200MP",
-        battery:"5000mAh",
-        storage:"256GB - 1TB"
-    },
-    {
-        name:"Galaxy S25+",
-        display:"6.7-inch AMOLED",
-        chip:"Snapdragon 8 Elite",
-        camera:"50MP",
-        battery:"4900mAh",
-        storage:"256GB - 512GB"
-    },
-    {
-        name:"Galaxy S25",
-        display:"6.2-inch AMOLED",
-        chip:"Snapdragon 8 Elite",
-        camera:"50MP",
-        battery:"4000mAh",
-        storage:"128GB - 512GB"
-    },
-    {
-        name:"Galaxy Z Fold 7",
-        display:"Foldable AMOLED",
-        chip:"Snapdragon 8 Elite",
-        camera:"200MP",
-        battery:"4400mAh",
-        storage:"256GB - 1TB"
-    }
-],
+Apple:{
+    logo:"apple",
+    series:"iPhone",
+    phones:[
+        ["iPhone 17 Pro Max","6.9-inch OLED","A19 Pro","48MP system","Large battery","256GB - 2TB"],
+        ["iPhone 17 Pro","6.3-inch OLED","A19 Pro","48MP system","All-day battery","128GB - 1TB"],
+        ["iPhone 17","6.3-inch OLED","A19","48MP","All-day battery","128GB - 512GB"],
+        ["iPhone Air","6.5-inch OLED","A19","48MP","All-day battery","256GB - 1TB"],
+        ["iPhone 16 Pro Max","6.9-inch OLED","A18 Pro","48MP system","4685mAh","256GB - 1TB"],
+        ["iPhone 16 Pro","6.3-inch OLED","A18 Pro","48MP system","3582mAh","128GB - 1TB"],
+        ["iPhone 16 Plus","6.7-inch OLED","A18","48MP","4674mAh","128GB - 512GB"],
+        ["iPhone 16","6.1-inch OLED","A18","48MP","3561mAh","128GB - 512GB"],
+        ["iPhone 15 Pro Max","6.7-inch OLED","A17 Pro","48MP","4441mAh","256GB - 1TB"],
+        ["iPhone 15 Pro","6.1-inch OLED","A17 Pro","48MP","3274mAh","128GB - 1TB"],
+        ["iPhone 15 Plus","6.7-inch OLED","A16 Bionic","48MP","4383mAh","128GB - 512GB"],
+        ["iPhone 15","6.1-inch OLED","A16 Bionic","48MP","3349mAh","128GB - 512GB"]
+    ]
+},
 
-Xiaomi: [
-    {
-        name:"Xiaomi 15 Ultra",
-        display:"6.73-inch AMOLED",
-        chip:"Snapdragon 8 Elite",
-        camera:"Leica 200MP",
-        battery:"Large battery",
-        storage:"512GB - 1TB"
-    },
-    {
-        name:"Xiaomi 15",
-        display:"6.36-inch AMOLED",
-        chip:"Snapdragon 8 Elite",
-        camera:"50MP",
-        battery:"Large battery",
-        storage:"256GB - 512GB"
-    },
-    {
-        name:"Redmi Note 14 Pro+",
-        display:"6.67-inch AMOLED",
-        chip:"Snapdragon chipset",
-        camera:"200MP",
-        battery:"Large battery",
-        storage:"256GB - 512GB"
-    }
-],
+Samsung:{
+    logo:"samsung",
+    series:"Galaxy S / Z / A / M / F",
+    phones:[
+        ["Galaxy S26 Ultra","6.9-inch Dynamic AMOLED 2X","Snapdragon 8 Elite Gen 5 for Galaxy","200MP","5000mAh","256GB - 1TB"],
+        ["Galaxy S26+","6.7-inch Dynamic AMOLED 2X","Exynos 2600","50MP","4900mAh","256GB - 512GB"],
+        ["Galaxy S26","6.3-inch Dynamic AMOLED 2X","Exynos 2600","50MP","4300mAh","256GB - 512GB"],
+        ["Galaxy S25 Ultra","6.9-inch AMOLED","Snapdragon 8 Elite","200MP","5000mAh","256GB - 1TB"],
+        ["Galaxy S25+","6.7-inch AMOLED","Snapdragon 8 Elite","50MP","4900mAh","256GB - 512GB"],
+        ["Galaxy S25","6.2-inch AMOLED","Snapdragon 8 Elite","50MP","4000mAh","128GB - 512GB"],
+        ["Galaxy S25 Edge","6.7-inch AMOLED","Snapdragon 8 Elite","200MP","3900mAh","256GB - 512GB"],
+        ["Galaxy S25 FE","6.7-inch AMOLED","Exynos chipset","50MP","4900mAh","128GB - 512GB"],
+        ["Galaxy Z Fold 8","8-inch foldable AMOLED","Snapdragon 8 Elite","50MP","Large battery","256GB - 1TB"],
+        ["Galaxy Z Fold 8 Ultra","8-inch foldable AMOLED","Snapdragon chipset","Advanced camera","Large battery","512GB - 1TB"],
+        ["Galaxy Z Flip 8","Foldable AMOLED","Snapdragon chipset","50MP","4000mAh","256GB - 512GB"],
+        ["Galaxy Z Fold 7","Foldable AMOLED","Snapdragon 8 Elite","200MP","4400mAh","256GB - 1TB"],
+        ["Galaxy Z Flip 7","Foldable AMOLED","Exynos chipset","50MP","4300mAh","256GB - 512GB"],
+        ["Galaxy A57","AMOLED","Exynos chipset","50MP","Large battery","128GB - 256GB"],
+        ["Galaxy A37","AMOLED","Exynos chipset","50MP","5000mAh","128GB - 256GB"],
+        ["Galaxy A26","AMOLED","Exynos chipset","50MP","5000mAh","128GB - 256GB"],
+        ["Galaxy A17","AMOLED","Exynos chipset","50MP","5000mAh","128GB - 256GB"],
+        ["Galaxy A07","LCD","MediaTek chipset","50MP","5000mAh","64GB - 128GB"],
+        ["Galaxy M17","AMOLED","Exynos chipset","50MP","6000mAh","128GB - 256GB"],
+        ["Galaxy M16","AMOLED","MediaTek chipset","50MP","5000mAh","128GB - 256GB"]
+    ]
+},
 
-Google: [
-    {
-        name:"Pixel 9 Pro XL",
-        display:"6.8-inch OLED",
-        chip:"Tensor G4",
-        camera:"50MP",
-        battery:"5060mAh",
-        storage:"128GB - 1TB"
-    },
-    {
-        name:"Pixel 9 Pro",
-        display:"6.3-inch OLED",
-        chip:"Tensor G4",
-        camera:"50MP",
-        battery:"4700mAh",
-        storage:"128GB - 1TB"
-    },
-    {
-        name:"Pixel 9",
-        display:"6.3-inch OLED",
-        chip:"Tensor G4",
-        camera:"50MP",
-        battery:"4700mAh",
-        storage:"128GB - 256GB"
-    }
-],
+Xiaomi:{
+    logo:"xiaomi",
+    series:"Xiaomi / Redmi / POCO",
+    phones:[
+        ["Xiaomi 17 Ultra","6.9-inch LTPO AMOLED","Snapdragon 8 Elite Gen 5","Leica camera system","Large battery","512GB - 1TB"],
+        ["Xiaomi 17 Pro Max","6.9-inch LTPO AMOLED","Snapdragon 8 Elite Gen 5","Leica triple camera","Large battery","512GB - 1TB"],
+        ["Xiaomi 17 Pro","6.3-inch LTPO AMOLED","Snapdragon 8 Elite Gen 5","Leica triple camera","Large battery","256GB - 1TB"],
+        ["Xiaomi 17","6.3-inch LTPO AMOLED","Snapdragon 8 Elite Gen 5","Leica triple camera","Large battery","256GB - 512GB"],
+        ["Xiaomi 15 Ultra","6.73-inch AMOLED","Snapdragon 8 Elite","Leica 200MP","5410mAh","512GB - 1TB"],
+        ["Xiaomi 15 Pro","6.73-inch AMOLED","Snapdragon 8 Elite","Leica system","6100mAh","256GB - 1TB"],
+        ["Xiaomi 15","6.36-inch AMOLED","Snapdragon 8 Elite","50MP system","5240mAh","256GB - 512GB"],
+        ["Redmi Note 17 Pro+","AMOLED","Dimensity chipset","200MP","Large battery","256GB - 512GB"],
+        ["Redmi Note 17 Pro","AMOLED","MediaTek chipset","200MP","Large battery","256GB - 512GB"],
+        ["Redmi Note 17","AMOLED","Snapdragon chipset","108MP","Large battery","128GB - 512GB"],
+        ["Redmi Note 16 Pro+","AMOLED","Dimensity chipset","200MP","Large battery","256GB - 512GB"],
+        ["Redmi Note 16 Pro","AMOLED","Dimensity chipset","200MP","Large battery","256GB - 512GB"],
+        ["POCO F8 Ultra","AMOLED","Snapdragon flagship chipset","50MP system","Large battery","512GB - 1TB"],
+        ["POCO F8 Pro","AMOLED","Snapdragon chipset","50MP","Large battery","256GB - 512GB"],
+        ["POCO X8 Pro","AMOLED","Dimensity chipset","50MP","Large battery","256GB - 512GB"],
+        ["POCO X7 Pro","AMOLED","Dimensity 8400","50MP","6000mAh","256GB - 512GB"],
+        ["POCO F7 Ultra","AMOLED","Snapdragon 8 Elite","50MP","5300mAh","256GB - 512GB"]
+    ]
+},
 
-OnePlus: [
-    {
-        name:"OnePlus 13",
-        display:"6.82-inch AMOLED",
-        chip:"Snapdragon 8 Elite",
-        camera:"50MP",
-        battery:"6000mAh",
-        storage:"256GB - 1TB"
-    },
-    {
-        name:"OnePlus 13R",
-        display:"6.78-inch AMOLED",
-        chip:"Snapdragon chipset",
-        camera:"50MP",
-        battery:"6000mAh",
-        storage:"256GB"
-    }
-],
+Google:{
+    logo:"google",
+    series:"Pixel",
+    phones:[
+        ["Pixel 11 Pro XL","6.8-inch OLED","Tensor G6","Advanced triple camera","Large battery","256GB - 1TB"],
+        ["Pixel 11 Pro","6.3-inch OLED","Tensor G6","Advanced triple camera","Large battery","256GB - 1TB"],
+        ["Pixel 11","6.3-inch OLED","Tensor G6","Advanced camera","Large battery","256GB - 512GB"],
+        ["Pixel 11 Pro Fold","Foldable OLED","Tensor G6","Advanced camera","Large battery","256GB - 1TB"],
+        ["Pixel 10 Pro XL","6.8-inch OLED","Tensor G5","50MP system","5200mAh","256GB - 1TB"],
+        ["Pixel 10 Pro","6.3-inch OLED","Tensor G5","50MP system","4870mAh","128GB - 1TB"],
+        ["Pixel 10","6.3-inch OLED","Tensor G5","48MP system","4970mAh","128GB - 256GB"],
+        ["Pixel 10 Pro Fold","Foldable OLED","Tensor G5","48MP system","5015mAh","256GB - 1TB"],
+        ["Pixel 9 Pro XL","6.8-inch OLED","Tensor G4","50MP system","5060mAh","128GB - 1TB"],
+        ["Pixel 9 Pro","6.3-inch OLED","Tensor G4","50MP system","4700mAh","128GB - 1TB"],
+        ["Pixel 9","6.3-inch OLED","Tensor G4","50MP","4700mAh","128GB - 256GB"],
+        ["Pixel 9 Pro Fold","Foldable OLED","Tensor G4","48MP","4650mAh","256GB - 512GB"]
+    ]
+},
 
-Huawei: [
-    {
-        name:"Huawei Pura 70 Ultra",
-        display:"6.8-inch OLED",
-        chip:"Kirin chipset",
-        camera:"50MP Ultra Lighting",
-        battery:"Large battery",
-        storage:"512GB - 1TB"
-    },
-    {
-        name:"Huawei Mate 70 Pro",
-        display:"6.7-inch OLED",
-        chip:"Kirin chipset",
-        camera:"Advanced camera",
-        battery:"Large battery",
-        storage:"256GB - 1TB"
-    }
-],
+OnePlus:{
+    logo:"oneplus",
+    series:"OnePlus",
+    phones:[
+        ["OnePlus 14","6.8-inch AMOLED","Snapdragon flagship chipset","Hasselblad system","Large battery","256GB - 1TB"],
+        ["OnePlus 13","6.82-inch AMOLED","Snapdragon 8 Elite","50MP system","6000mAh","256GB - 1TB"],
+        ["OnePlus 13R","6.78-inch AMOLED","Snapdragon chipset","50MP","6000mAh","256GB"],
+        ["OnePlus 12","6.82-inch AMOLED","Snapdragon 8 Gen 3","50MP","5400mAh","256GB - 512GB"],
+        ["OnePlus 12R","6.78-inch AMOLED","Snapdragon 8 Gen 2","50MP","5500mAh","128GB - 256GB"],
+        ["OnePlus Nord 5","AMOLED","Snapdragon chipset","50MP","Large battery","256GB"],
+        ["OnePlus Nord 4","AMOLED","Snapdragon chipset","50MP","5500mAh","128GB - 256GB"]
+    ]
+},
 
-Honor: [
-    {
-        name:"Honor Magic7 Pro",
-        display:"6.8-inch OLED",
-        chip:"Snapdragon 8 Elite",
-        camera:"200MP",
-        battery:"Large battery",
-        storage:"512GB"
-    },
-    {
-        name:"Honor 400 Pro",
-        display:"6.7-inch OLED",
-        chip:"Snapdragon chipset",
-        camera:"200MP",
-        battery:"Large battery",
-        storage:"256GB - 512GB"
-    }
-],
+Huawei:{
+    logo:"huawei",
+    series:"Pura / Mate / Nova",
+    phones:[
+        ["Huawei Pura 80 Ultra","OLED","Kirin chipset","Advanced camera","Large battery","512GB - 1TB"],
+        ["Huawei Pura 80 Pro","OLED","Kirin chipset","Advanced camera","Large battery","256GB - 512GB"],
+        ["Huawei Pura 70 Ultra","6.8-inch OLED","Kirin chipset","50MP Ultra Lighting","Large battery","512GB - 1TB"],
+        ["Huawei Pura 70 Pro","OLED","Kirin chipset","50MP system","5050mAh","256GB - 512GB"],
+        ["Huawei Mate 80 Pro","OLED","Kirin chipset","Advanced camera","Large battery","512GB - 1TB"],
+        ["Huawei Mate 70 Pro","6.7-inch OLED","Kirin chipset","Advanced camera","Large battery","256GB - 1TB"],
+        ["Huawei Mate X6","Foldable OLED","Kirin chipset","50MP system","5110mAh","512GB"]
+    ]
+},
 
-Oppo: [
-    {
-        name:"OPPO Find X8 Pro",
-        display:"6.78-inch AMOLED",
-        chip:"Dimensity chipset",
-        camera:"Hasselblad system",
-        battery:"Large battery",
-        storage:"512GB"
-    },
-    {
-        name:"OPPO Reno 13 Pro",
-        display:"6.83-inch AMOLED",
-        chip:"Dimensity chipset",
-        camera:"50MP",
-        battery:"Large battery",
-        storage:"512GB"
-    }
-],
+Honor:{
+    logo:"honor",
+    series:"Magic / Number / X",
+    phones:[
+        ["Honor Magic8 Pro","OLED","Snapdragon flagship chipset","200MP system","Large battery","512GB - 1TB"],
+        ["Honor Magic8","OLED","Snapdragon chipset","50MP system","Large battery","256GB - 512GB"],
+        ["Honor Magic7 Pro","6.8-inch OLED","Snapdragon 8 Elite","200MP","Large battery","512GB"],
+        ["Honor Magic7","OLED","Snapdragon 8 Elite","50MP","5650mAh","256GB - 512GB"],
+        ["Honor Magic V6","Foldable OLED","Snapdragon chipset","50MP system","Large battery","512GB - 1TB"],
+        ["Honor 500 Pro","OLED","Snapdragon chipset","200MP","Large battery","256GB - 512GB"],
+        ["Honor 400 Pro","6.7-inch OLED","Snapdragon chipset","200MP","Large battery","256GB - 512GB"],
+        ["Honor X60 Pro","OLED","Snapdragon chipset","108MP","5800mAh","256GB"]
+    ]
+},
 
-Vivo: [
-    {
-        name:"vivo X200 Pro",
-        display:"6.78-inch AMOLED",
-        chip:"Dimensity 9400",
-        camera:"200MP ZEISS",
-        battery:"6000mAh",
-        storage:"512GB"
-    },
-    {
-        name:"vivo V50",
-        display:"6.77-inch AMOLED",
-        chip:"Snapdragon chipset",
-        camera:"50MP",
-        battery:"6000mAh",
-        storage:"256GB"
-    }
-],
+Oppo:{
+    logo:"oppo",
+    series:"Find / Reno / A",
+    phones:[
+        ["OPPO Find X9 Ultra","AMOLED","Snapdragon flagship chipset","Hasselblad system","Large battery","512GB - 1TB"],
+        ["OPPO Find X9 Pro","AMOLED","Dimensity flagship","Hasselblad system","Large battery","512GB"],
+        ["OPPO Find X8 Pro","6.78-inch AMOLED","Dimensity chipset","Hasselblad system","Large battery","512GB"],
+        ["OPPO Find X8","AMOLED","Dimensity chipset","50MP system","5630mAh","256GB - 512GB"],
+        ["OPPO Reno 15 Pro","AMOLED","Dimensity chipset","50MP system","Large battery","256GB - 512GB"],
+        ["OPPO Reno 14 Pro","AMOLED","Dimensity chipset","50MP system","6200mAh","256GB - 512GB"],
+        ["OPPO Reno 13 Pro","6.83-inch AMOLED","Dimensity chipset","50MP","Large battery","512GB"],
+        ["OPPO A6 Pro","AMOLED","MediaTek chipset","50MP","Large battery","128GB - 256GB"]
+    ]
+},
 
-Realme: [
-    {
-        name:"Realme GT 7 Pro",
-        display:"6.78-inch AMOLED",
-        chip:"Snapdragon 8 Elite",
-        camera:"50MP",
-        battery:"6500mAh",
-        storage:"256GB - 512GB"
-    },
-    {
-        name:"Realme 14 Pro+",
-        display:"6.83-inch OLED",
-        chip:"Snapdragon chipset",
-        camera:"50MP",
-        battery:"6000mAh",
-        storage:"256GB - 512GB"
-    }
-],
+Vivo:{
+    logo:"vivo",
+    series:"X / V / S / Y",
+    phones:[
+        ["vivo X300 Ultra","AMOLED","Dimensity flagship","ZEISS camera system","Large battery","512GB - 1TB"],
+        ["vivo X300 Pro","AMOLED","Dimensity flagship","ZEISS system","Large battery","512GB"],
+        ["vivo X200 Ultra","AMOLED","Snapdragon flagship","ZEISS system","6000mAh","512GB - 1TB"],
+        ["vivo X200 Pro","6.78-inch AMOLED","Dimensity 9400","200MP ZEISS","6000mAh","512GB"],
+        ["vivo X200","AMOLED","Dimensity 9400","50MP ZEISS","5800mAh","256GB - 512GB"],
+        ["vivo V60 Pro","AMOLED","Snapdragon chipset","ZEISS camera","Large battery","256GB - 512GB"],
+        ["vivo V50","6.77-inch AMOLED","Snapdragon chipset","50MP","6000mAh","256GB"],
+        ["vivo Y400","AMOLED","Snapdragon chipset","50MP","Large battery","128GB - 256GB"]
+    ]
+},
 
-Nothing: [
-    {
-        name:"Nothing Phone (3)",
-        display:"6.67-inch OLED",
-        chip:"Snapdragon chipset",
-        camera:"50MP",
-        battery:"Large battery",
-        storage:"256GB - 512GB"
-    },
-    {
-        name:"Nothing Phone (3a) Pro",
-        display:"6.77-inch AMOLED",
-        chip:"Snapdragon chipset",
-        camera:"50MP",
-        battery:"5000mAh",
-        storage:"256GB"
-    }
-],
+Realme:{
+    logo:"realme",
+    series:"GT / Number / C",
+    phones:[
+        ["Realme GT 8 Pro","AMOLED","Snapdragon flagship chipset","50MP system","Large battery","256GB - 1TB"],
+        ["Realme GT 7 Pro","6.78-inch AMOLED","Snapdragon 8 Elite","50MP","6500mAh","256GB - 512GB"],
+        ["Realme GT 7","AMOLED","Dimensity chipset","50MP","7000mAh","256GB - 512GB"],
+        ["Realme GT 6","AMOLED","Snapdragon 8s Gen 3","50MP","5500mAh","256GB - 512GB"],
+        ["Realme 15 Pro","AMOLED","Snapdragon chipset","50MP","7000mAh","256GB - 512GB"],
+        ["Realme 14 Pro+","6.83-inch OLED","Snapdragon chipset","50MP","6000mAh","256GB - 512GB"],
+        ["Realme C75","LCD","MediaTek chipset","50MP","6000mAh","128GB - 256GB"]
+    ]
+},
 
-Motorola: [
-    {
-        name:"Motorola Edge 60 Pro",
-        display:"6.7-inch OLED",
-        chip:"Dimensity chipset",
-        camera:"50MP",
-        battery:"6000mAh",
-        storage:"256GB - 512GB"
-    },
-    {
-        name:"Motorola Razr 60 Ultra",
-        display:"Foldable OLED",
-        chip:"Snapdragon chipset",
-        camera:"50MP",
-        battery:"4700mAh",
-        storage:"512GB"
-    }
-],
+Nothing:{
+    logo:"nothing",
+    series:"Phone / CMF",
+    phones:[
+        ["Nothing Phone (4) Pro","OLED","Snapdragon flagship chipset","50MP system","Large battery","256GB - 512GB"],
+        ["Nothing Phone (3)","6.67-inch OLED","Snapdragon chipset","50MP","Large battery","256GB - 512GB"],
+        ["Nothing Phone (3a) Pro","6.77-inch AMOLED","Snapdragon chipset","50MP","5000mAh","256GB"],
+        ["Nothing Phone (3a)","6.77-inch AMOLED","Snapdragon chipset","50MP","5000mAh","128GB - 256GB"],
+        ["Nothing Phone (2)","6.7-inch OLED","Snapdragon 8+ Gen 1","50MP","4700mAh","128GB - 512GB"],
+        ["CMF Phone 2 Pro","AMOLED","MediaTek chipset","50MP","5000mAh","128GB - 256GB"]
+    ]
+},
 
-Sony: [
-    {
-        name:"Sony Xperia 1 VII",
-        display:"6.5-inch OLED",
-        chip:"Snapdragon chipset",
-        camera:"Advanced triple camera",
-        battery:"5000mAh",
-        storage:"256GB"
-    },
-    {
-        name:"Sony Xperia 10 VII",
-        display:"OLED",
-        chip:"Snapdragon chipset",
-        camera:"Dual camera",
-        battery:"5000mAh",
-        storage:"128GB"
-    }
-],
+Motorola:{
+    logo:"motorola",
+    series:"Edge / Razr / Moto",
+    phones:[
+        ["Motorola Edge 70 Ultra","OLED","Snapdragon flagship chipset","200MP","Large battery","512GB"],
+        ["Motorola Edge 60 Ultra","OLED","Snapdragon chipset","200MP","Large battery","512GB"],
+        ["Motorola Edge 60 Pro","6.7-inch OLED","Dimensity chipset","50MP","6000mAh","256GB - 512GB"],
+        ["Motorola Razr 70 Ultra","Foldable OLED","Snapdragon chipset","50MP","4700mAh","512GB"],
+        ["Motorola Razr 60 Ultra","Foldable OLED","Snapdragon chipset","50MP","4700mAh","512GB"],
+        ["Motorola Moto G86","OLED","MediaTek chipset","50MP","6720mAh","128GB - 256GB"],
+        ["Motorola Moto G75","LCD","Snapdragon chipset","50MP","5000mAh","256GB"]
+    ]
+},
 
-ASUS: [
-    {
-        name:"ROG Phone 9 Pro",
-        display:"6.78-inch AMOLED",
-        chip:"Snapdragon 8 Elite",
-        camera:"50MP",
-        battery:"5800mAh",
-        storage:"512GB - 1TB"
-    },
-    {
-        name:"Zenfone 12 Ultra",
-        display:"6.78-inch AMOLED",
-        chip:"Snapdragon 8 Elite",
-        camera:"50MP",
-        battery:"5500mAh",
-        storage:"256GB - 512GB"
-    }
-]
+Sony:{
+    logo:"sony",
+    series:"Xperia",
+    phones:[
+        ["Sony Xperia 1 VIII","OLED","Snapdragon flagship chipset","Triple camera","5000mAh","256GB"],
+        ["Sony Xperia 1 VII","6.5-inch OLED","Snapdragon chipset","Advanced triple camera","5000mAh","256GB"],
+        ["Sony Xperia 5 V","6.1-inch OLED","Snapdragon 8 Gen 2","48MP","5000mAh","128GB - 256GB"],
+        ["Sony Xperia 10 VII","OLED","Snapdragon chipset","Dual camera","5000mAh","128GB"]
+    ]
+},
+
+ASUS:{
+    logo:"asus",
+    series:"ROG / Zenfone",
+    phones:[
+        ["ROG Phone 10 Pro","AMOLED","Snapdragon flagship chipset","50MP","Large battery","512GB - 1TB"],
+        ["ROG Phone 9 Pro","6.78-inch AMOLED","Snapdragon 8 Elite","50MP","5800mAh","512GB - 1TB"],
+        ["ROG Phone 9","AMOLED","Snapdragon 8 Elite","50MP","5800mAh","256GB - 512GB"],
+        ["Zenfone 12 Ultra","6.78-inch AMOLED","Snapdragon 8 Elite","50MP","5500mAh","256GB - 512GB"],
+        ["Zenfone 11 Ultra","6.78-inch AMOLED","Snapdragon 8 Gen 3","50MP","5500mAh","256GB - 512GB"]
+    ]
+},
+
+Nokia:{
+    logo:"nokia",
+    series:"N / G / X",
+    phones:[
+        ["Nokia X50","OLED","Snapdragon chipset","50MP","Large battery","128GB - 256GB"],
+        ["Nokia G42","LCD","Snapdragon chipset","50MP","5000mAh","128GB - 256GB"],
+        ["Nokia C32","LCD","Unisoc chipset","50MP","5000mAh","64GB - 128GB"]
+    ]
+},
+
+Infinix:{
+    logo:"infinix",
+    series:"GT / Note / Zero",
+    phones:[
+        ["Infinix GT 30 Pro","AMOLED","Dimensity chipset","108MP","5500mAh","256GB - 512GB"],
+        ["Infinix Note 50 Pro+","AMOLED","MediaTek chipset","50MP","5200mAh","256GB"],
+        ["Infinix Zero 40","AMOLED","Dimensity chipset","108MP","5000mAh","256GB - 512GB"],
+        ["Infinix Hot 60 Pro+","AMOLED","MediaTek chipset","50MP","5160mAh","128GB - 256GB"]
+    ]
+},
+
+Tecno:{
+    logo:"tecno",
+    series:"Phantom / Camon / Pova",
+    phones:[
+        ["Tecno Phantom V Fold2","Foldable AMOLED","Dimensity chipset","50MP system","5750mAh","512GB"],
+        ["Tecno Phantom V Flip2","Foldable OLED","Dimensity chipset","50MP","4720mAh","256GB"],
+        ["Tecno Camon 40 Pro","AMOLED","MediaTek chipset","50MP","5200mAh","256GB"],
+        ["Tecno Pova 7 Pro","AMOLED","Dimensity chipset","64MP","6000mAh","256GB"]
+    ]
+},
+
+ZTE:{
+    logo:"zte",
+    series:"Axon / Blade",
+    phones:[
+        ["ZTE Axon 60 Ultra","OLED","Snapdragon chipset","50MP","6000mAh","256GB"],
+        ["ZTE Axon 50 Ultra","OLED","Snapdragon chipset","64MP","5000mAh","256GB"],
+        ["ZTE Blade V70","OLED","Unisoc chipset","108MP","5000mAh","128GB - 256GB"]
+    ]
+},
+
+Nubia:{
+    logo:"nubia",
+    series:"Z / RedMagic",
+    phones:[
+        ["Nubia Z70 Ultra","AMOLED","Snapdragon 8 Elite","50MP system","6150mAh","256GB - 1TB"],
+        ["Nubia Z60 Ultra","AMOLED","Snapdragon 8 Gen 3","50MP system","6000mAh","256GB - 1TB"],
+        ["RedMagic 11 Pro","AMOLED","Snapdragon flagship chipset","50MP","Large battery","512GB - 1TB"],
+        ["RedMagic 10 Pro","6.85-inch AMOLED","Snapdragon 8 Elite","50MP","7050mAh","256GB - 1TB"]
+    ]
+},
+
+TCL:{
+    logo:"tcl",
+    series:"T / 50 / 60",
+    phones:[
+        ["TCL 60 Pro","AMOLED","MediaTek chipset","50MP","Large battery","256GB"],
+        ["TCL 50 Pro","AMOLED","MediaTek chipset","50MP","5010mAh","256GB"],
+        ["TCL 50 XL","LCD","MediaTek chipset","50MP","5010mAh","128GB"]
+    ]
+},
+
+Fairphone:{
+    logo:"fairphone",
+    series:"Fairphone",
+    phones:[
+        ["Fairphone 6","OLED","Snapdragon chipset","50MP","Large battery","256GB"],
+        ["Fairphone 5","OLED","Qualcomm chipset","50MP","4200mAh","256GB"],
+        ["Fairphone 4","LCD","Qualcomm chipset","48MP","3905mAh","128GB - 256GB"]
+    ]
+}
+
 };
 
 
-let firstPhone = null;
-let secondPhone = null;
-let choosingSecond = false;
+let firstPhone=null;
+let secondPhone=null;
+let choosingSecond=false;
 
 
 function openCompare(){
@@ -801,12 +712,12 @@ function openCompare(){
     document.getElementById("compare")
     .classList.add("active");
 
-    document.getElementById("modelArea").innerHTML="";
-    document.getElementById("comparisonArea").innerHTML="";
-
-    choosingSecond=false;
     firstPhone=null;
     secondPhone=null;
+    choosingSecond=false;
+
+    document.getElementById("modelArea").innerHTML="";
+    document.getElementById("comparisonArea").innerHTML="";
 
     showBrands();
 
@@ -827,14 +738,49 @@ function goHome(){
 
 function showBrands(){
 
-    document.getElementById("brandList")
-    .style.display="grid";
+    const list=document.getElementById("brandList");
 
-    document.querySelector(".description")
-    .innerText =
+    list.style.display="grid";
+
+    document.getElementById("description").innerText =
     choosingSecond
     ? "Choose the brand for your second phone."
     : "Choose the brand for your first phone.";
+
+    list.innerHTML="";
+
+    Object.keys(brands).forEach(brand=>{
+
+        const data=brands[brand];
+
+        list.innerHTML+=`
+
+        <div class="item brand-card"
+             onclick="chooseBrand('${brand}')">
+
+            <img
+                class="brand-logo"
+                src="${logoBase}${data.logo}"
+                alt="${brand} logo"
+            >
+
+            <div>
+
+                <div class="brand-name">
+                    ${brand}
+                </div>
+
+                <div class="brand-series">
+                    ${data.series}
+                </div>
+
+            </div>
+
+        </div>
+
+        `;
+
+    });
 
 }
 
@@ -845,6 +791,8 @@ function chooseBrand(brand){
     .style.display="none";
 
     const area=document.getElementById("modelArea");
+
+    const data=brands[brand];
 
     area.innerHTML=`
 
@@ -862,21 +810,21 @@ function chooseBrand(brand){
 
         <div class="items">
 
-            ${phones[brand].map((phone,index)=>`
+            ${data.phones.map((phone,index)=>`
 
-                <div class="item"
-                     onclick='choosePhone(${JSON.stringify(phone)}, this)'>
+                <div class="item model-card"
+                     onclick="choosePhone('${brand}',${index})">
 
                     <div class="item-icon">
                         📱
                     </div>
 
                     <h3>
-                        ${phone.name}
+                        ${phone[0]}
                     </h3>
 
                     <p>
-                        ${brand}
+                        ${data.series}
                     </p>
 
                 </div>
@@ -890,7 +838,20 @@ function chooseBrand(brand){
 }
 
 
-function choosePhone(phone,element){
+function choosePhone(brand,index){
+
+    const p=brands[brand].phones[index];
+
+    const phone={
+        name:p[0],
+        display:p[1],
+        chip:p[2],
+        camera:p[3],
+        battery:p[4],
+        storage:p[5],
+        brand:brand,
+        logo:brands[brand].logo
+    };
 
     if(!choosingSecond){
 
@@ -910,7 +871,6 @@ function choosePhone(phone,element){
     secondPhone=phone;
 
     showComparison();
-
 }
 
 
@@ -922,7 +882,7 @@ function showComparison(){
     document.getElementById("modelArea")
     .innerHTML="";
 
-    document.querySelector(".description")
+    document.getElementById("description")
     .innerText="Your selected phones";
 
     document.getElementById("comparisonArea")
@@ -931,13 +891,19 @@ function showComparison(){
         <div class="compare-box">
 
             <div class="compare-title">
+
                 ${firstPhone.name}
+
                 <br>
+
                 <span style="color:#777">
                     VS
                 </span>
+
                 <br>
+
                 ${secondPhone.name}
+
             </div>
 
             <div class="compare-grid">
@@ -950,10 +916,13 @@ function showComparison(){
 
         </div>
 
-        <button class="back"
-                style="margin-top:15px"
-                onclick="openCompare()">
+        <button
+            class="back"
+            style="margin-top:15px"
+            onclick="openCompare()">
+
             Compare Again
+
         </button>
     `;
 
@@ -968,7 +937,23 @@ function createPhoneCard(phone){
         <div class="phone-result">
 
             <h3>
-                📱 ${phone.name}
+
+                <img
+                    src="${logoBase}${phone.logo}"
+                    style="
+                        width:22px;
+                        height:22px;
+                        object-fit:contain;
+                        background:white;
+                        border-radius:5px;
+                        padding:3px;
+                        vertical-align:middle;
+                        margin-right:6px;
+                    "
+                >
+
+                ${phone.name}
+
             </h3>
 
             <div class="spec">
