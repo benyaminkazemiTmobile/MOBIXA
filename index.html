@@ -3,9 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>MOBIXA</title>
 
 <style>
+
 *{
     box-sizing:border-box;
     margin:0;
@@ -66,7 +68,7 @@ header{
 
 .hero p{
     color:#92929c;
-    max-width:470px;
+    max-width:480px;
     margin:auto;
     line-height:1.6;
 }
@@ -74,7 +76,7 @@ header{
 .container,
 .page{
     width:92%;
-    max-width:900px;
+    max-width:950px;
     margin:30px auto;
 }
 
@@ -136,6 +138,7 @@ header{
     border:1px solid #30303a;
     border-radius:22px;
     padding:24px;
+    cursor:pointer;
 }
 
 .ai h2{
@@ -189,12 +192,10 @@ header{
     padding:16px 18px 16px 48px;
     font-size:15px;
     outline:none;
-    transition:.2s;
 }
 
 .search-box input:focus{
     border-color:#777;
-    background:#141419;
 }
 
 .search-icon{
@@ -203,7 +204,7 @@ header{
     top:50%;
     transform:translateY(-50%);
     color:#888;
-    font-size:18px;
+    font-size:19px;
 }
 
 .brand-card{
@@ -212,13 +213,22 @@ header{
     gap:15px;
 }
 
+.brand-logo-box{
+    width:52px;
+    height:52px;
+    min-width:52px;
+    border-radius:14px;
+    background:#1a1a20;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border:1px solid #292932;
+}
+
 .brand-logo{
-    width:48px;
-    height:48px;
+    width:32px;
+    height:32px;
     object-fit:contain;
-    border-radius:12px;
-    background:#fff;
-    padding:7px;
 }
 
 .brand-info{
@@ -227,6 +237,27 @@ header{
 
 .brand-info h3{
     margin-bottom:5px;
+}
+
+.phone-item{
+    min-height:120px;
+}
+
+.phone-icon{
+    width:42px;
+    height:42px;
+    border-radius:12px;
+    background:#18181e;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:22px;
+    margin-bottom:14px;
+}
+
+.phone-brand{
+    color:#666;
+    margin-top:5px;
 }
 
 .no-results{
@@ -239,30 +270,18 @@ header{
     border-radius:18px;
 }
 
-.phone-item{
-    min-height:115px;
-}
-
-.phone-item h3{
-    font-size:15px;
-}
-
-.phone-brand{
-    color:#666;
-    margin-top:5px;
-}
-
 .compare-box{
     margin-top:25px;
     background:#101014;
     border:1px solid #292932;
-    border-radius:20px;
+    border-radius:22px;
     padding:20px;
 }
 
 .compare-title{
-    font-size:22px;
-    margin-bottom:20px;
+    font-size:23px;
+    line-height:1.35;
+    margin-bottom:22px;
 }
 
 .compare-grid{
@@ -273,18 +292,21 @@ header{
 
 .phone-result{
     background:#16161c;
-    border-radius:16px;
+    border-radius:18px;
     padding:18px;
+    border:1px solid #24242c;
 }
 
 .phone-result h3{
-    margin-bottom:12px;
+    margin-bottom:15px;
+    font-size:17px;
 }
 
 .spec{
-    padding:10px 0;
+    padding:12px 0;
     border-bottom:1px solid #292932;
-    font-size:12px;
+    font-size:13px;
+    line-height:1.5;
 }
 
 .spec:last-child{
@@ -295,6 +317,13 @@ header{
     color:#888894;
     display:block;
     margin-bottom:4px;
+    font-size:11px;
+    text-transform:uppercase;
+    letter-spacing:.5px;
+}
+
+.spec.missing{
+    color:#555;
 }
 
 footer{
@@ -319,19 +348,34 @@ footer{
         grid-template-columns:1fr;
     }
 
+    .brand-logo-box{
+        width:46px;
+        height:46px;
+        min-width:46px;
+    }
+
     .brand-logo{
-        width:42px;
-        height:42px;
+        width:28px;
+        height:28px;
     }
 }
+
 </style>
 </head>
+
 
 <body>
 
 <header>
-    <div class="logo">MOBIXA</div>
-    <div class="menu">☰</div>
+
+<div class="logo">
+MOBIXA
+</div>
+
+<div class="menu">
+☰
+</div>
+
 </header>
 
 
@@ -339,89 +383,157 @@ footer{
 
 <div class="hero">
 
-    <div class="badge">SMART PHONE DISCOVERY</div>
+<div class="badge">
+SMART PHONE DISCOVERY
+</div>
 
-    <h1>
-        Find your<br>
-        <span>perfect phone.</span>
-    </h1>
+<h1>
+Find your<br>
+<span>perfect phone.</span>
+</h1>
 
-    <p>
-        Explore smartphones, search models and compare your favorites.
-        MOBIXA helps you discover the right phone.
-    </p>
+<p>
+Explore smartphones, search models and compare your favorites.
+</p>
 
 </div>
 
+
 <div class="container">
 
-    <div class="title">What are you looking for?</div>
+<div class="title">
+What are you looking for?
+</div>
 
-    <div class="grid">
 
-        <div class="card" onclick="openCompare()">
-            <div class="icon">⚔️</div>
-            <h2>Compare Phones</h2>
-            <p>Choose any brand and compare smartphones.</p>
-        </div>
+<div class="grid">
 
-        <div class="card" onclick="comingSoon('Gaming')">
-            <div class="icon">🎮</div>
-            <h2>Gaming</h2>
-            <p>Find powerful phones for gaming.</p>
-        </div>
+<div class="card" onclick="openCompare()">
 
-        <div class="card" onclick="comingSoon('Camera')">
-            <div class="icon">📸</div>
-            <h2>Camera</h2>
-            <p>Discover phones with great cameras.</p>
-        </div>
+<div class="icon">⚔️</div>
 
-        <div class="card" onclick="comingSoon('Battery')">
-            <div class="icon">🔋</div>
-            <h2>Battery</h2>
-            <p>Find phones with long battery life.</p>
-        </div>
+<h2>
+Compare Phones
+</h2>
 
-    </div>
+<p>
+Choose any brand and compare smartphones.
+</p>
 
-    <div class="ai" onclick="comingSoon('MOBIXA AI')">
-        <h2>🤖 MOBIXA AI</h2>
-        <p>Your personal smartphone assistant.</p>
-    </div>
+</div>
+
+
+<div class="card" onclick="comingSoon('Gaming')">
+
+<div class="icon">🎮</div>
+
+<h2>
+Gaming
+</h2>
+
+<p>
+Find powerful phones for gaming.
+</p>
+
+</div>
+
+
+<div class="card" onclick="comingSoon('Camera')">
+
+<div class="icon">📸</div>
+
+<h2>
+Camera
+</h2>
+
+<p>
+Discover phones with great cameras.
+</p>
+
+</div>
+
+
+<div class="card" onclick="comingSoon('Battery')">
+
+<div class="icon">🔋</div>
+
+<h2>
+Battery
+</h2>
+
+<p>
+Find phones with long battery life.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="ai" onclick="comingSoon('MOBIXA AI')">
+
+<h2>
+🤖 MOBIXA AI
+</h2>
+
+<p>
+Your personal smartphone assistant.
+</p>
+
+</div>
 
 </div>
 
 </section>
 
 
+
 <section id="compare" class="page">
 
-<button class="back" onclick="goHome()">← Back</button>
+<button class="back" onclick="goHome()">
+← Back
+</button>
 
-<h2>Compare Phones</h2>
+
+<h2>
+Compare Phones
+</h2>
+
 
 <p class="description" id="pageDescription">
 Choose a brand for your first phone.
 </p>
 
+
 <div class="search-box">
-    <span class="search-icon">⌕</span>
-    <input
-        id="brandSearch"
-        type="text"
-        placeholder="Search brands..."
-        oninput="searchBrands()"
-    >
+
+<span class="search-icon">
+⌕
+</span>
+
+<input
+id="brandSearch"
+type="text"
+placeholder="Search brands..."
+oninput="searchBrands()"
+>
+
 </div>
 
-<div id="brandList" class="items"></div>
 
-<div id="modelArea"></div>
+<div id="brandList" class="items">
+</div>
 
-<div id="comparisonArea"></div>
+
+<div id="modelArea">
+</div>
+
+
+<div id="comparisonArea">
+</div>
 
 </section>
+
 
 
 <footer>
@@ -429,1031 +541,2049 @@ Choose a brand for your first phone.
 </footer>
 
 
+
 <script>
 
-/* =========================
-   BRAND DATA
-========================= */
 
-const brands = {
+/* =====================================================
+   LOGOS
+===================================================== */
 
-Apple:{
-    logo:"https://cdn.simpleicons.org/apple",
-    models:[
-        "iPhone 18 Pro Max",
-        "iPhone 18 Pro",
-        "iPhone 18",
-        "iPhone Air",
-        "iPhone 17 Pro Max",
-        "iPhone 17 Pro",
-        "iPhone 17",
-        "iPhone 17 Air",
-        "iPhone 16 Pro Max",
-        "iPhone 16 Pro",
-        "iPhone 16 Plus",
-        "iPhone 16",
-        "iPhone 16e",
-        "iPhone 15 Pro Max",
-        "iPhone 15 Pro",
-        "iPhone 15 Plus",
-        "iPhone 15",
-        "iPhone 14 Pro Max",
-        "iPhone 14 Pro",
-        "iPhone 14 Plus",
-        "iPhone 14",
-        "iPhone 13 Pro Max",
-        "iPhone 13 Pro",
-        "iPhone 13",
-        "iPhone 13 mini",
-        "iPhone 12 Pro Max",
-        "iPhone 12 Pro",
-        "iPhone 12",
-        "iPhone 12 mini",
-        "iPhone 11 Pro Max",
-        "iPhone 11 Pro",
-        "iPhone 11",
-        "iPhone XS Max",
-        "iPhone XS",
-        "iPhone XR",
-        "iPhone X",
-        "iPhone 8 Plus",
-        "iPhone 8",
-        "iPhone 7 Plus",
-        "iPhone 7",
-        "iPhone SE 3",
-        "iPhone SE 2"
-    ]
-},
+const logo = brand => {
 
-Samsung:{
-    logo:"https://cdn.simpleicons.org/samsung",
-    models:[
-        "Galaxy S26 Ultra",
-        "Galaxy S26+",
-        "Galaxy S26",
-        "Galaxy S26 Edge",
-        "Galaxy S25 Ultra",
-        "Galaxy S25+",
-        "Galaxy S25",
-        "Galaxy S25 Edge",
-        "Galaxy S25 FE",
-        "Galaxy S24 Ultra",
-        "Galaxy S24+",
-        "Galaxy S24",
-        "Galaxy S24 FE",
-        "Galaxy S23 Ultra",
-        "Galaxy S23+",
-        "Galaxy S23",
-        "Galaxy S23 FE",
-        "Galaxy S22 Ultra",
-        "Galaxy S22+",
-        "Galaxy S22",
-        "Galaxy S22 FE",
-        "Galaxy S21 Ultra",
-        "Galaxy S21+",
-        "Galaxy S21",
-        "Galaxy S21 FE",
-        "Galaxy S20 Ultra",
-        "Galaxy S20+",
-        "Galaxy S20",
-        "Galaxy S20 FE",
+const logos = {
 
-        "Galaxy Z Fold7",
-        "Galaxy Z Flip7",
-        "Galaxy Z Fold6",
-        "Galaxy Z Flip6",
-        "Galaxy Z Fold5",
-        "Galaxy Z Flip5",
-        "Galaxy Z Fold4",
-        "Galaxy Z Flip4",
-        "Galaxy Z Fold3",
-        "Galaxy Z Flip3",
-        "Galaxy Z Fold2",
-        "Galaxy Z Flip",
+Apple:"https://cdn.simpleicons.org/apple/ffffff",
+Samsung:"https://cdn.simpleicons.org/samsung/ffffff",
+Xiaomi:"https://cdn.simpleicons.org/xiaomi/ffffff",
+Google:"https://cdn.simpleicons.org/google/ffffff",
+OnePlus:"https://cdn.simpleicons.org/oneplus/ffffff",
+Huawei:"https://cdn.simpleicons.org/huawei/ffffff",
+Honor:"https://cdn.simpleicons.org/honor/ffffff",
+Oppo:"https://cdn.simpleicons.org/oppo/ffffff",
+Vivo:"https://cdn.simpleicons.org/vivo/ffffff",
+Realme:"https://cdn.simpleicons.org/realme/ffffff",
+Nothing:"https://cdn.simpleicons.org/nothing/ffffff",
+Motorola:"https://cdn.simpleicons.org/motorola/ffffff",
+Sony:"https://cdn.simpleicons.org/sony/ffffff",
+ASUS:"https://cdn.simpleicons.org/asus/ffffff",
+Infinix:"https://cdn.simpleicons.org/infinix/ffffff",
+ZTE:"https://cdn.simpleicons.org/zte/ffffff",
+TCL:"https://cdn.simpleicons.org/tcl/ffffff",
+Nubia:"https://cdn.simpleicons.org/nubia/ffffff",
+Tecno:"https://cdn.simpleicons.org/tecno/ffffff"
 
-        "Galaxy A77",
-        "Galaxy A76",
-        "Galaxy A75",
-        "Galaxy A74",
-        "Galaxy A73",
-        "Galaxy A72",
-        "Galaxy A71",
-        "Galaxy A70",
-        "Galaxy A57",
-        "Galaxy A56",
-        "Galaxy A55",
-        "Galaxy A54",
-        "Galaxy A53",
-        "Galaxy A52",
-        "Galaxy A51",
-        "Galaxy A50",
-        "Galaxy A47",
-        "Galaxy A46",
-        "Galaxy A45",
-        "Galaxy A44",
-        "Galaxy A43",
-        "Galaxy A42",
-        "Galaxy A41",
-        "Galaxy A40",
-        "Galaxy A37",
-        "Galaxy A36",
-        "Galaxy A35",
-        "Galaxy A34",
-        "Galaxy A33",
-        "Galaxy A32",
-        "Galaxy A31",
-        "Galaxy A30",
-        "Galaxy A27",
-        "Galaxy A26",
-        "Galaxy A25",
-        "Galaxy A24",
-        "Galaxy A23",
-        "Galaxy A22",
-        "Galaxy A21",
-        "Galaxy A20",
-        "Galaxy A17",
-        "Galaxy A16",
-        "Galaxy A15",
-        "Galaxy A14",
-        "Galaxy A13",
-        "Galaxy A12",
-        "Galaxy A11",
-        "Galaxy A10",
+};
 
-        "Galaxy M56",
-        "Galaxy M55",
-        "Galaxy M54",
-        "Galaxy M53",
-        "Galaxy M52",
-        "Galaxy M51",
-        "Galaxy M36",
-        "Galaxy M35",
-        "Galaxy M34",
-        "Galaxy M33",
-        "Galaxy M32",
-        "Galaxy M31",
-        "Galaxy M30",
-        "Galaxy M25",
-        "Galaxy M24",
-        "Galaxy M23",
-        "Galaxy M22",
-        "Galaxy M21",
-        "Galaxy M20",
-        "Galaxy M15",
-        "Galaxy M14",
-        "Galaxy M13",
-        "Galaxy M12",
-
-        "Galaxy F56",
-        "Galaxy F55",
-        "Galaxy F54",
-        "Galaxy F34",
-        "Galaxy F33",
-        "Galaxy F23",
-        "Galaxy F22",
-        "Galaxy F15",
-        "Galaxy F14",
-        "Galaxy F13",
-        "Galaxy F12"
-    ]
-},
-
-Xiaomi:{
-    logo:"https://cdn.simpleicons.org/xiaomi",
-    models:[
-        "Xiaomi 17 Ultra",
-        "Xiaomi 17 Pro",
-        "Xiaomi 17",
-        "Xiaomi 16 Ultra",
-        "Xiaomi 16 Pro",
-        "Xiaomi 16",
-        "Xiaomi 15 Ultra",
-        "Xiaomi 15 Pro",
-        "Xiaomi 15",
-        "Xiaomi 14 Ultra",
-        "Xiaomi 14 Pro",
-        "Xiaomi 14",
-        "Xiaomi 13 Ultra",
-        "Xiaomi 13 Pro",
-        "Xiaomi 13",
-        "Xiaomi 12S Ultra",
-        "Xiaomi 12 Pro",
-        "Xiaomi 12",
-        "Xiaomi 11 Ultra",
-        "Xiaomi 11 Pro",
-        "Xiaomi 11",
-
-        "Redmi Note 15 Pro+",
-        "Redmi Note 15 Pro",
-        "Redmi Note 15",
-        "Redmi Note 14 Pro+",
-        "Redmi Note 14 Pro",
-        "Redmi Note 14",
-        "Redmi Note 13 Pro+",
-        "Redmi Note 13 Pro",
-        "Redmi Note 13",
-        "Redmi Note 12 Pro+",
-        "Redmi Note 12 Pro",
-        "Redmi Note 12",
-        "Redmi Note 11 Pro+",
-        "Redmi Note 11 Pro",
-        "Redmi Note 11",
-
-        "Redmi K90 Pro",
-        "Redmi K90",
-        "Redmi K80 Pro",
-        "Redmi K80",
-        "Redmi K70 Pro",
-        "Redmi K70",
-        "Redmi K60 Pro",
-        "Redmi K60",
-
-        "POCO F7 Ultra",
-        "POCO F7 Pro",
-        "POCO F7",
-        "POCO F6 Pro",
-        "POCO F6",
-        "POCO F5 Pro",
-        "POCO F5",
-        "POCO F4 GT",
-        "POCO F4",
-        "POCO F3",
-
-        "POCO X7 Pro",
-        "POCO X7",
-        "POCO X6 Pro",
-        "POCO X6",
-        "POCO X5 Pro",
-        "POCO X5",
-        "POCO X4 Pro",
-        "POCO X3 Pro",
-        "POCO X3"
-    ]
-},
-
-Google:{
-    logo:"https://cdn.simpleicons.org/google",
-    models:[
-        "Pixel 10 Pro XL",
-        "Pixel 10 Pro",
-        "Pixel 10",
-        "Pixel 10a",
-        "Pixel 9 Pro XL",
-        "Pixel 9 Pro",
-        "Pixel 9",
-        "Pixel 9a",
-        "Pixel 8 Pro",
-        "Pixel 8",
-        "Pixel 8a",
-        "Pixel 7 Pro",
-        "Pixel 7",
-        "Pixel 7a",
-        "Pixel 6 Pro",
-        "Pixel 6",
-        "Pixel 6a",
-        "Pixel 5",
-        "Pixel 4 XL",
-        "Pixel 4",
-        "Pixel 4a",
-        "Pixel 3 XL",
-        "Pixel 3a XL",
-        "Pixel 3a",
-        "Pixel 3",
-        "Pixel 2 XL",
-        "Pixel 2"
-    ]
-},
-
-OnePlus:{
-    logo:"https://cdn.simpleicons.org/oneplus",
-    models:[
-        "OnePlus 13",
-        "OnePlus 13R",
-        "OnePlus 12",
-        "OnePlus 12R",
-        "OnePlus 11",
-        "OnePlus 11R",
-        "OnePlus 10 Pro",
-        "OnePlus 10T",
-        "OnePlus 10R",
-        "OnePlus 9 Pro",
-        "OnePlus 9",
-        "OnePlus 9R",
-        "OnePlus 8 Pro",
-        "OnePlus 8T",
-        "OnePlus 8",
-        "OnePlus 7T Pro",
-        "OnePlus 7T",
-        "OnePlus 7 Pro",
-        "OnePlus 7",
-        "OnePlus 6T",
-        "OnePlus 6",
-        "OnePlus Nord 5",
-        "OnePlus Nord 4",
-        "OnePlus Nord 3",
-        "OnePlus Nord 2T",
-        "OnePlus Nord 2",
-        "OnePlus Nord CE 4",
-        "OnePlus Nord CE 3"
-    ]
-},
-
-Huawei:{
-    logo:"https://cdn.simpleicons.org/huawei",
-    models:[
-        "Huawei Pura 80 Ultra",
-        "Huawei Pura 80 Pro",
-        "Huawei Pura 80",
-        "Huawei Pura 70 Ultra",
-        "Huawei Pura 70 Pro",
-        "Huawei Pura 70",
-        "Huawei Mate 70 Pro",
-        "Huawei Mate 70",
-        "Huawei Mate 60 Pro+",
-        "Huawei Mate 60 Pro",
-        "Huawei Mate 60",
-        "Huawei P60 Pro",
-        "Huawei P60",
-        "Huawei Mate 50 Pro",
-        "Huawei Mate 50",
-        "Huawei P50 Pro",
-        "Huawei P50",
-        "Huawei P40 Pro+",
-        "Huawei P40 Pro",
-        "Huawei P40",
-        "Huawei Nova 13 Pro",
-        "Huawei Nova 13",
-        "Huawei Nova 12 Pro",
-        "Huawei Nova 12"
-    ]
-},
-
-Honor:{
-    logo:"https://cdn.simpleicons.org/honor",
-    models:[
-        "Honor Magic8 Pro",
-        "Honor Magic8",
-        "Honor Magic7 Pro",
-        "Honor Magic7",
-        "Honor Magic6 Pro",
-        "Honor Magic6",
-        "Honor Magic5 Pro",
-        "Honor Magic5",
-        "Honor Magic4 Pro",
-        "Honor Magic4",
-        "Honor 500 Pro",
-        "Honor 500",
-        "Honor 400 Pro",
-        "Honor 400",
-        "Honor 300 Pro",
-        "Honor 300",
-        "Honor 200 Pro",
-        "Honor 200",
-        "Honor X60 Pro",
-        "Honor X60",
-        "Honor X50 Pro",
-        "Honor X50",
-        "Honor X40",
-        "Honor X30"
-    ]
-},
-
-Oppo:{
-    logo:"https://cdn.simpleicons.org/oppo",
-    models:[
-        "OPPO Find X9 Ultra",
-        "OPPO Find X9 Pro",
-        "OPPO Find X9",
-        "OPPO Find X8 Ultra",
-        "OPPO Find X8 Pro",
-        "OPPO Find X8",
-        "OPPO Find X7 Ultra",
-        "OPPO Find X7",
-        "OPPO Find X6 Pro",
-        "OPPO Find X6",
-        "OPPO Find X5 Pro",
-        "OPPO Find X5",
-        "OPPO Reno 15 Pro",
-        "OPPO Reno 15",
-        "OPPO Reno 14 Pro",
-        "OPPO Reno 14",
-        "OPPO Reno 13 Pro",
-        "OPPO Reno 13",
-        "OPPO Reno 12 Pro",
-        "OPPO Reno 12",
-        "OPPO A6 Pro",
-        "OPPO A5 Pro",
-        "OPPO A3 Pro",
-        "OPPO A2 Pro"
-    ]
-},
-
-Vivo:{
-    logo:"https://cdn.simpleicons.org/vivo",
-    models:[
-        "vivo X300 Pro",
-        "vivo X300",
-        "vivo X200 Ultra",
-        "vivo X200 Pro",
-        "vivo X200",
-        "vivo X100 Ultra",
-        "vivo X100 Pro",
-        "vivo X100",
-        "vivo X90 Pro+",
-        "vivo X90 Pro",
-        "vivo X90",
-        "vivo X80 Pro",
-        "vivo X80",
-        "vivo V60 Pro",
-        "vivo V60",
-        "vivo V50 Pro",
-        "vivo V50",
-        "vivo V40 Pro",
-        "vivo V40",
-        "vivo V30 Pro",
-        "vivo V30",
-        "vivo Y300",
-        "vivo Y200",
-        "vivo Y100"
-    ]
-},
-
-Realme:{
-    logo:"https://cdn.simpleicons.org/realme",
-    models:[
-        "Realme GT 8 Pro",
-        "Realme GT 8",
-        "Realme GT 7 Pro",
-        "Realme GT 7",
-        "Realme GT 6",
-        "Realme GT 5",
-        "Realme GT 3",
-        "Realme GT 2 Pro",
-        "Realme GT 2",
-        "Realme GT Neo 7",
-        "Realme GT Neo 6",
-        "Realme GT Neo 5",
-        "Realme 15 Pro",
-        "Realme 15",
-        "Realme 14 Pro+",
-        "Realme 14 Pro",
-        "Realme 14",
-        "Realme 13 Pro+",
-        "Realme 13 Pro",
-        "Realme 13",
-        "Realme C75",
-        "Realme C65",
-        "Realme C55",
-        "Realme C53"
-    ]
-},
-
-Nothing:{
-    logo:"https://cdn.simpleicons.org/nothing",
-    models:[
-        "Nothing Phone (4)",
-        "Nothing Phone (3)",
-        "Nothing Phone (3a) Pro",
-        "Nothing Phone (3a)",
-        "Nothing Phone (2a) Plus",
-        "Nothing Phone (2a)",
-        "Nothing Phone (2)",
-        "Nothing Phone (1)",
-        "CMF Phone 2 Pro",
-        "CMF Phone 1"
-    ]
-},
-
-Motorola:{
-    logo:"https://cdn.simpleicons.org/motorola",
-    models:[
-        "Motorola Edge 70 Ultra",
-        "Motorola Edge 60 Ultra",
-        "Motorola Edge 60 Pro",
-        "Motorola Edge 60",
-        "Motorola Edge 50 Ultra",
-        "Motorola Edge 50 Pro",
-        "Motorola Edge 50",
-        "Motorola Edge 40 Pro",
-        "Motorola Edge 40",
-        "Motorola Razr 60 Ultra",
-        "Motorola Razr 60",
-        "Motorola Razr 50 Ultra",
-        "Motorola Razr 50",
-        "Motorola Moto G Power",
-        "Motorola Moto G Stylus",
-        "Motorola Moto G85",
-        "Motorola Moto G75",
-        "Motorola Moto G55",
-        "Motorola Moto G45"
-    ]
-},
-
-Sony:{
-    logo:"https://cdn.simpleicons.org/sony",
-    models:[
-        "Sony Xperia 1 VII",
-        "Sony Xperia 1 VI",
-        "Sony Xperia 1 V",
-        "Sony Xperia 1 IV",
-        "Sony Xperia 1 III",
-        "Sony Xperia 5 V",
-        "Sony Xperia 5 IV",
-        "Sony Xperia 5 III",
-        "Sony Xperia 10 VII",
-        "Sony Xperia 10 VI",
-        "Sony Xperia 10 V",
-        "Sony Xperia 10 IV",
-        "Sony Xperia Pro-I"
-    ]
-},
-
-ASUS:{
-    logo:"https://cdn.simpleicons.org/asus",
-    models:[
-        "ASUS ROG Phone 9 Pro",
-        "ASUS ROG Phone 9",
-        "ASUS ROG Phone 8 Pro",
-        "ASUS ROG Phone 8",
-        "ASUS ROG Phone 7 Ultimate",
-        "ASUS ROG Phone 7",
-        "ASUS ROG Phone 6 Pro",
-        "ASUS ROG Phone 6",
-        "ASUS Zenfone 12 Ultra",
-        "ASUS Zenfone 11 Ultra",
-        "ASUS Zenfone 10",
-        "ASUS Zenfone 9"
-    ]
-},
-
-Infinix:{
-    logo:"https://cdn.simpleicons.org/infinix",
-    models:[
-        "Infinix GT 30 Pro",
-        "Infinix GT 20 Pro",
-        "Infinix GT 10 Pro",
-        "Infinix Note 50 Pro+",
-        "Infinix Note 50 Pro",
-        "Infinix Note 50",
-        "Infinix Note 40 Pro+",
-        "Infinix Note 40 Pro",
-        "Infinix Note 40",
-        "Infinix Note 30 Pro",
-        "Infinix Note 30",
-        "Infinix Zero 40 Pro",
-        "Infinix Zero 40",
-        "Infinix Zero 30",
-        "Infinix Hot 60 Pro",
-        "Infinix Hot 60",
-        "Infinix Hot 50 Pro+",
-        "Infinix Hot 50 Pro",
-        "Infinix Hot 50"
-    ]
-},
-
-ZTE:{
-    logo:"https://cdn.simpleicons.org/zte",
-    models:[
-        "ZTE Axon 60 Ultra",
-        "ZTE Axon 60",
-        "ZTE Axon 50 Ultra",
-        "ZTE Axon 50 Pro",
-        "ZTE Axon 40 Ultra",
-        "ZTE Axon 40 Pro",
-        "ZTE Axon 30 Ultra",
-        "ZTE Axon 30",
-        "ZTE Nubia Z70 Ultra",
-        "ZTE Nubia Z60 Ultra",
-        "ZTE Nubia Z50 Ultra",
-        "ZTE Nubia Z40 Pro",
-        "ZTE Blade V70",
-        "ZTE Blade V60",
-        "ZTE Blade A75"
-    ]
-},
-
-TCL:{
-    logo:"https://cdn.simpleicons.org/tcl",
-    models:[
-        "TCL 60 Ultra",
-        "TCL 60 Pro",
-        "TCL 60",
-        "TCL 50 Pro",
-        "TCL 50",
-        "TCL 40 NXTPAPER",
-        "TCL 40",
-        "TCL 30",
-        "TCL 20"
-    ]
-},
-
-Nubia:{
-    logo:"https://cdn.simpleicons.org/nubia",
-    models:[
-        "nubia Z70 Ultra",
-        "nubia Z70S Ultra",
-        "nubia Z60 Ultra",
-        "nubia Z60S Pro",
-        "nubia Z50 Ultra",
-        "nubia Z50S Pro",
-        "nubia Z40S Pro",
-        "nubia RedMagic 10 Pro",
-        "nubia RedMagic 9 Pro",
-        "nubia RedMagic 8 Pro",
-        "nubia RedMagic 7 Pro",
-        "nubia Neo 3 GT",
-        "nubia Neo 2"
-    ]
-},
-
-Tecno:{
-    logo:"https://cdn.simpleicons.org/tecno",
-    models:[
-        "Tecno Phantom V Fold2",
-        "Tecno Phantom V Fold",
-        "Tecno Phantom V Flip2",
-        "Tecno Phantom V Flip",
-        "Tecno Phantom X2 Pro",
-        "Tecno Phantom X2",
-        "Tecno Camon 40 Premier",
-        "Tecno Camon 40 Pro",
-        "Tecno Camon 40",
-        "Tecno Camon 30 Premier",
-        "Tecno Camon 30 Pro",
-        "Tecno Camon 30",
-        "Tecno Pova 7 Pro",
-        "Tecno Pova 7",
-        "Tecno Pova 6 Pro",
-        "Tecno Pova 6",
-        "Tecno Spark 40 Pro",
-        "Tecno Spark 40",
-        "Tecno Spark 30 Pro",
-        "Tecno Spark 30"
-    ]
-}
+return logos[brand];
 
 };
 
 
-/* =========================
+
+/* =====================================================
+   PHONE DATABASE
+===================================================== */
+
+const phones = {
+
+
+Samsung: [
+
+{
+name:"Galaxy S26 Ultra",
+display:"6.9-inch Dynamic AMOLED 2X, QHD+, 120Hz",
+processor:"Snapdragon 8 Elite Gen 5 for Galaxy",
+camera:"200MP + 50MP + 50MP + 10MP",
+battery:"5000mAh",
+storage:"256GB / 512GB / 1TB"
+},
+
+{
+name:"Galaxy S26+",
+display:"6.7-inch Dynamic AMOLED 2X, QHD+, 120Hz",
+processor:"Exynos 2600",
+camera:"50MP main system",
+battery:"4900mAh",
+storage:"256GB / 512GB"
+},
+
+{
+name:"Galaxy S26",
+display:"6.3-inch Dynamic AMOLED 2X, 120Hz",
+processor:"Exynos 2600",
+camera:"50MP main system",
+battery:"4300mAh",
+storage:"256GB / 512GB"
+},
+
+{
+name:"Galaxy S25 Ultra",
+display:"6.9-inch Dynamic AMOLED 2X, QHD+, 120Hz",
+processor:"Snapdragon 8 Elite for Galaxy",
+camera:"200MP main camera system",
+battery:"5000mAh",
+storage:"256GB / 512GB / 1TB"
+},
+
+{
+name:"Galaxy S25+",
+display:"6.7-inch Dynamic AMOLED 2X, 120Hz",
+processor:"Snapdragon 8 Elite for Galaxy",
+camera:"50MP main system",
+battery:"4900mAh",
+storage:"256GB / 512GB"
+},
+
+{
+name:"Galaxy S25",
+display:"6.2-inch Dynamic AMOLED 2X, 120Hz",
+processor:"Snapdragon 8 Elite for Galaxy",
+camera:"50MP main system",
+battery:"4000mAh",
+storage:"128GB / 256GB / 512GB"
+},
+
+{
+name:"Galaxy S24 Ultra",
+display:"6.8-inch Dynamic AMOLED 2X, QHD+, 120Hz",
+processor:"Snapdragon 8 Gen 3 for Galaxy",
+camera:"200MP main system",
+battery:"5000mAh",
+storage:"256GB / 512GB / 1TB"
+},
+
+{
+name:"Galaxy S24+",
+display:"6.7-inch Dynamic AMOLED 2X, 120Hz",
+processor:"Exynos 2400 / Snapdragon 8 Gen 3 depending on market",
+camera:"50MP main system",
+battery:"4900mAh",
+storage:"256GB / 512GB"
+},
+
+{
+name:"Galaxy S24",
+display:"6.2-inch Dynamic AMOLED 2X, 120Hz",
+processor:"Exynos 2400 / Snapdragon 8 Gen 3 depending on market",
+camera:"50MP main system",
+battery:"4000mAh",
+storage:"128GB / 256GB"
+},
+
+{
+name:"Galaxy S23 Ultra",
+display:"6.8-inch Dynamic AMOLED 2X, QHD+, 120Hz",
+processor:"Snapdragon 8 Gen 2 for Galaxy",
+camera:"200MP main system",
+battery:"5000mAh",
+storage:"256GB / 512GB / 1TB"
+},
+
+{
+name:"Galaxy S23+",
+display:"6.6-inch Dynamic AMOLED 2X, 120Hz",
+processor:"Snapdragon 8 Gen 2 for Galaxy",
+camera:"50MP main system",
+battery:"4700mAh",
+storage:"256GB / 512GB"
+},
+
+{
+name:"Galaxy S23",
+display:"6.1-inch Dynamic AMOLED 2X, 120Hz",
+processor:"Snapdragon 8 Gen 2 for Galaxy",
+camera:"50MP main system",
+battery:"3900mAh",
+storage:"128GB / 256GB"
+},
+
+{
+name:"Galaxy S22 Ultra",
+display:"6.8-inch Dynamic AMOLED 2X, 120Hz",
+processor:"Snapdragon 8 Gen 1 / Exynos 2200 depending on market",
+camera:"108MP main system",
+battery:"5000mAh",
+storage:"128GB / 256GB / 512GB / 1TB"
+},
+
+{
+name:"Galaxy S22+",
+display:"6.6-inch Dynamic AMOLED 2X, 120Hz",
+processor:"Snapdragon 8 Gen 1 / Exynos 2200",
+camera:"50MP main system",
+battery:"4500mAh",
+storage:"128GB / 256GB"
+},
+
+{
+name:"Galaxy S22",
+display:"6.1-inch Dynamic AMOLED 2X, 120Hz",
+processor:"Snapdragon 8 Gen 1 / Exynos 2200",
+camera:"50MP main system",
+battery:"3700mAh",
+storage:"128GB / 256GB"
+},
+
+{
+name:"Galaxy S21 Ultra",
+display:"6.8-inch Dynamic AMOLED 2X, 120Hz",
+processor:"Snapdragon 888 / Exynos 2100",
+camera:"108MP main system",
+battery:"5000mAh",
+storage:"128GB / 256GB / 512GB"
+},
+
+{
+name:"Galaxy S21+",
+display:"6.7-inch Dynamic AMOLED 2X, 120Hz",
+processor:"Snapdragon 888 / Exynos 2100",
+camera:"12MP main system",
+battery:"4800mAh",
+storage:"128GB / 256GB"
+},
+
+{
+name:"Galaxy S21",
+display:"6.2-inch Dynamic AMOLED 2X, 120Hz",
+processor:"Snapdragon 888 / Exynos 2100",
+camera:"12MP main system",
+battery:"4000mAh",
+storage:"128GB / 256GB"
+},
+
+{
+name:"Galaxy S20 Ultra",
+display:"6.9-inch Dynamic AMOLED 2X, 120Hz",
+processor:"Snapdragon 865 / Exynos 990",
+camera:"108MP main system",
+battery:"5000mAh",
+storage:"128GB / 256GB / 512GB"
+},
+
+{
+name:"Galaxy S20+",
+display:"6.7-inch Dynamic AMOLED 2X, 120Hz",
+processor:"Snapdragon 865 / Exynos 990",
+camera:"64MP main system",
+battery:"4500mAh",
+storage:"128GB / 256GB"
+},
+
+{
+name:"Galaxy S20",
+display:"6.2-inch Dynamic AMOLED 2X, 120Hz",
+processor:"Snapdragon 865 / Exynos 990",
+camera:"64MP main system",
+battery:"4000mAh",
+storage:"128GB / 256GB"
+},
+
+
+{
+name:"Galaxy Z Fold7",
+display:"Foldable Dynamic AMOLED 2X",
+processor:"Snapdragon 8 Elite for Galaxy",
+camera:"200MP main system",
+battery:"4400mAh",
+storage:"256GB / 512GB / 1TB"
+},
+
+{
+name:"Galaxy Z Flip7",
+display:"Foldable AMOLED",
+processor:"Exynos 2500",
+camera:"50MP main system",
+battery:"4300mAh",
+storage:"256GB / 512GB"
+},
+
+{
+name:"Galaxy Z Fold6",
+display:"7.6-inch Dynamic AMOLED 2X",
+processor:"Snapdragon 8 Gen 3 for Galaxy",
+camera:"50MP main system",
+battery:"4400mAh",
+storage:"256GB / 512GB / 1TB"
+},
+
+{
+name:"Galaxy Z Flip6",
+display:"6.7-inch Dynamic AMOLED 2X",
+processor:"Snapdragon 8 Gen 3 for Galaxy",
+camera:"50MP main system",
+battery:"4000mAh",
+storage:"256GB / 512GB"
+},
+
+
+{
+name:"Galaxy A56 5G",
+display:"6.7-inch Super AMOLED, 120Hz",
+processor:"Exynos 1580",
+camera:"50MP main system",
+battery:"5000mAh",
+storage:"128GB / 256GB"
+},
+
+{
+name:"Galaxy A55 5G",
+display:"6.6-inch Super AMOLED, 120Hz",
+processor:"Exynos 1480",
+camera:"50MP main system",
+battery:"5000mAh",
+storage:"128GB / 256GB"
+},
+
+{
+name:"Galaxy A54 5G",
+display:"6.4-inch Super AMOLED, 120Hz",
+processor:"Exynos 1380",
+camera:"50MP main system",
+battery:"5000mAh",
+storage:"128GB / 256GB"
+},
+
+{
+name:"Galaxy A53 5G",
+display:"6.5-inch Super AMOLED, 120Hz",
+processor:"Exynos 1280",
+camera:"64MP main system",
+battery:"5000mAh",
+storage:"128GB / 256GB"
+},
+
+{
+name:"Galaxy A52",
+display:"6.5-inch Super AMOLED, 90Hz",
+processor:"Snapdragon 720G",
+camera:"64MP main system",
+battery:"4500mAh",
+storage:"128GB / 256GB"
+}
+
+],
+
+
+
+Apple:[
+
+{
+name:"iPhone 17 Pro Max",
+display:"6.9-inch Super Retina XDR OLED, ProMotion 120Hz",
+processor:"A19 Pro",
+camera:"48MP Pro Fusion camera system",
+battery:"Up to 39 hours video playback",
+storage:"256GB / 512GB / 1TB / 2TB"
+},
+
+{
+name:"iPhone 17 Pro",
+display:"6.3-inch Super Retina XDR OLED, ProMotion 120Hz",
+processor:"A19 Pro",
+camera:"48MP Pro Fusion camera system",
+battery:"All-day battery",
+storage:"256GB / 512GB / 1TB"
+},
+
+{
+name:"iPhone 17",
+display:"6.3-inch Super Retina XDR OLED, 120Hz",
+processor:"A19",
+camera:"48MP main camera system",
+battery:"All-day battery",
+storage:"256GB / 512GB"
+},
+
+{
+name:"iPhone 16 Pro Max",
+display:"6.9-inch Super Retina XDR OLED, ProMotion 120Hz",
+processor:"A18 Pro",
+camera:"48MP Pro camera system",
+battery:"Up to 33 hours video playback",
+storage:"256GB / 512GB / 1TB"
+},
+
+{
+name:"iPhone 16 Pro",
+display:"6.3-inch Super Retina XDR OLED, ProMotion 120Hz",
+processor:"A18 Pro",
+camera:"48MP Pro camera system",
+battery:"Up to 27 hours video playback",
+storage:"128GB / 256GB / 512GB / 1TB"
+},
+
+{
+name:"iPhone 16 Plus",
+display:"6.7-inch Super Retina XDR OLED",
+processor:"A18",
+camera:"48MP main camera system",
+battery:"Up to 27 hours video playback",
+storage:"128GB / 256GB / 512GB"
+},
+
+{
+name:"iPhone 16",
+display:"6.1-inch Super Retina XDR OLED",
+processor:"A18",
+camera:"48MP main camera system",
+battery:"Up to 22 hours video playback",
+storage:"128GB / 256GB / 512GB"
+},
+
+{
+name:"iPhone 15 Pro Max",
+display:"6.7-inch Super Retina XDR OLED, ProMotion 120Hz",
+processor:"A17 Pro",
+camera:"48MP Pro camera system",
+battery:"Up to 29 hours video playback",
+storage:"256GB / 512GB / 1TB"
+},
+
+{
+name:"iPhone 15 Pro",
+display:"6.1-inch Super Retina XDR OLED, ProMotion 120Hz",
+processor:"A17 Pro",
+camera:"48MP Pro camera system",
+battery:"Up to 23 hours video playback",
+storage:"128GB / 256GB / 512GB / 1TB"
+},
+
+{
+name:"iPhone 15",
+display:"6.1-inch Super Retina XDR OLED",
+processor:"A16 Bionic",
+camera:"48MP main camera system",
+battery:"Up to 20 hours video playback",
+storage:"128GB / 256GB / 512GB"
+},
+
+{
+name:"iPhone 14 Pro Max",
+display:"6.7-inch Super Retina XDR OLED, ProMotion 120Hz",
+processor:"A16 Bionic",
+camera:"48MP Pro camera system",
+battery:"Up to 29 hours video playback",
+storage:"128GB / 256GB / 512GB / 1TB"
+},
+
+{
+name:"iPhone 14 Pro",
+display:"6.1-inch Super Retina XDR OLED, ProMotion 120Hz",
+processor:"A16 Bionic",
+camera:"48MP Pro camera system",
+battery:"Up to 23 hours video playback",
+storage:"128GB / 256GB / 512GB / 1TB"
+},
+
+{
+name:"iPhone 14",
+display:"6.1-inch Super Retina XDR OLED",
+processor:"A15 Bionic",
+camera:"12MP dual camera system",
+battery:"Up to 20 hours video playback",
+storage:"128GB / 256GB / 512GB"
+},
+
+{
+name:"iPhone 13 Pro Max",
+display:"6.7-inch Super Retina XDR OLED, ProMotion 120Hz",
+processor:"A15 Bionic",
+camera:"12MP Pro camera system",
+battery:"Up to 28 hours video playback",
+storage:"128GB / 256GB / 512GB / 1TB"
+},
+
+{
+name:"iPhone 13 Pro",
+display:"6.1-inch Super Retina XDR OLED, ProMotion 120Hz",
+processor:"A15 Bionic",
+camera:"12MP Pro camera system",
+battery:"Up to 22 hours video playback",
+storage:"128GB / 256GB / 512GB / 1TB"
+},
+
+{
+name:"iPhone 13",
+display:"6.1-inch Super Retina XDR OLED",
+processor:"A15 Bionic",
+camera:"12MP dual camera system",
+battery:"Up to 19 hours video playback",
+storage:"128GB / 256GB / 512GB"
+},
+
+{
+name:"iPhone 12 Pro Max",
+display:"6.7-inch Super Retina XDR OLED",
+processor:"A14 Bionic",
+camera:"12MP Pro camera system",
+battery:"Up to 20 hours video playback",
+storage:"128GB / 256GB / 512GB"
+},
+
+{
+name:"iPhone 12",
+display:"6.1-inch Super Retina XDR OLED",
+processor:"A14 Bionic",
+camera:"12MP dual camera system",
+battery:"Up to 17 hours video playback",
+storage:"64GB / 128GB / 256GB"
+}
+
+],
+
+
+
+Xiaomi:[
+
+{
+name:"Xiaomi 15 Ultra",
+display:"6.73-inch AMOLED, 120Hz",
+processor:"Snapdragon 8 Elite",
+camera:"Leica quad camera system, 200MP telephoto",
+battery:"Large-capacity battery",
+storage:"512GB / 1TB"
+},
+
+{
+name:"Xiaomi 15 Pro",
+display:"6.73-inch AMOLED, 120Hz",
+processor:"Snapdragon 8 Elite",
+camera:"Leica triple camera system",
+battery:"Large-capacity battery",
+storage:"256GB / 512GB / 1TB"
+},
+
+{
+name:"Xiaomi 15",
+display:"6.36-inch AMOLED, 120Hz",
+processor:"Snapdragon 8 Elite",
+camera:"Leica triple camera system",
+battery:"Large-capacity battery",
+storage:"256GB / 512GB"
+},
+
+{
+name:"Xiaomi 14 Ultra",
+display:"6.73-inch AMOLED, 120Hz",
+processor:"Snapdragon 8 Gen 3",
+camera:"Leica quad camera, 50MP main",
+battery:"5000mAh",
+storage:"512GB / 1TB"
+},
+
+{
+name:"Xiaomi 14",
+display:"6.36-inch AMOLED, 120Hz",
+processor:"Snapdragon 8 Gen 3",
+camera:"Leica triple camera",
+battery:"4610mAh",
+storage:"256GB / 512GB"
+},
+
+{
+name:"Xiaomi 13 Ultra",
+display:"6.73-inch AMOLED, 120Hz",
+processor:"Snapdragon 8 Gen 2",
+camera:"Leica quad 50MP camera system",
+battery:"5000mAh",
+storage:"256GB / 512GB / 1TB"
+},
+
+{
+name:"Xiaomi 13 Pro",
+display:"6.73-inch AMOLED, 120Hz",
+processor:"Snapdragon 8 Gen 2",
+camera:"Leica triple camera",
+battery:"4820mAh",
+storage:"128GB / 256GB / 512GB"
+},
+
+{
+name:"Xiaomi 13",
+display:"6.36-inch AMOLED, 120Hz",
+processor:"Snapdragon 8 Gen 2",
+camera:"Leica triple camera",
+battery:"4500mAh",
+storage:"128GB / 256GB / 512GB"
+},
+
+{
+name:"Redmi Note 14 Pro+",
+display:"6.67-inch AMOLED, 120Hz",
+processor:"Snapdragon 7s Gen 3",
+camera:"200MP main camera",
+battery:"5110mAh",
+storage:"256GB / 512GB"
+},
+
+{
+name:"Redmi Note 14 Pro",
+display:"6.67-inch AMOLED, 120Hz",
+processor:"MediaTek Dimensity 7300-Ultra",
+camera:"200MP main camera",
+battery:"5500mAh",
+storage:"256GB / 512GB"
+},
+
+{
+name:"POCO F7 Ultra",
+display:"6.67-inch AMOLED, 120Hz",
+processor:"Snapdragon 8 Elite",
+camera:"50MP triple camera system",
+battery:"5300mAh",
+storage:"256GB / 512GB"
+},
+
+{
+name:"POCO F7 Pro",
+display:"6.67-inch AMOLED, 120Hz",
+processor:"Snapdragon 8 Gen 3",
+camera:"50MP main camera",
+battery:"6000mAh",
+storage:"256GB / 512GB"
+},
+
+{
+name:"POCO X7 Pro",
+display:"6.67-inch AMOLED, 120Hz",
+processor:"Dimensity 8400-Ultra",
+camera:"50MP main camera",
+battery:"6000mAh",
+storage:"256GB / 512GB"
+},
+
+{
+name:"POCO X6 Pro",
+display:"6.67-inch AMOLED, 120Hz",
+processor:"Dimensity 8300-Ultra",
+camera:"64MP main camera",
+battery:"5000mAh",
+storage:"256GB / 512GB"
+}
+
+],
+
+
+
+Google:[
+
+{
+name:"Pixel 10 Pro XL",
+display:"6.8-inch OLED, 120Hz",
+processor:"Google Tensor",
+camera:"Pro triple camera system",
+battery:"Large-capacity battery",
+storage:"256GB / 512GB / 1TB / 2TB"
+},
+
+{
+name:"Pixel 10 Pro",
+display:"6.3-inch OLED, 120Hz",
+processor:"Google Tensor",
+camera:"Pro triple camera system",
+battery:"Large-capacity battery",
+storage:"128GB / 256GB / 512GB / 1TB"
+},
+
+{
+name:"Pixel 9 Pro XL",
+display:"6.8-inch LTPO OLED, 120Hz",
+processor:"Google Tensor G4",
+camera:"50MP main + 48MP ultrawide + 48MP telephoto",
+battery:"5060mAh",
+storage:"128GB / 256GB / 512GB / 1TB"
+},
+
+{
+name:"Pixel 9 Pro",
+display:"6.3-inch LTPO OLED, 120Hz",
+processor:"Google Tensor G4",
+camera:"50MP main + 48MP ultrawide + 48MP telephoto",
+battery:"4700mAh",
+storage:"128GB / 256GB / 512GB / 1TB"
+},
+
+{
+name:"Pixel 9",
+display:"6.3-inch OLED, 120Hz",
+processor:"Google Tensor G4",
+camera:"50MP main + 48MP ultrawide",
+battery:"4700mAh",
+storage:"128GB / 256GB"
+},
+
+{
+name:"Pixel 8 Pro",
+display:"6.7-inch LTPO OLED, 120Hz",
+processor:"Google Tensor G3",
+camera:"50MP + 48MP + 48MP",
+battery:"5050mAh",
+storage:"128GB / 256GB / 512GB / 1TB"
+},
+
+{
+name:"Pixel 8",
+display:"6.2-inch OLED, 120Hz",
+processor:"Google Tensor G3",
+camera:"50MP + 12MP",
+battery:"4575mAh",
+storage:"128GB / 256GB"
+},
+
+{
+name:"Pixel 7 Pro",
+display:"6.7-inch LTPO OLED, 120Hz",
+processor:"Google Tensor G2",
+camera:"50MP + 12MP + 48MP",
+battery:"5000mAh",
+storage:"128GB / 256GB / 512GB"
+},
+
+{
+name:"Pixel 7",
+display:"6.3-inch OLED, 90Hz",
+processor:"Google Tensor G2",
+camera:"50MP + 12MP",
+battery:"4355mAh",
+storage:"128GB / 256GB"
+}
+
+],
+
+
+
+OnePlus:[
+
+{
+name:"OnePlus 13",
+display:"6.82-inch LTPO AMOLED, 120Hz",
+processor:"Snapdragon 8 Elite",
+camera:"50MP triple camera system",
+battery:"6000mAh",
+storage:"256GB / 512GB / 1TB"
+},
+
+{
+name:"OnePlus 13R",
+display:"6.78-inch AMOLED, 120Hz",
+processor:"Snapdragon 8 Gen 3",
+camera:"50MP triple camera",
+battery:"6000mAh",
+storage:"256GB"
+},
+
+{
+name:"OnePlus 12",
+display:"6.82-inch LTPO AMOLED, 120Hz",
+processor:"Snapdragon 8 Gen 3",
+camera:"50MP + 64MP + 48MP",
+battery:"5400mAh",
+storage:"256GB / 512GB / 1TB"
+},
+
+{
+name:"OnePlus 12R",
+display:"6.78-inch AMOLED, 120Hz",
+processor:"Snapdragon 8 Gen 2",
+camera:"50MP main camera",
+battery:"5500mAh",
+storage:"128GB / 256GB"
+},
+
+{
+name:"OnePlus 11",
+display:"6.7-inch LTPO AMOLED, 120Hz",
+processor:"Snapdragon 8 Gen 2",
+camera:"50MP + 48MP + 32MP",
+battery:"5000mAh",
+storage:"128GB / 256GB / 512GB"
+}
+
+],
+
+
+
+Huawei:[
+
+{
+name:"Huawei Pura 70 Ultra",
+display:"6.8-inch LTPO OLED",
+processor:"Kirin chipset",
+camera:"50MP main + 40MP ultrawide + 50MP telephoto",
+battery:"5050mAh",
+storage:"512GB / 1TB"
+},
+
+{
+name:"Huawei Pura 70 Pro",
+display:"6.8-inch LTPO OLED",
+processor:"Kirin chipset",
+camera:"50MP main camera system",
+battery:"5050mAh",
+storage:"256GB / 512GB"
+},
+
+{
+name:"Huawei Mate 70 Pro",
+display:"6.7-inch OLED",
+processor:"Kirin chipset",
+camera:"50MP main camera system",
+battery:"5500mAh",
+storage:"256GB / 512GB / 1TB"
+},
+
+{
+name:"Huawei Mate 60 Pro",
+display:"6.82-inch OLED",
+processor:"Kirin 9000S",
+camera:"50MP main camera system",
+battery:"5000mAh",
+storage:"256GB / 512GB / 1TB"
+}
+
+],
+
+
+
+Honor:[
+
+{
+name:"Honor Magic7 Pro",
+display:"6.8-inch LTPO OLED, 120Hz",
+processor:"Snapdragon 8 Elite",
+camera:"200MP telephoto + triple camera",
+battery:"5850mAh",
+storage:"512GB / 1TB"
+},
+
+{
+name:"Honor Magic6 Pro",
+display:"6.8-inch LTPO OLED, 120Hz",
+processor:"Snapdragon 8 Gen 3",
+camera:"180MP telephoto + triple camera",
+battery:"5600mAh",
+storage:"512GB / 1TB"
+},
+
+{
+name:"Honor 400 Pro",
+display:"6.7-inch AMOLED",
+processor:"Snapdragon chipset",
+camera:"200MP main camera",
+battery:"Large-capacity battery",
+storage:"256GB / 512GB"
+},
+
+{
+name:"Honor 200 Pro",
+display:"6.78-inch OLED, 120Hz",
+processor:"Snapdragon 8s Gen 3",
+camera:"50MP triple camera",
+battery:"5200mAh",
+storage:"512GB"
+}
+
+],
+
+
+
+Oppo:[
+
+{
+name:"OPPO Find X8 Pro",
+display:"6.78-inch LTPO AMOLED, 120Hz",
+processor:"Dimensity 9400",
+camera:"Hasselblad quad camera system",
+battery:"5910mAh",
+storage:"512GB"
+},
+
+{
+name:"OPPO Find X8",
+display:"6.59-inch AMOLED, 120Hz",
+processor:"Dimensity 9400",
+camera:"50MP triple camera",
+battery:"5630mAh",
+storage:"256GB / 512GB"
+},
+
+{
+name:"OPPO Reno13 Pro",
+display:"6.83-inch AMOLED, 120Hz",
+processor:"Dimensity chipset",
+camera:"50MP camera system",
+battery:"5800mAh",
+storage:"512GB"
+},
+
+{
+name:"OPPO Reno12 Pro",
+display:"6.7-inch AMOLED, 120Hz",
+processor:"Dimensity 7300",
+camera:"50MP camera system",
+battery:"5000mAh",
+storage:"256GB / 512GB"
+}
+
+],
+
+
+
+Vivo:[
+
+{
+name:"vivo X200 Pro",
+display:"6.78-inch LTPO AMOLED, 120Hz",
+processor:"Dimensity 9400",
+camera:"200MP ZEISS telephoto + triple camera",
+battery:"6000mAh",
+storage:"512GB / 1TB"
+},
+
+{
+name:"vivo X200",
+display:"6.67-inch AMOLED, 120Hz",
+processor:"Dimensity 9400",
+camera:"50MP triple camera",
+battery:"5800mAh",
+storage:"256GB / 512GB"
+},
+
+{
+name:"vivo X100 Pro",
+display:"6.78-inch LTPO AMOLED, 120Hz",
+processor:"Dimensity 9300",
+camera:"50MP triple ZEISS camera",
+battery:"5400mAh",
+storage:"512GB"
+},
+
+{
+name:"vivo V50",
+display:"6.77-inch AMOLED, 120Hz",
+processor:"Snapdragon chipset",
+camera:"50MP ZEISS camera system",
+battery:"6000mAh",
+storage:"256GB / 512GB"
+}
+
+],
+
+
+
+Realme:[
+
+{
+name:"Realme GT 7 Pro",
+display:"6.78-inch LTPO AMOLED, 120Hz",
+processor:"Snapdragon 8 Elite",
+camera:"50MP main camera system",
+battery:"6500mAh",
+storage:"256GB / 512GB"
+},
+
+{
+name:"Realme GT 6",
+display:"6.78-inch LTPO AMOLED, 120Hz",
+processor:"Snapdragon 8s Gen 3",
+camera:"50MP main camera",
+battery:"5500mAh",
+storage:"256GB / 512GB"
+},
+
+{
+name:"Realme 14 Pro+",
+display:"6.83-inch OLED, 120Hz",
+processor:"Snapdragon chipset",
+camera:"50MP periscope camera system",
+battery:"6000mAh",
+storage:"256GB / 512GB"
+}
+
+],
+
+
+
+Nothing:[
+
+{
+name:"Nothing Phone (3)",
+display:"6.67-inch OLED",
+processor:"Snapdragon chipset",
+camera:"50MP camera system",
+battery:"5150mAh",
+storage:"256GB / 512GB"
+},
+
+{
+name:"Nothing Phone (3a) Pro",
+display:"6.77-inch AMOLED, 120Hz",
+processor:"Snapdragon chipset",
+camera:"50MP camera system",
+battery:"5000mAh",
+storage:"256GB"
+},
+
+{
+name:"Nothing Phone (3a)",
+display:"6.77-inch AMOLED, 120Hz",
+processor:"Snapdragon chipset",
+camera:"50MP camera system",
+battery:"5000mAh",
+storage:"128GB / 256GB"
+},
+
+{
+name:"Nothing Phone (2)",
+display:"6.7-inch OLED, 120Hz",
+processor:"Snapdragon 8+ Gen 1",
+camera:"50MP dual camera",
+battery:"4700mAh",
+storage:"128GB / 256GB / 512GB"
+},
+
+{
+name:"Nothing Phone (1)",
+display:"6.55-inch OLED, 120Hz",
+processor:"Snapdragon 778G+",
+camera:"50MP dual camera",
+battery:"4500mAh",
+storage:"128GB / 256GB"
+}
+
+],
+
+
+
+Motorola:[
+
+{
+name:"Motorola Edge 60 Pro",
+display:"6.7-inch pOLED, 120Hz",
+processor:"Dimensity chipset",
+camera:"50MP camera system",
+battery:"6000mAh",
+storage:"256GB / 512GB"
+},
+
+{
+name:"Motorola Razr 60 Ultra",
+display:"Foldable pOLED",
+processor:"Snapdragon chipset",
+camera:"50MP dual camera",
+battery:"4700mAh",
+storage:"512GB"
+},
+
+{
+name:"Motorola Edge 50 Ultra",
+display:"6.67-inch pOLED, 144Hz",
+processor:"Snapdragon 8s Gen 3",
+camera:"50MP triple camera",
+battery:"4500mAh",
+storage:"512GB / 1TB"
+}
+
+],
+
+
+
+Sony:[
+
+{
+name:"Sony Xperia 1 VII",
+display:"6.5-inch OLED",
+processor:"Snapdragon chipset",
+camera:"Triple camera system",
+battery:"5000mAh",
+storage:"256GB"
+},
+
+{
+name:"Sony Xperia 1 VI",
+display:"6.5-inch OLED, 120Hz",
+processor:"Snapdragon 8 Gen 3",
+camera:"48MP + 12MP + 12MP",
+battery:"5000mAh",
+storage:"256GB / 512GB"
+},
+
+{
+name:"Sony Xperia 5 V",
+display:"6.1-inch OLED, 120Hz",
+processor:"Snapdragon 8 Gen 2",
+camera:"48MP dual camera",
+battery:"5000mAh",
+storage:"128GB"
+}
+
+],
+
+
+
+ASUS:[
+
+{
+name:"ASUS ROG Phone 9 Pro",
+display:"6.78-inch AMOLED, 185Hz",
+processor:"Snapdragon 8 Elite",
+camera:"50MP triple camera",
+battery:"5800mAh",
+storage:"512GB / 1TB"
+},
+
+{
+name:"ASUS ROG Phone 8 Pro",
+display:"6.78-inch AMOLED, 165Hz",
+processor:"Snapdragon 8 Gen 3",
+camera:"50MP triple camera",
+battery:"5500mAh",
+storage:"512GB / 1TB"
+},
+
+{
+name:"ASUS Zenfone 12 Ultra",
+display:"6.78-inch AMOLED, 120Hz",
+processor:"Snapdragon 8 Elite",
+camera:"50MP triple camera",
+battery:"5500mAh",
+storage:"256GB / 512GB"
+}
+
+],
+
+
+
+Infinix:[
+
+{
+name:"Infinix GT 30 Pro",
+display:"AMOLED, high refresh rate",
+processor:"MediaTek Dimensity",
+camera:"50MP camera system",
+battery:"Large-capacity battery",
+storage:"256GB / 512GB"
+},
+
+{
+name:"Infinix Note 50 Pro+",
+display:"AMOLED",
+processor:"MediaTek chipset",
+camera:"50MP camera system",
+battery:"Large-capacity battery",
+storage:"256GB / 512GB"
+},
+
+{
+name:"Infinix Note 40 Pro+",
+display:"AMOLED, 120Hz",
+processor:"MediaTek Dimensity",
+camera:"108MP main camera",
+battery:"4600mAh",
+storage:"256GB"
+}
+
+],
+
+
+
+ZTE:[
+
+{
+name:"ZTE Axon 60 Ultra",
+display:"OLED",
+processor:"Qualcomm chipset",
+camera:"50MP camera system",
+battery:"6000mAh",
+storage:"256GB / 512GB"
+},
+
+{
+name:"ZTE Axon 50 Ultra",
+display:"OLED, 120Hz",
+processor:"Snapdragon chipset",
+camera:"64MP main camera",
+battery:"5000mAh",
+storage:"256GB / 512GB"
+}
+
+],
+
+
+
+TCL:[
+
+{
+name:"TCL 60 Ultra",
+display:"NXTPAPER display",
+processor:"MediaTek chipset",
+camera:"50MP camera",
+battery:"Large-capacity battery",
+storage:"256GB"
+},
+
+{
+name:"TCL 50 Pro",
+display:"AMOLED",
+processor:"MediaTek chipset",
+camera:"50MP camera",
+battery:"5000mAh",
+storage:"256GB"
+},
+
+{
+name:"TCL 40 NXTPAPER",
+display:"6.78-inch NXTPAPER display",
+processor:"MediaTek chipset",
+camera:"50MP main camera",
+battery:"5010mAh",
+storage:"256GB"
+}
+
+],
+
+
+
+Nubia:[
+
+{
+name:"nubia Z70 Ultra",
+display:"6.85-inch AMOLED, 144Hz",
+processor:"Snapdragon 8 Elite",
+camera:"50MP + 64MP + 50MP",
+battery:"6150mAh",
+storage:"256GB / 512GB / 1TB"
+},
+
+{
+name:"nubia Z60 Ultra",
+display:"6.8-inch AMOLED, 120Hz",
+processor:"Snapdragon 8 Gen 3",
+camera:"50MP triple camera",
+battery:"6000mAh",
+storage:"256GB / 512GB / 1TB"
+},
+
+{
+name:"nubia RedMagic 10 Pro",
+display:"6.85-inch AMOLED, 144Hz",
+processor:"Snapdragon 8 Elite",
+camera:"50MP triple camera",
+battery:"7050mAh",
+storage:"256GB / 512GB / 1TB"
+},
+
+{
+name:"nubia RedMagic 9 Pro",
+display:"6.8-inch AMOLED, 120Hz",
+processor:"Snapdragon 8 Gen 3",
+camera:"50MP dual camera",
+battery:"6500mAh",
+storage:"256GB / 512GB"
+}
+
+],
+
+
+
+Tecno:[
+
+{
+name:"Tecno Phantom V Fold2",
+display:"Foldable LTPO AMOLED",
+processor:"Dimensity chipset",
+camera:"50MP triple camera",
+battery:"5750mAh",
+storage:"512GB"
+},
+
+{
+name:"Tecno Phantom V Flip2",
+display:"Foldable AMOLED",
+processor:"Dimensity chipset",
+camera:"50MP dual camera",
+battery:"4720mAh",
+storage:"256GB"
+},
+
+{
+name:"Tecno Camon 40 Premier",
+display:"AMOLED, 120Hz",
+processor:"MediaTek Dimensity",
+camera:"50MP camera system",
+battery:"5100mAh",
+storage:"512GB"
+},
+
+{
+name:"Tecno Pova 7 Pro",
+display:"AMOLED, high refresh rate",
+processor:"MediaTek Dimensity",
+camera:"50MP main camera",
+battery:"6000mAh",
+storage:"256GB"
+}
+
+]
+
+};
+
+
+
+/* =====================================================
+   EXTRA MODEL CATALOG
+   Models without complete specifications are still
+   selectable. Their details are marked as not added.
+===================================================== */
+
+const extraModels = {
+
+Samsung:[
+"Galaxy A36 5G","Galaxy A35 5G","Galaxy A34 5G",
+"Galaxy A33 5G","Galaxy A32","Galaxy A25 5G",
+"Galaxy A24","Galaxy A23","Galaxy A15",
+"Galaxy A14","Galaxy A13","Galaxy A12",
+"Galaxy M56","Galaxy M55","Galaxy M54",
+"Galaxy M34","Galaxy M33","Galaxy M14",
+"Galaxy F55","Galaxy F54","Galaxy F34",
+"Galaxy Z Fold5","Galaxy Z Flip5",
+"Galaxy Z Fold4","Galaxy Z Flip4",
+"Galaxy Z Fold3","Galaxy Z Flip3"
+],
+
+Apple:[
+"iPhone 12 mini","iPhone 11 Pro Max","iPhone 11 Pro",
+"iPhone 11","iPhone XS Max","iPhone XS","iPhone XR",
+"iPhone X","iPhone 8 Plus","iPhone 8",
+"iPhone 7 Plus","iPhone 7","iPhone SE 3",
+"iPhone SE 2"
+],
+
+Xiaomi:[
+"Xiaomi 12S Ultra","Xiaomi 12 Pro","Xiaomi 12",
+"Xiaomi 11 Ultra","Xiaomi 11 Pro","Xiaomi 11",
+"Redmi Note 13 Pro+","Redmi Note 13 Pro","Redmi Note 13",
+"Redmi Note 12 Pro+","Redmi Note 12 Pro","Redmi Note 12",
+"POCO F6 Pro","POCO F6","POCO F5 Pro","POCO F5",
+"POCO X5 Pro","POCO X5","POCO X4 Pro"
+],
+
+Google:[
+"Pixel 6 Pro","Pixel 6","Pixel 6a",
+"Pixel 5","Pixel 4 XL","Pixel 4","Pixel 4a",
+"Pixel 3 XL","Pixel 3","Pixel 3a","Pixel 2 XL","Pixel 2"
+],
+
+OnePlus:[
+"OnePlus 10 Pro","OnePlus 10T","OnePlus 10R",
+"OnePlus 9 Pro","OnePlus 9","OnePlus 9R",
+"OnePlus 8 Pro","OnePlus 8T","OnePlus 8",
+"OnePlus Nord 4","OnePlus Nord 3","OnePlus Nord 2T",
+"OnePlus Nord 2","OnePlus Nord CE 4","OnePlus Nord CE 3"
+],
+
+Huawei:[
+"Huawei Pura 70","Huawei P60 Pro","Huawei P60",
+"Huawei Mate 50 Pro","Huawei Mate 50",
+"Huawei P50 Pro","Huawei P50",
+"Huawei Nova 13 Pro","Huawei Nova 13",
+"Huawei Nova 12 Pro","Huawei Nova 12"
+],
+
+Honor:[
+"Honor Magic7","Honor Magic6","Honor Magic5 Pro",
+"Honor Magic5","Honor Magic4 Pro","Honor Magic4",
+"Honor 300 Pro","Honor 300","Honor 200",
+"Honor X60 Pro","Honor X60","Honor X50 Pro","Honor X50"
+],
+
+Oppo:[
+"OPPO Find X7 Ultra","OPPO Find X7",
+"OPPO Find X6 Pro","OPPO Find X6",
+"OPPO Find X5 Pro","OPPO Find X5",
+"OPPO Reno 13","OPPO Reno 12",
+"OPPO Reno 11 Pro","OPPO Reno 11"
+],
+
+Vivo:[
+"vivo X100","vivo X90 Pro+","vivo X90 Pro","vivo X90",
+"vivo X80 Pro","vivo X80",
+"vivo V40 Pro","vivo V40","vivo V30 Pro","vivo V30",
+"vivo Y200","vivo Y100"
+],
+
+Realme:[
+"Realme GT 7","Realme GT 6T","Realme GT 5",
+"Realme GT 3","Realme GT 2 Pro","Realme GT 2",
+"Realme 14 Pro","Realme 14",
+"Realme 13 Pro+","Realme 13 Pro","Realme 13",
+"Realme C75","Realme C65","Realme C55"
+],
+
+Nothing:[
+"Nothing Phone (2a) Plus","Nothing Phone (2a)",
+"CMF Phone 2 Pro","CMF Phone 1"
+],
+
+Motorola:[
+"Motorola Edge 60","Motorola Edge 50 Pro",
+"Motorola Edge 50","Motorola Edge 40 Pro",
+"Motorola Edge 40","Motorola Razr 60",
+"Motorola Razr 50 Ultra","Motorola Razr 50",
+"Motorola Moto G85","Motorola Moto G75"
+],
+
+Sony:[
+"Sony Xperia 10 VII","Sony Xperia 10 VI",
+"Sony Xperia 10 V","Sony Xperia 5 IV",
+"Sony Xperia 1 V","Sony Xperia 1 IV"
+],
+
+ASUS:[
+"ASUS ROG Phone 9","ASUS ROG Phone 7 Ultimate",
+"ASUS ROG Phone 7","ASUS ROG Phone 6 Pro",
+"ASUS ROG Phone 6","ASUS Zenfone 11 Ultra",
+"ASUS Zenfone 10","ASUS Zenfone 9"
+],
+
+Infinix:[
+"Infinix GT 20 Pro","Infinix GT 10 Pro",
+"Infinix Note 50 Pro","Infinix Note 50",
+"Infinix Note 40 Pro","Infinix Note 40",
+"Infinix Zero 40 Pro","Infinix Zero 40",
+"Infinix Hot 60 Pro","Infinix Hot 60",
+"Infinix Hot 50 Pro","Infinix Hot 50"
+],
+
+ZTE:[
+"ZTE Axon 60","ZTE Axon 50 Pro","ZTE Axon 40 Ultra",
+"ZTE Axon 40 Pro","ZTE Axon 30 Ultra",
+"ZTE Blade V70","ZTE Blade V60","ZTE Blade A75"
+],
+
+TCL:[
+"TCL 60 Pro","TCL 60","TCL 50",
+"TCL 40","TCL 30","TCL 20"
+],
+
+Nubia:[
+"nubia Z70S Ultra","nubia Z60S Pro",
+"nubia Z50 Ultra","nubia Z50S Pro",
+"nubia Z40S Pro","nubia RedMagic 8 Pro",
+"nubia RedMagic 7 Pro","nubia Neo 3 GT","nubia Neo 2"
+],
+
+Tecno:[
+"Tecno Phantom V Fold","Tecno Phantom X2 Pro",
+"Tecno Phantom X2","Tecno Camon 40 Pro",
+"Tecno Camon 40","Tecno Camon 30 Premier",
+"Tecno Camon 30 Pro","Tecno Camon 30",
+"Tecno Pova 6 Pro","Tecno Pova 6",
+"Tecno Spark 40 Pro","Tecno Spark 40",
+"Tecno Spark 30 Pro","Tecno Spark 30"
+]
+
+};
+
+
+
+/* =====================================================
+   BUILD COMPLETE MODEL LIST
+===================================================== */
+
+Object.keys(extraModels).forEach(brand=>{
+
+if(!phones[brand]){
+phones[brand]=[];
+}
+
+extraModels[brand].forEach(name=>{
+
+const exists=phones[brand].some(phone=>phone.name===name);
+
+if(!exists){
+
+phones[brand].push({
+
+name:name,
+
+display:null,
+processor:null,
+camera:null,
+battery:null,
+storage:null
+
+});
+
+}
+
+});
+
+});
+
+
+
+/* =====================================================
    STATE
-========================= */
+===================================================== */
 
-let firstPhone = null;
-let secondPhone = null;
-let choosingSecond = false;
-let currentBrand = null;
+let firstPhone=null;
+let secondPhone=null;
+
+let choosingSecond=false;
+
+let currentBrand=null;
 
 
-/* =========================
-   HOME / COMPARE
-========================= */
+
+/* =====================================================
+   OPEN COMPARE
+===================================================== */
 
 function openCompare(){
 
-    document.getElementById("home").style.display="none";
-    document.getElementById("compare").classList.add("active");
+document.getElementById("home").style.display="none";
 
-    firstPhone=null;
-    secondPhone=null;
-    choosingSecond=false;
-    currentBrand=null;
+document.getElementById("compare").classList.add("active");
 
-    document.getElementById("modelArea").innerHTML="";
-    document.getElementById("comparisonArea").innerHTML="";
+firstPhone=null;
+secondPhone=null;
 
-    document.getElementById("brandSearch").value="";
+choosingSecond=false;
+currentBrand=null;
 
-    showBrands();
+document.getElementById("modelArea").innerHTML="";
+document.getElementById("comparisonArea").innerHTML="";
 
-    window.scrollTo(0,0);
+document.getElementById("brandSearch").value="";
+
+showBrands();
+
+window.scrollTo(0,0);
+
 }
 
+
+
+/* =====================================================
+   HOME
+===================================================== */
 
 function goHome(){
 
-    document.getElementById("compare").classList.remove("active");
-    document.getElementById("home").style.display="block";
+document.getElementById("compare").classList.remove("active");
 
-    window.scrollTo(0,0);
+document.getElementById("home").style.display="block";
+
+window.scrollTo(0,0);
+
 }
 
 
-/* =========================
+
+/* =====================================================
    BRANDS
-========================= */
+===================================================== */
 
 function showBrands(){
 
-    const list=document.getElementById("brandList");
+document.getElementById("brandList").style.display="grid";
 
-    list.style.display="grid";
+document.getElementById("modelArea").innerHTML="";
 
-    document.getElementById("pageDescription").innerText =
-        choosingSecond
-        ? "Choose the brand for your second phone."
-        : "Choose the brand for your first phone.";
+document.getElementById("comparisonArea").innerHTML="";
 
-    renderBrands("");
+document.getElementById("pageDescription").innerText=
+
+choosingSecond
+
+? "Choose the brand for your second phone."
+
+: "Choose the brand for your first phone.";
+
+renderBrands("");
+
 }
+
 
 
 function renderBrands(search){
 
-    const list=document.getElementById("brandList");
+const list=document.getElementById("brandList");
 
-    const query=search.toLowerCase().trim();
+const query=search.toLowerCase().trim();
 
-    const filtered=Object.keys(brands).filter(brand =>
-        brand.toLowerCase().includes(query)
-    );
+const filtered=Object.keys(phones).filter(brand=>
 
-    if(filtered.length===0){
+brand.toLowerCase().includes(query)
 
-        list.innerHTML=`
-            <div class="no-results">
-                No brand found.
-            </div>
-        `;
+);
 
-        return;
-    }
 
-    list.innerHTML=filtered.map(brand=>`
+if(filtered.length===0){
 
-        <div class="item brand-card"
-             onclick="chooseBrand('${brand}')">
+list.innerHTML=`
 
-            <img
-                class="brand-logo"
-                src="${brands[brand].logo}"
-                alt="${brand}"
-                onerror="this.style.display='none'"
-            >
+<div class="no-results">
+No brand found.
+</div>
 
-            <div class="brand-info">
-                <h3>${brand}</h3>
-                <p>${brands[brand].models.length} models</p>
-            </div>
+`;
 
-        </div>
+return;
 
-    `).join("");
 }
+
+
+list.innerHTML=filtered.map(brand=>`
+
+<div
+class="item brand-card"
+onclick="chooseBrand('${brand}')"
+>
+
+<div class="brand-logo-box">
+
+<img
+class="brand-logo"
+src="${logo(brand)}"
+alt="${brand}"
+onerror="this.parentElement.innerHTML='<span style=&quot;font-size:22px&quot;>📱</span>'"
+>
+
+</div>
+
+<div class="brand-info">
+
+<h3>
+${brand}
+</h3>
+
+<p>
+${phones[brand].length} models
+</p>
+
+</div>
+
+</div>
+
+`).join("");
+
+}
+
 
 
 function searchBrands(){
 
-    renderBrands(
-        document.getElementById("brandSearch").value
-    );
+renderBrands(
+
+document.getElementById("brandSearch").value
+
+);
+
 }
 
 
-/* =========================
-   MODEL SEARCH
-========================= */
+
+/* =====================================================
+   CHOOSE BRAND
+===================================================== */
 
 function chooseBrand(brand){
 
-    currentBrand=brand;
+currentBrand=brand;
 
-    document.getElementById("brandList").style.display="none";
+document.getElementById("brandList").style.display="none";
 
-    document.getElementById("brandSearch").value="";
+document.getElementById("brandSearch").value="";
 
-    const area=document.getElementById("modelArea");
 
-    area.innerHTML=`
+const area=document.getElementById("modelArea");
 
-        <button class="back" onclick="showBrands()">
-            ← Back to brands
-        </button>
 
-        <h2>
-            ${brand}
-        </h2>
+area.innerHTML=`
 
-        <p class="description">
-            ${
-                choosingSecond
-                ? "Choose your second phone."
-                : "Choose your first phone."
-            }
-        </p>
+<button
+class="back"
+onclick="showBrands()"
+>
+← Back to brands
+</button>
 
-        <div class="search-box">
 
-            <span class="search-icon">⌕</span>
+<div
+style="
+display:flex;
+align-items:center;
+gap:12px;
+margin-bottom:10px;
+"
+>
 
-            <input
-                id="modelSearch"
-                type="text"
-                placeholder="Search ${brand} models..."
-                oninput="searchModels()"
-            >
+<div class="brand-logo-box">
 
-        </div>
+<img
+class="brand-logo"
+src="${logo(brand)}"
+alt="${brand}"
+>
 
-        <div id="modelList" class="items"></div>
+</div>
 
-    `;
+<div>
 
-    renderModels("");
+<h2>
+${brand}
+</h2>
 
-    window.scrollTo(0,0);
+</div>
+
+</div>
+
+
+<p class="description">
+
+${
+choosingSecond
+?
+"Choose your second phone."
+:
+"Choose your first phone."
 }
 
+</p>
+
+
+<div class="search-box">
+
+<span class="search-icon">
+⌕
+</span>
+
+<input
+id="modelSearch"
+type="text"
+placeholder="Search ${brand} models..."
+oninput="searchModels()"
+>
+
+</div>
+
+
+<div
+id="modelList"
+class="items"
+>
+</div>
+
+`;
+
+
+renderModels("");
+
+window.scrollTo(0,0);
+
+}
+
+
+
+/* =====================================================
+   MODELS
+===================================================== */
 
 function renderModels(search){
 
-    const list=document.getElementById("modelList");
+const list=document.getElementById("modelList");
 
-    if(!list) return;
+if(!list)return;
 
-    const query=search.toLowerCase().trim();
+const query=search.toLowerCase().trim();
 
-    const filtered=brands[currentBrand].models.filter(model =>
-        model.toLowerCase().includes(query)
-    );
 
-    if(filtered.length===0){
+const filtered=phones[currentBrand].filter(phone=>
 
-        list.innerHTML=`
-            <div class="no-results">
-                No phone found.
-            </div>
-        `;
+phone.name.toLowerCase().includes(query)
 
-        return;
-    }
+);
 
-    list.innerHTML=filtered.map(model=>`
 
-        <div class="item phone-item"
-             onclick='choosePhone(${JSON.stringify(model)})'>
+if(filtered.length===0){
 
-            <div class="item-icon">📱</div>
+list.innerHTML=`
 
-            <h3>${model}</h3>
+<div class="no-results">
+No phone found.
+</div>
 
-            <p class="phone-brand">
-                ${currentBrand}
-            </p>
+`;
 
-        </div>
+return;
 
-    `).join("");
 }
+
+
+list.innerHTML=filtered.map(phone=>`
+
+<div
+class="item phone-item"
+onclick="choosePhone('${escapeQuotes(phone.name)}')"
+>
+
+<div class="phone-icon">
+📱
+</div>
+
+<h3>
+${phone.name}
+</h3>
+
+<p class="phone-brand">
+${currentBrand}
+</p>
+
+</div>
+
+`).join("");
+
+}
+
+
+
+function escapeQuotes(text){
+
+return text
+.replace(/\\/g,"\\\\")
+.replace(/'/g,"\\'");
+
+}
+
 
 
 function searchModels(){
 
-    renderModels(
-        document.getElementById("modelSearch").value
-    );
+renderModels(
+
+document.getElementById("modelSearch").value
+
+);
+
 }
 
 
-/* =========================
+
+/* =====================================================
    PHONE SELECTION
-========================= */
+===================================================== */
 
-function choosePhone(model){
+function choosePhone(name){
 
-    const phone={
-        name:model,
-        brand:currentBrand
-    };
+const phone=phones[currentBrand].find(
 
-    if(!choosingSecond){
+p=>p.name===name
 
-        firstPhone=phone;
-        choosingSecond=true;
-        currentBrand=null;
+);
 
-        document.getElementById("modelArea").innerHTML="";
 
-        showBrands();
+const selected={
 
-        window.scrollTo(0,0);
+...phone,
 
-        return;
-    }
+brand:currentBrand
 
-    secondPhone=phone;
+};
 
-    showComparison();
+
+if(!choosingSecond){
+
+firstPhone=selected;
+
+choosingSecond=true;
+
+currentBrand=null;
+
+document.getElementById("modelArea").innerHTML="";
+
+showBrands();
+
+window.scrollTo(0,0);
+
+return;
+
 }
 
 
-/* =========================
+secondPhone=selected;
+
+showComparison();
+
+}
+
+
+
+/* =====================================================
    COMPARISON
-========================= */
+===================================================== */
 
 function showComparison(){
 
-    document.getElementById("brandList").style.display="none";
+document.getElementById("brandList").style.display="none";
 
-    document.getElementById("modelArea").innerHTML="";
+document.getElementById("modelArea").innerHTML="";
 
-    document.getElementById("pageDescription").innerText =
-        "Your selected phones";
+document.getElementById("pageDescription").innerText=
 
-    document.getElementById("comparisonArea").innerHTML=`
+"Your selected phones";
 
-        <div class="compare-box">
 
-            <div class="compare-title">
+document.getElementById("comparisonArea").innerHTML=`
 
-                ${firstPhone.name}
+<div class="compare-box">
 
-                <br>
+<div class="compare-title">
 
-                <span style="color:#777">
-                    VS
-                </span>
+${firstPhone.name}
 
-                <br>
+<br>
 
-                ${secondPhone.name}
+<span style="color:#666">
+VS
+</span>
 
-            </div>
+<br>
 
-            <div class="compare-grid">
+${secondPhone.name}
 
-                ${createPhoneCard(firstPhone)}
+</div>
 
-                ${createPhoneCard(secondPhone)}
 
-            </div>
+<div class="compare-grid">
 
-        </div>
+${createPhoneCard(firstPhone)}
 
-        <button
-            class="back"
-            style="margin-top:15px"
-            onclick="openCompare()">
+${createPhoneCard(secondPhone)}
 
-            Compare Again
+</div>
 
-        </button>
-    `;
+</div>
 
-    window.scrollTo(0,0);
+
+<button
+class="back"
+style="margin-top:15px"
+onclick="openCompare()"
+>
+
+Compare Again
+
+</button>
+
+`;
+
+window.scrollTo(0,0);
+
 }
 
+
+
+/* =====================================================
+   PHONE CARD
+===================================================== */
 
 function createPhoneCard(phone){
 
-    return `
+return `
 
-        <div class="phone-result">
+<div class="phone-result">
 
-            <h3>
-                📱 ${phone.name}
-            </h3>
+<h3>
+📱 ${phone.name}
+</h3>
 
-            <div class="spec">
-                <span>Brand</span>
-                ${phone.brand}
-            </div>
 
-            <div class="spec">
-                <span>Display</span>
-                Specifications coming soon
-            </div>
+<div class="spec">
 
-            <div class="spec">
-                <span>Processor</span>
-                Specifications coming soon
-            </div>
+<span>
+Brand
+</span>
 
-            <div class="spec">
-                <span>Camera</span>
-                Specifications coming soon
-            </div>
+${phone.brand}
 
-            <div class="spec">
-                <span>Battery</span>
-                Specifications coming soon
-            </div>
+</div>
 
-            <div class="spec">
-                <span>Storage</span>
-                Specifications coming soon
-            </div>
 
-        </div>
-    `;
+<div class="spec ${phone.display ? "" : "missing"}">
+
+<span>
+Display
+</span>
+
+${phone.display || "Data not added yet"}
+
+</div>
+
+
+<div class="spec ${phone.processor ? "" : "missing"}">
+
+<span>
+Processor
+</span>
+
+${phone.processor || "Data not added yet"}
+
+</div>
+
+
+<div class="spec ${phone.camera ? "" : "missing"}">
+
+<span>
+Camera
+</span>
+
+${phone.camera || "Data not added yet"}
+
+</div>
+
+
+<div class="spec ${phone.battery ? "" : "missing"}">
+
+<span>
+Battery
+</span>
+
+${phone.battery || "Data not added yet"}
+
+</div>
+
+
+<div class="spec ${phone.storage ? "" : "missing"}">
+
+<span>
+Storage
+</span>
+
+${phone.storage || "Data not added yet"}
+
+</div>
+
+</div>
+
+`;
+
 }
 
+
+
+/* =====================================================
+   OTHER FEATURES
+===================================================== */
 
 function comingSoon(name){
 
-    alert(name+" — Coming Soon 🚀");
+alert(name+" — Coming Soon 🚀");
 
 }
+
 
 </script>
 
