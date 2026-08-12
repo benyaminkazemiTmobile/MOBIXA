@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>MOBIXA — Choose Smarter. Compare Better.</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #08090d;
+    color: white;
+    min-height: 100vh;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 1px solid #20222b;
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.menu {
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.hero {
+    text-align: center;
+    padding: 70px 20px 40px;
+}
+
+.hero h1 {
+    font-size: 46px;
+    margin-bottom: 15px;
+    letter-spacing: -2px;
+}
+
+.hero p {
+    color: #a9abb5;
+    font-size: 17px;
+    margin-bottom: 45px;
+}
+
+.options {
+    display: grid;
+    gap: 15px;
+    max-width: 500px;
+    margin: auto;
+}
+
+.option {
+    background: #11131a;
+    border: 1px solid #292c37;
+    border-radius: 20px;
+    padding: 25px;
+    cursor: pointer;
+    transition: 0.25s;
+}
+
+.option:hover {
+    transform: translateY(-4px);
+    border-color: #ffffff;
+    background: #171923;
+}
+
+.icon {
+    font-size: 35px;
+    margin-bottom: 10px;
+}
+
+.option h2 {
+    font-size: 19px;
+    margin-bottom: 6px;
+}
+
+.option p {
+    color: #8f929e;
+    font-size: 14px;
+}
+
+footer {
+    text-align: center;
+    color: #666976;
+    padding: 50px 20px 25px;
+    font-size: 13px;
+}
+
+@media (min-width: 700px) {
+    .options {
+        grid-template-columns: 1fr 1fr;
+        max-width: 800px;
+    }
+
+    .hero h1 {
+        font-size: 70px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">MOBIXA</div>
+    <div class="menu">☰</div>
+</header>
+
+<section class="hero">
+    <h1>Choose Smarter.</h1>
+    <p>Compare better. Find the phone that's right for you.</p>
+
+    <div class="options">
+
+        <div class="option" onclick="alert('Compare Phones coming soon!')">
+            <div class="icon">📱</div>
+            <h2>Compare Phones</h2>
+            <p>Compare two phones side by side.</p>
+        </div>
+
+        <div class="option" onclick="alert('Gaming recommendations coming soon!')">
+            <div class="icon">🎮</div>
+            <h2>Best for Gaming</h2>
+            <p>Find phones built for gaming.</p>
+        </div>
+
+        <div class="option" onclick="alert('Camera recommendations coming soon!')">
+            <div class="icon">📸</div>
+            <h2>Best Camera</h2>
+            <p>Find the best phones for photography.</p>
+        </div>
+
+        <div class="option" onclick="alert('Battery recommendations coming soon!')">
+            <div class="icon">🔋</div>
+            <h2>Best Battery</h2>
+            <p>Find phones with great battery life.</p>
+        </div>
+
+    </div>
+</section>
+
+<footer>
+    © 2026 MOBIXA — Choose smarter. Compare better.
+</footer>
+
+</body>
+</html>
