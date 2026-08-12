@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>MOBIXA</title>
 
 <style>
@@ -16,7 +15,7 @@
 body{
     font-family:Arial,sans-serif;
     background:#050507;
-    color:white;
+    color:#fff;
     min-height:100vh;
 }
 
@@ -124,7 +123,7 @@ header{
 .page{
     display:none;
     width:92%;
-    max-width:700px;
+    max-width:800px;
     margin:30px auto;
 }
 
@@ -147,87 +146,89 @@ header{
     margin-bottom:10px;
 }
 
-.page-description{
+.description{
     color:#888894;
     margin-bottom:25px;
 }
 
-.phone-grid{
+.items{
     display:grid;
     grid-template-columns:1fr 1fr;
     gap:12px;
 }
 
-.phone{
+.item{
     background:#101014;
     border:1px solid #292932;
     border-radius:18px;
     padding:20px 15px;
     cursor:pointer;
-    text-align:center;
     transition:.2s;
 }
 
-.phone:hover{
+.item:hover{
     transform:translateY(-4px);
     border-color:#777;
 }
 
-.phone-icon{
-    font-size:42px;
-    margin-bottom:12px;
+.item-icon{
+    font-size:34px;
+    margin-bottom:14px;
 }
 
-.phone h3{
-    font-size:15px;
-    margin-bottom:5px;
+.item h3{
+    font-size:16px;
+    margin-bottom:6px;
 }
 
-.phone p{
+.item p{
     color:#777782;
     font-size:11px;
 }
 
-.selected{
-    border-color:white;
-    background:#18181f;
-}
-
-.compare-button{
-    width:100%;
-    margin-top:20px;
-    padding:16px;
-    border:0;
-    border-radius:15px;
-    background:white;
-    color:black;
-    font-weight:bold;
-    cursor:pointer;
-    font-size:15px;
-}
-
-.result{
+.compare-box{
     margin-top:25px;
-    display:none;
-}
-
-.result-box{
     background:#101014;
     border:1px solid #292932;
     border-radius:20px;
     padding:20px;
 }
 
-.result-row{
-    display:flex;
-    justify-content:space-between;
-    gap:10px;
-    padding:15px 0;
-    border-bottom:1px solid #24242c;
+.compare-title{
+    font-size:22px;
+    margin-bottom:20px;
 }
 
-.result-row:last-child{
+.compare-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:12px;
+}
+
+.phone-result{
+    background:#16161c;
+    border-radius:16px;
+    padding:18px;
+}
+
+.phone-result h3{
+    margin-bottom:12px;
+}
+
+.spec{
+    padding:10px 0;
+    border-bottom:1px solid #292932;
+    font-size:12px;
+}
+
+.spec:last-child{
     border-bottom:0;
+}
+
+.spec span{
+    color:#888894;
+    display:block;
+    margin-bottom:4px;
 }
 
 .ai{
@@ -256,11 +257,13 @@ footer{
 }
 
 @media(max-width:500px){
-
-    .phone-grid{
+    .items{
         grid-template-columns:1fr 1fr;
     }
 
+    .compare-grid{
+        grid-template-columns:1fr;
+    }
 }
 </style>
 </head>
@@ -307,7 +310,7 @@ footer{
         <div class="card" onclick="openCompare()">
             <div class="icon">⚔️</div>
             <h2>Compare Phones</h2>
-            <p>Compare two phones side by side.</p>
+            <p>Choose brands and compare smartphones.</p>
         </div>
 
         <div class="card" onclick="comingSoon('Gaming')">
@@ -330,14 +333,12 @@ footer{
 
     </div>
 
-
     <div class="ai" onclick="comingSoon('MOBIXA AI')">
 
         <h2>🤖 MOBIXA AI</h2>
 
         <p>
             Your personal smartphone assistant.
-            Ask, compare and discover.
         </p>
 
     </div>
@@ -347,7 +348,7 @@ footer{
 </section>
 
 
-<!-- COMPARE PAGE -->
+<!-- COMPARE -->
 
 <section id="compare" class="page">
 
@@ -357,76 +358,103 @@ footer{
 
 <h2>Compare Phones</h2>
 
-<p class="page-description">
-Choose two phones. No typing required.
+<p class="description">
+Choose a brand for your first phone.
 </p>
 
 
-<div class="phone-grid">
+<div id="brandList" class="items">
 
-<div class="phone" onclick="selectPhone(0,this)">
-    <div class="phone-icon">📱</div>
-    <h3>iPhone 16 Pro Max</h3>
-    <p>Apple</p>
+<div class="item" onclick="chooseBrand('Apple')">
+    <div class="item-icon">🍎</div>
+    <h3>Apple</h3>
+    <p>iPhone</p>
 </div>
 
-<div class="phone" onclick="selectPhone(1,this)">
-    <div class="phone-icon">📱</div>
-    <h3>Galaxy S25 Ultra</h3>
-    <p>Samsung</p>
+<div class="item" onclick="chooseBrand('Samsung')">
+    <div class="item-icon">📱</div>
+    <h3>Samsung</h3>
+    <p>Galaxy</p>
 </div>
 
-<div class="phone" onclick="selectPhone(2,this)">
-    <div class="phone-icon">📱</div>
-    <h3>Pixel 9 Pro XL</h3>
-    <p>Google</p>
+<div class="item" onclick="chooseBrand('Xiaomi')">
+    <div class="item-icon">📱</div>
+    <h3>Xiaomi</h3>
+    <p>Mi / Redmi / Poco</p>
 </div>
 
-<div class="phone" onclick="selectPhone(3,this)">
-    <div class="phone-icon">📱</div>
-    <h3>Xiaomi 15 Ultra</h3>
-    <p>Xiaomi</p>
+<div class="item" onclick="chooseBrand('Google')">
+    <div class="item-icon">🔵</div>
+    <h3>Google</h3>
+    <p>Pixel</p>
+</div>
+
+<div class="item" onclick="chooseBrand('OnePlus')">
+    <div class="item-icon">🔴</div>
+    <h3>OnePlus</h3>
+    <p>OnePlus</p>
+</div>
+
+<div class="item" onclick="chooseBrand('Huawei')">
+    <div class="item-icon">🟣</div>
+    <h3>Huawei</h3>
+    <p>Huawei</p>
+</div>
+
+<div class="item" onclick="chooseBrand('Honor')">
+    <div class="item-icon">🟡</div>
+    <h3>Honor</h3>
+    <p>Magic / Number</p>
+</div>
+
+<div class="item" onclick="chooseBrand('Oppo')">
+    <div class="item-icon">🟢</div>
+    <h3>OPPO</h3>
+    <p>Find / Reno</p>
+</div>
+
+<div class="item" onclick="chooseBrand('Vivo')">
+    <div class="item-icon">🔷</div>
+    <h3>Vivo</h3>
+    <p>X / V Series</p>
+</div>
+
+<div class="item" onclick="chooseBrand('Realme')">
+    <div class="item-icon">🟨</div>
+    <h3>Realme</h3>
+    <p>GT / Number</p>
+</div>
+
+<div class="item" onclick="chooseBrand('Nothing')">
+    <div class="item-icon">⚪</div>
+    <h3>Nothing</h3>
+    <p>Phone Series</p>
+</div>
+
+<div class="item" onclick="chooseBrand('Motorola')">
+    <div class="item-icon">🔵</div>
+    <h3>Motorola</h3>
+    <p>Edge / Moto</p>
+</div>
+
+<div class="item" onclick="chooseBrand('Sony')">
+    <div class="item-icon">🎧</div>
+    <h3>Sony</h3>
+    <p>Xperia</p>
+</div>
+
+<div class="item" onclick="chooseBrand('ASUS')">
+    <div class="item-icon">🎮</div>
+    <h3>ASUS</h3>
+    <p>ROG / Zenfone</p>
 </div>
 
 </div>
 
 
-<button class="compare-button" onclick="comparePhones()">
-    COMPARE SELECTED PHONES
-</button>
+<div id="modelArea"></div>
 
-
-<div id="result" class="result">
-
-<div class="result-box">
-
-<h3 id="resultTitle">
-Comparison
-</h3>
-
-<div class="result-row">
-<span>Display</span>
-<span>Coming soon</span>
-</div>
-
-<div class="result-row">
-<span>Performance</span>
-<span>Coming soon</span>
-</div>
-
-<div class="result-row">
-<span>Camera</span>
-<span>Coming soon</span>
-</div>
-
-<div class="result-row">
-<span>Battery</span>
-<span>Coming soon</span>
-</div>
-
-</div>
-
-</div>
+<div id="comparisonArea"></div>
 
 </section>
 
@@ -438,7 +466,333 @@ Comparison
 
 <script>
 
-let selectedPhones = [];
+/*
+MOBIXA local phone database.
+No API required for this version.
+*/
+
+const phones = {
+
+Apple: [
+    {
+        name:"iPhone 17 Pro Max",
+        display:"6.9-inch OLED",
+        chip:"A19 Pro",
+        camera:"48MP system",
+        battery:"Large battery",
+        storage:"256GB - 2TB"
+    },
+    {
+        name:"iPhone 17 Pro",
+        display:"6.3-inch OLED",
+        chip:"A19 Pro",
+        camera:"48MP system",
+        battery:"All-day battery",
+        storage:"128GB - 1TB"
+    },
+    {
+        name:"iPhone 17",
+        display:"6.3-inch OLED",
+        chip:"A19",
+        camera:"48MP",
+        battery:"All-day battery",
+        storage:"128GB - 512GB"
+    },
+    {
+        name:"iPhone 16 Pro Max",
+        display:"6.9-inch OLED",
+        chip:"A18 Pro",
+        camera:"48MP system",
+        battery:"Up to all day",
+        storage:"256GB - 1TB"
+    }
+],
+
+Samsung: [
+    {
+        name:"Galaxy S25 Ultra",
+        display:"6.9-inch AMOLED",
+        chip:"Snapdragon 8 Elite",
+        camera:"200MP",
+        battery:"5000mAh",
+        storage:"256GB - 1TB"
+    },
+    {
+        name:"Galaxy S25+",
+        display:"6.7-inch AMOLED",
+        chip:"Snapdragon 8 Elite",
+        camera:"50MP",
+        battery:"4900mAh",
+        storage:"256GB - 512GB"
+    },
+    {
+        name:"Galaxy S25",
+        display:"6.2-inch AMOLED",
+        chip:"Snapdragon 8 Elite",
+        camera:"50MP",
+        battery:"4000mAh",
+        storage:"128GB - 512GB"
+    },
+    {
+        name:"Galaxy Z Fold 7",
+        display:"Foldable AMOLED",
+        chip:"Snapdragon 8 Elite",
+        camera:"200MP",
+        battery:"4400mAh",
+        storage:"256GB - 1TB"
+    }
+],
+
+Xiaomi: [
+    {
+        name:"Xiaomi 15 Ultra",
+        display:"6.73-inch AMOLED",
+        chip:"Snapdragon 8 Elite",
+        camera:"Leica 200MP",
+        battery:"Large battery",
+        storage:"512GB - 1TB"
+    },
+    {
+        name:"Xiaomi 15",
+        display:"6.36-inch AMOLED",
+        chip:"Snapdragon 8 Elite",
+        camera:"50MP",
+        battery:"Large battery",
+        storage:"256GB - 512GB"
+    },
+    {
+        name:"Redmi Note 14 Pro+",
+        display:"6.67-inch AMOLED",
+        chip:"Snapdragon chipset",
+        camera:"200MP",
+        battery:"Large battery",
+        storage:"256GB - 512GB"
+    }
+],
+
+Google: [
+    {
+        name:"Pixel 9 Pro XL",
+        display:"6.8-inch OLED",
+        chip:"Tensor G4",
+        camera:"50MP",
+        battery:"5060mAh",
+        storage:"128GB - 1TB"
+    },
+    {
+        name:"Pixel 9 Pro",
+        display:"6.3-inch OLED",
+        chip:"Tensor G4",
+        camera:"50MP",
+        battery:"4700mAh",
+        storage:"128GB - 1TB"
+    },
+    {
+        name:"Pixel 9",
+        display:"6.3-inch OLED",
+        chip:"Tensor G4",
+        camera:"50MP",
+        battery:"4700mAh",
+        storage:"128GB - 256GB"
+    }
+],
+
+OnePlus: [
+    {
+        name:"OnePlus 13",
+        display:"6.82-inch AMOLED",
+        chip:"Snapdragon 8 Elite",
+        camera:"50MP",
+        battery:"6000mAh",
+        storage:"256GB - 1TB"
+    },
+    {
+        name:"OnePlus 13R",
+        display:"6.78-inch AMOLED",
+        chip:"Snapdragon chipset",
+        camera:"50MP",
+        battery:"6000mAh",
+        storage:"256GB"
+    }
+],
+
+Huawei: [
+    {
+        name:"Huawei Pura 70 Ultra",
+        display:"6.8-inch OLED",
+        chip:"Kirin chipset",
+        camera:"50MP Ultra Lighting",
+        battery:"Large battery",
+        storage:"512GB - 1TB"
+    },
+    {
+        name:"Huawei Mate 70 Pro",
+        display:"6.7-inch OLED",
+        chip:"Kirin chipset",
+        camera:"Advanced camera",
+        battery:"Large battery",
+        storage:"256GB - 1TB"
+    }
+],
+
+Honor: [
+    {
+        name:"Honor Magic7 Pro",
+        display:"6.8-inch OLED",
+        chip:"Snapdragon 8 Elite",
+        camera:"200MP",
+        battery:"Large battery",
+        storage:"512GB"
+    },
+    {
+        name:"Honor 400 Pro",
+        display:"6.7-inch OLED",
+        chip:"Snapdragon chipset",
+        camera:"200MP",
+        battery:"Large battery",
+        storage:"256GB - 512GB"
+    }
+],
+
+Oppo: [
+    {
+        name:"OPPO Find X8 Pro",
+        display:"6.78-inch AMOLED",
+        chip:"Dimensity chipset",
+        camera:"Hasselblad system",
+        battery:"Large battery",
+        storage:"512GB"
+    },
+    {
+        name:"OPPO Reno 13 Pro",
+        display:"6.83-inch AMOLED",
+        chip:"Dimensity chipset",
+        camera:"50MP",
+        battery:"Large battery",
+        storage:"512GB"
+    }
+],
+
+Vivo: [
+    {
+        name:"vivo X200 Pro",
+        display:"6.78-inch AMOLED",
+        chip:"Dimensity 9400",
+        camera:"200MP ZEISS",
+        battery:"6000mAh",
+        storage:"512GB"
+    },
+    {
+        name:"vivo V50",
+        display:"6.77-inch AMOLED",
+        chip:"Snapdragon chipset",
+        camera:"50MP",
+        battery:"6000mAh",
+        storage:"256GB"
+    }
+],
+
+Realme: [
+    {
+        name:"Realme GT 7 Pro",
+        display:"6.78-inch AMOLED",
+        chip:"Snapdragon 8 Elite",
+        camera:"50MP",
+        battery:"6500mAh",
+        storage:"256GB - 512GB"
+    },
+    {
+        name:"Realme 14 Pro+",
+        display:"6.83-inch OLED",
+        chip:"Snapdragon chipset",
+        camera:"50MP",
+        battery:"6000mAh",
+        storage:"256GB - 512GB"
+    }
+],
+
+Nothing: [
+    {
+        name:"Nothing Phone (3)",
+        display:"6.67-inch OLED",
+        chip:"Snapdragon chipset",
+        camera:"50MP",
+        battery:"Large battery",
+        storage:"256GB - 512GB"
+    },
+    {
+        name:"Nothing Phone (3a) Pro",
+        display:"6.77-inch AMOLED",
+        chip:"Snapdragon chipset",
+        camera:"50MP",
+        battery:"5000mAh",
+        storage:"256GB"
+    }
+],
+
+Motorola: [
+    {
+        name:"Motorola Edge 60 Pro",
+        display:"6.7-inch OLED",
+        chip:"Dimensity chipset",
+        camera:"50MP",
+        battery:"6000mAh",
+        storage:"256GB - 512GB"
+    },
+    {
+        name:"Motorola Razr 60 Ultra",
+        display:"Foldable OLED",
+        chip:"Snapdragon chipset",
+        camera:"50MP",
+        battery:"4700mAh",
+        storage:"512GB"
+    }
+],
+
+Sony: [
+    {
+        name:"Sony Xperia 1 VII",
+        display:"6.5-inch OLED",
+        chip:"Snapdragon chipset",
+        camera:"Advanced triple camera",
+        battery:"5000mAh",
+        storage:"256GB"
+    },
+    {
+        name:"Sony Xperia 10 VII",
+        display:"OLED",
+        chip:"Snapdragon chipset",
+        camera:"Dual camera",
+        battery:"5000mAh",
+        storage:"128GB"
+    }
+],
+
+ASUS: [
+    {
+        name:"ROG Phone 9 Pro",
+        display:"6.78-inch AMOLED",
+        chip:"Snapdragon 8 Elite",
+        camera:"50MP",
+        battery:"5800mAh",
+        storage:"512GB - 1TB"
+    },
+    {
+        name:"Zenfone 12 Ultra",
+        display:"6.78-inch AMOLED",
+        chip:"Snapdragon 8 Elite",
+        camera:"50MP",
+        battery:"5500mAh",
+        storage:"256GB - 512GB"
+    }
+]
+};
+
+
+let firstPhone = null;
+let secondPhone = null;
+let choosingSecond = false;
+
 
 function openCompare(){
 
@@ -446,6 +800,15 @@ function openCompare(){
 
     document.getElementById("compare")
     .classList.add("active");
+
+    document.getElementById("modelArea").innerHTML="";
+    document.getElementById("comparisonArea").innerHTML="";
+
+    choosingSecond=false;
+    firstPhone=null;
+    secondPhone=null;
+
+    showBrands();
 
     window.scrollTo(0,0);
 }
@@ -458,71 +821,183 @@ function goHome(){
 
     document.getElementById("home").style.display="block";
 
-    document.getElementById("result").style.display="none";
+    window.scrollTo(0,0);
+}
 
-    selectedPhones=[];
 
-    document.querySelectorAll(".phone")
-    .forEach(phone=>{
-        phone.classList.remove("selected");
-    });
+function showBrands(){
+
+    document.getElementById("brandList")
+    .style.display="grid";
+
+    document.querySelector(".description")
+    .innerText =
+    choosingSecond
+    ? "Choose the brand for your second phone."
+    : "Choose the brand for your first phone.";
+
+}
+
+
+function chooseBrand(brand){
+
+    document.getElementById("brandList")
+    .style.display="none";
+
+    const area=document.getElementById("modelArea");
+
+    area.innerHTML=`
+
+        <button class="back" onclick="showBrands()">
+            ← Back to brands
+        </button>
+
+        <h2>
+            ${choosingSecond ? "Second phone" : "First phone"}
+        </h2>
+
+        <p class="description">
+            Choose a model from ${brand}.
+        </p>
+
+        <div class="items">
+
+            ${phones[brand].map((phone,index)=>`
+
+                <div class="item"
+                     onclick='choosePhone(${JSON.stringify(phone)}, this)'>
+
+                    <div class="item-icon">
+                        📱
+                    </div>
+
+                    <h3>
+                        ${phone.name}
+                    </h3>
+
+                    <p>
+                        ${brand}
+                    </p>
+
+                </div>
+
+            `).join("")}
+
+        </div>
+    `;
 
     window.scrollTo(0,0);
 }
 
 
-function selectPhone(index,element){
+function choosePhone(phone,element){
 
-    if(selectedPhones.includes(index)){
+    if(!choosingSecond){
 
-        selectedPhones =
-        selectedPhones.filter(i=>i!==index);
+        firstPhone=phone;
 
-        element.classList.remove("selected");
+        choosingSecond=true;
 
-        return;
-    }
+        document.getElementById("modelArea").innerHTML="";
 
-    if(selectedPhones.length>=2){
+        showBrands();
 
-        alert("You can select only two phones.");
+        window.scrollTo(0,0);
 
         return;
     }
 
-    selectedPhones.push(index);
+    secondPhone=phone;
 
-    element.classList.add("selected");
+    showComparison();
+
 }
 
 
-function comparePhones(){
+function showComparison(){
 
-    if(selectedPhones.length!==2){
+    document.getElementById("brandList")
+    .style.display="none";
 
-        alert("Please select two phones.");
+    document.getElementById("modelArea")
+    .innerHTML="";
 
-        return;
-    }
+    document.querySelector(".description")
+    .innerText="Your selected phones";
 
-    const phones=[
-        "iPhone 16 Pro Max",
-        "Galaxy S25 Ultra",
-        "Pixel 9 Pro XL",
-        "Xiaomi 15 Ultra"
-    ];
+    document.getElementById("comparisonArea")
+    .innerHTML=`
 
-    document.getElementById("resultTitle").innerText =
-    phones[selectedPhones[0]]
-    +"  VS  "
-    +phones[selectedPhones[1]];
+        <div class="compare-box">
 
-    document.getElementById("result").style.display="block";
+            <div class="compare-title">
+                ${firstPhone.name}
+                <br>
+                <span style="color:#777">
+                    VS
+                </span>
+                <br>
+                ${secondPhone.name}
+            </div>
 
-    window.scrollTo({
-        top:document.body.scrollHeight,
-        behavior:"smooth"
-    });
+            <div class="compare-grid">
+
+                ${createPhoneCard(firstPhone)}
+
+                ${createPhoneCard(secondPhone)}
+
+            </div>
+
+        </div>
+
+        <button class="back"
+                style="margin-top:15px"
+                onclick="openCompare()">
+            Compare Again
+        </button>
+    `;
+
+    window.scrollTo(0,0);
+}
+
+
+function createPhoneCard(phone){
+
+    return `
+
+        <div class="phone-result">
+
+            <h3>
+                📱 ${phone.name}
+            </h3>
+
+            <div class="spec">
+                <span>Display</span>
+                ${phone.display}
+            </div>
+
+            <div class="spec">
+                <span>Processor</span>
+                ${phone.chip}
+            </div>
+
+            <div class="spec">
+                <span>Camera</span>
+                ${phone.camera}
+            </div>
+
+            <div class="spec">
+                <span>Battery</span>
+                ${phone.battery}
+            </div>
+
+            <div class="spec">
+                <span>Storage</span>
+                ${phone.storage}
+            </div>
+
+        </div>
+    `;
 }
 
 
