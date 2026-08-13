@@ -2,17 +2,23 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>MOBIXA</title>
 
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
+
+*{
+box-sizing:border-box;
+margin:0;
+padding:0;
+}
 
 body{
 font-family:Arial,sans-serif;
 background:#050507;
 color:#fff;
-min-height:100vh
+min-height:100vh;
 }
 
 header{
@@ -21,20 +27,22 @@ display:flex;
 align-items:center;
 justify-content:space-between;
 padding:0 22px;
-border-bottom:1px solid #1c1c22
+border-bottom:1px solid #1c1c22;
 }
 
 .logo{
 font-size:25px;
 font-weight:900;
-letter-spacing:3px
+letter-spacing:3px;
 }
 
-.menu{font-size:25px}
+.menu{
+font-size:25px;
+}
 
 .hero{
 text-align:center;
-padding:60px 20px 35px
+padding:60px 20px 35px;
 }
 
 .badge{
@@ -44,74 +52,84 @@ border:1px solid #292932;
 border-radius:30px;
 color:#aaa;
 font-size:11px;
-margin-bottom:22px
+margin-bottom:22px;
 }
 
 .hero h1{
 font-size:46px;
 line-height:1;
 letter-spacing:-2px;
-margin-bottom:18px
+margin-bottom:18px;
 }
 
-.hero h1 span{color:#888892}
+.hero h1 span{
+color:#888892;
+}
 
 .hero p{
 color:#92929c;
 max-width:480px;
 margin:auto;
-line-height:1.6
+line-height:1.6;
 }
 
-.container,.page{
+.container,
+.page{
 width:92%;
-max-width:1000px;
-margin:30px auto
+max-width:950px;
+margin:30px auto;
 }
 
 .title{
 color:#aaa;
 font-size:15px;
-margin-bottom:15px
+margin-bottom:15px;
 }
 
-.grid,.items{
+.grid,
+.items{
 display:grid;
 grid-template-columns:1fr 1fr;
-gap:12px
+gap:12px;
 }
 
-.card,.item{
+.card,
+.item{
 background:#101014;
 border:1px solid #24242c;
 border-radius:20px;
 padding:20px 16px;
 cursor:pointer;
-transition:.25s
+transition:.25s;
 }
 
-.card{min-height:145px}
+.card{
+min-height:145px;
+}
 
-.card:hover,.item:hover{
-transform:translateY(-3px);
+.card:hover,
+.item:hover{
+transform:translateY(-4px);
 border-color:#666;
-background:#15151b
+background:#15151b;
 }
 
 .icon{
 font-size:31px;
-margin-bottom:16px
+margin-bottom:16px;
 }
 
-.card h2,.item h3{
+.card h2,
+.item h3{
 font-size:16px;
-margin-bottom:7px
+margin-bottom:7px;
 }
 
-.card p,.item p{
+.card p,
+.item p{
 color:#777782;
 font-size:12px;
-line-height:1.5
+line-height:1.5;
 }
 
 .ai{
@@ -120,14 +138,25 @@ background:linear-gradient(135deg,#15151c,#0d0d11);
 border:1px solid #30303a;
 border-radius:22px;
 padding:24px;
-cursor:pointer
+cursor:pointer;
 }
 
-.ai h2{margin-bottom:8px}
-.ai p{color:#888894;font-size:13px}
+.ai h2{
+margin-bottom:8px;
+}
 
-.page{display:none}
-.page.active{display:block}
+.ai p{
+color:#888894;
+font-size:13px;
+}
+
+.page{
+display:none;
+}
+
+.page.active{
+display:block;
+}
 
 .back{
 background:#111116;
@@ -136,22 +165,22 @@ color:#fff;
 border-radius:12px;
 padding:10px 15px;
 cursor:pointer;
-margin-bottom:25px
+margin-bottom:25px;
 }
 
 .page h2{
 font-size:30px;
-margin-bottom:10px
+margin-bottom:10px;
 }
 
 .description{
 color:#888894;
-margin-bottom:20px
+margin-bottom:20px;
 }
 
 .search-box{
 position:relative;
-margin-bottom:18px
+margin-bottom:18px;
 }
 
 .search-box input{
@@ -162,10 +191,13 @@ color:#fff;
 border-radius:16px;
 padding:16px 18px 16px 48px;
 font-size:15px;
-outline:none
+outline:none;
 }
 
-.search-box input:focus{border-color:#777}
+.search-box input:focus{
+border-color:#777;
+box-shadow:0 0 0 3px rgba(255,255,255,.03);
+}
 
 .search-icon{
 position:absolute;
@@ -173,13 +205,13 @@ left:17px;
 top:50%;
 transform:translateY(-50%);
 color:#888;
-font-size:19px
+font-size:19px;
 }
 
 .brand-card{
 display:flex;
 align-items:center;
-gap:15px
+gap:15px;
 }
 
 .brand-logo-box{
@@ -192,38 +224,42 @@ display:flex;
 align-items:center;
 justify-content:center;
 border:1px solid #292932;
-overflow:hidden
+overflow:hidden;
 }
 
 .brand-logo{
-width:34px;
-height:34px;
-object-fit:contain
+width:32px;
+height:32px;
+object-fit:contain;
 }
 
-.brand-info{text-align:left}
+.brand-info{
+text-align:left;
+}
 
-.brand-info h3{margin-bottom:5px}
+.brand-info h3{
+margin-bottom:5px;
+}
 
 .phone-item{
-min-height:120px
+min-height:120px;
 }
 
 .phone-icon{
-width:44px;
-height:44px;
+width:42px;
+height:42px;
 border-radius:12px;
 background:#18181e;
 display:flex;
 align-items:center;
 justify-content:center;
 font-size:22px;
-margin-bottom:14px
+margin-bottom:14px;
 }
 
 .phone-brand{
 color:#666;
-margin-top:5px
+margin-top:5px;
 }
 
 .no-results{
@@ -233,7 +269,7 @@ padding:35px;
 color:#777;
 background:#101014;
 border:1px solid #24242c;
-border-radius:18px
+border-radius:18px;
 }
 
 .compare-box{
@@ -241,41 +277,43 @@ margin-top:25px;
 background:#101014;
 border:1px solid #292932;
 border-radius:22px;
-padding:20px
+padding:20px;
 }
 
 .compare-title{
 font-size:23px;
 line-height:1.35;
-margin-bottom:22px
+margin-bottom:22px;
 }
 
 .compare-grid{
 display:grid;
 grid-template-columns:1fr 1fr;
-gap:12px
+gap:12px;
 }
 
 .phone-result{
 background:#16161c;
 border-radius:18px;
 padding:18px;
-border:1px solid #24242c
+border:1px solid #24242c;
 }
 
 .phone-result h3{
 margin-bottom:15px;
-font-size:17px
+font-size:17px;
 }
 
 .spec{
 padding:12px 0;
 border-bottom:1px solid #292932;
 font-size:13px;
-line-height:1.5
+line-height:1.5;
 }
 
-.spec:last-child{border-bottom:0}
+.spec:last-child{
+border-bottom:0;
+}
 
 .spec span{
 color:#888894;
@@ -283,56 +321,104 @@ display:block;
 margin-bottom:4px;
 font-size:11px;
 text-transform:uppercase;
-letter-spacing:.5px
+letter-spacing:.5px;
 }
 
-.spec.missing{color:#555}
+.spec.missing{
+color:#555;
+}
+
+.model-header{
+display:flex;
+align-items:center;
+gap:14px;
+margin-bottom:8px;
+}
+
+.model-header .brand-logo-box{
+width:48px;
+height:48px;
+min-width:48px;
+}
+
+.model-header .brand-logo{
+width:30px;
+height:30px;
+}
+
+.model-count{
+color:#666;
+font-size:12px;
+margin-top:4px;
+}
+
+.model-search-title{
+font-size:13px;
+color:#888;
+margin-bottom:10px;
+}
 
 footer{
 text-align:center;
 color:#55555e;
 font-size:11px;
-padding:50px 20px 25px
+padding:50px 20px 25px;
 }
 
-@media(max-width:600px){
+@media(max-width:500px){
 
-.hero h1{font-size:42px}
+.hero h1{
+font-size:42px;
+}
 
-.grid,.items{
-grid-template-columns:1fr 1fr
+.grid,
+.items{
+grid-template-columns:1fr 1fr;
 }
 
 .compare-grid{
-grid-template-columns:1fr
+grid-template-columns:1fr;
 }
 
 .brand-logo-box{
 width:46px;
 height:46px;
-min-width:46px
+min-width:46px;
 }
 
 .brand-logo{
-width:29px;
-height:29px
+width:28px;
+height:28px;
 }
+
 }
+
 </style>
 </head>
+
 
 <body>
 
 <header>
-<div class="logo">MOBIXA</div>
-<div class="menu">☰</div>
+
+<div class="logo">
+MOBIXA
+</div>
+
+<div class="menu">
+☰
+</div>
+
 </header>
+
 
 <section id="home">
 
 <div class="hero">
 
-<div class="badge">SMART PHONE DISCOVERY</div>
+<div class="badge">
+SMART PHONE DISCOVERY
+</div>
 
 <h1>
 Find your<br>
@@ -345,305 +431,1385 @@ Explore smartphones, search models and compare your favorites.
 
 </div>
 
+
 <div class="container">
 
-<div class="title">What are you looking for?</div>
+<div class="title">
+What are you looking for?
+</div>
+
 
 <div class="grid">
 
 <div class="card" onclick="openCompare()">
+
 <div class="icon">⚔️</div>
-<h2>Compare Phones</h2>
-<p>Choose any brand and compare smartphones.</p>
+
+<h2>
+Compare Phones
+</h2>
+
+<p>
+Choose any brand and compare smartphones.
+</p>
+
 </div>
+
 
 <div class="card" onclick="comingSoon('Gaming')">
+
 <div class="icon">🎮</div>
-<h2>Gaming</h2>
-<p>Find powerful phones for gaming.</p>
+
+<h2>
+Gaming
+</h2>
+
+<p>
+Find powerful phones for gaming.
+</p>
+
 </div>
+
 
 <div class="card" onclick="comingSoon('Camera')">
+
 <div class="icon">📸</div>
-<h2>Camera</h2>
-<p>Discover phones with great cameras.</p>
+
+<h2>
+Camera
+</h2>
+
+<p>
+Discover phones with great cameras.
+</p>
+
 </div>
+
 
 <div class="card" onclick="comingSoon('Battery')">
+
 <div class="icon">🔋</div>
-<h2>Battery</h2>
-<p>Find phones with long battery life.</p>
+
+<h2>
+Battery
+</h2>
+
+<p>
+Find phones with long battery life.
+</p>
+
 </div>
 
 </div>
+
 
 <div class="ai" onclick="comingSoon('MOBIXA AI')">
-<h2>🤖 MOBIXA AI</h2>
-<p>Your personal smartphone assistant.</p>
+
+<h2>
+🤖 MOBIXA AI
+</h2>
+
+<p>
+Your personal smartphone assistant.
+</p>
+
 </div>
 
 </div>
+
 </section>
+
+
 
 <section id="compare" class="page">
 
-<button class="back" onclick="goHome()">← Back</button>
+<button class="back" onclick="goHome()">
+← Back
+</button>
 
-<h2>Compare Phones</h2>
+
+<h2>
+Compare Phones
+</h2>
+
 
 <p class="description" id="pageDescription">
 Choose a brand for your first phone.
 </p>
 
+
 <div class="search-box">
-<span class="search-icon">⌕</span>
+
+<span class="search-icon">
+⌕
+</span>
+
 <input
 id="brandSearch"
 type="text"
 placeholder="Search brands..."
-oninput="searchBrands()">
+oninput="searchBrands()"
+>
+
 </div>
 
-<div id="brandList" class="items"></div>
 
-<div id="modelArea"></div>
+<div id="brandList" class="items">
+</div>
 
-<div id="comparisonArea"></div>
+
+<div id="modelArea">
+</div>
+
+
+<div id="comparisonArea">
+</div>
 
 </section>
 
-<footer>© 2026 MOBIXA</footer>
+
+
+<footer>
+© 2026 MOBIXA
+</footer>
+
+
 
 <script>
 
-/* =========================
+
+/* =====================================================
    BRAND LOGOS
-========================= */
+   ===================================================== */
 
-const logo=brand=>{
-
-const logos={
+const logos = {
 
 Apple:"https://cdn.simpleicons.org/apple/ffffff",
+
 Samsung:"https://cdn.simpleicons.org/samsung/ffffff",
+
 Xiaomi:"https://cdn.simpleicons.org/xiaomi/ffffff",
+
 Google:"https://cdn.simpleicons.org/google/ffffff",
+
 OnePlus:"https://cdn.simpleicons.org/oneplus/ffffff",
+
 Huawei:"https://cdn.simpleicons.org/huawei/ffffff",
+
 Honor:"https://cdn.simpleicons.org/honor/ffffff",
+
 Oppo:"https://cdn.simpleicons.org/oppo/ffffff",
+
 Vivo:"https://cdn.simpleicons.org/vivo/ffffff",
+
 Realme:"https://cdn.simpleicons.org/realme/ffffff",
+
 Nothing:"https://cdn.simpleicons.org/nothing/ffffff",
+
 Motorola:"https://cdn.simpleicons.org/motorola/ffffff",
+
 Sony:"https://cdn.simpleicons.org/sony/ffffff",
+
 ASUS:"https://cdn.simpleicons.org/asus/ffffff",
+
 Infinix:"https://cdn.simpleicons.org/infinix/ffffff",
+
 ZTE:"https://cdn.simpleicons.org/zte/ffffff",
+
 TCL:"https://cdn.simpleicons.org/tcl/ffffff",
+
 Nubia:"https://cdn.simpleicons.org/nubia/ffffff",
+
 Tecno:"https://cdn.simpleicons.org/tecno/ffffff"
 
 };
 
-return logos[brand]||"";
-};
+
+function logo(brand){
+
+return logos[brand] || "";
+
+}
 
 
-/* =========================
+
+/* =====================================================
    PHONE DATABASE
-========================= */
+   ===================================================== */
 
-const phones={
+const phones = {
+
 
 Samsung:[
+
 ["Galaxy S26 Ultra","6.9-inch Dynamic AMOLED 2X, QHD+, 120Hz","Snapdragon 8 Elite Gen 5 for Galaxy","200MP + 50MP + 50MP + 10MP","5000mAh","256GB / 512GB / 1TB"],
-["Galaxy S26+","6.7-inch Dynamic AMOLED 2X, 120Hz","Exynos 2600","50MP triple camera","4900mAh","256GB / 512GB"],
-["Galaxy S26","6.3-inch Dynamic AMOLED 2X, 120Hz","Exynos 2600","50MP triple camera","4300mAh","256GB / 512GB"],
 
-["Galaxy S25 Ultra","6.9-inch Dynamic AMOLED 2X, QHD+, 120Hz","Snapdragon 8 Elite for Galaxy","200MP camera","5000mAh","256GB / 512GB / 1TB"],
-["Galaxy S25+","6.7-inch Dynamic AMOLED 2X, 120Hz","Snapdragon 8 Elite for Galaxy","50MP camera","4900mAh","256GB / 512GB"],
-["Galaxy S25","6.2-inch Dynamic AMOLED 2X, 120Hz","Snapdragon 8 Elite for Galaxy","50MP camera","4000mAh","128GB / 256GB / 512GB"],
+["Galaxy S26+","6.7-inch Dynamic AMOLED 2X, 120Hz","Exynos 2600","50MP triple camera system","4900mAh","256GB / 512GB"],
 
-["Galaxy S24 Ultra","6.8-inch Dynamic AMOLED 2X, QHD+, 120Hz","Snapdragon 8 Gen 3 for Galaxy","200MP camera","5000mAh","256GB / 512GB / 1TB"],
-["Galaxy S24+","6.7-inch Dynamic AMOLED 2X, 120Hz","Exynos 2400 / Snapdragon 8 Gen 3","50MP camera","4900mAh","256GB / 512GB"],
-["Galaxy S24","6.2-inch Dynamic AMOLED 2X, 120Hz","Exynos 2400 / Snapdragon 8 Gen 3","50MP camera","4000mAh","128GB / 256GB"],
+["Galaxy S26","6.3-inch Dynamic AMOLED 2X, 120Hz","Exynos 2600","50MP triple camera system","4300mAh","256GB / 512GB"],
 
-["Galaxy S23 Ultra","6.8-inch Dynamic AMOLED 2X, QHD+, 120Hz","Snapdragon 8 Gen 2 for Galaxy","200MP camera","5000mAh","256GB / 512GB / 1TB"],
-["Galaxy S23+","6.6-inch Dynamic AMOLED 2X, 120Hz","Snapdragon 8 Gen 2 for Galaxy","50MP camera","4700mAh","256GB / 512GB"],
-["Galaxy S23","6.1-inch Dynamic AMOLED 2X, 120Hz","Snapdragon 8 Gen 2 for Galaxy","50MP camera","3900mAh","128GB / 256GB"],
+["Galaxy S25 Ultra","6.9-inch Dynamic AMOLED 2X, QHD+, 120Hz","Snapdragon 8 Elite for Galaxy","200MP + 50MP + 50MP + 10MP","5000mAh","256GB / 512GB / 1TB"],
 
-["Galaxy S22 Ultra","6.8-inch Dynamic AMOLED 2X, 120Hz","Snapdragon 8 Gen 1 / Exynos 2200","108MP camera","5000mAh","128GB / 256GB / 512GB / 1TB"],
-["Galaxy S22+","6.6-inch Dynamic AMOLED 2X, 120Hz","Snapdragon 8 Gen 1 / Exynos 2200","50MP camera","4500mAh","128GB / 256GB"],
-["Galaxy S22","6.1-inch Dynamic AMOLED 2X, 120Hz","Snapdragon 8 Gen 1 / Exynos 2200","50MP camera","3700mAh","128GB / 256GB"],
+["Galaxy S25+","6.7-inch Dynamic AMOLED 2X, 120Hz","Snapdragon 8 Elite for Galaxy","50MP triple camera system","4900mAh","256GB / 512GB"],
 
-["Galaxy S21 Ultra","6.8-inch Dynamic AMOLED 2X, 120Hz","Snapdragon 888 / Exynos 2100","108MP camera","5000mAh","128GB / 256GB / 512GB"],
-["Galaxy S21+","6.7-inch Dynamic AMOLED 2X, 120Hz","Snapdragon 888 / Exynos 2100","12MP camera","4800mAh","128GB / 256GB"],
-["Galaxy S21","6.2-inch Dynamic AMOLED 2X, 120Hz","Snapdragon 888 / Exynos 2100","12MP camera","4000mAh","128GB / 256GB"],
+["Galaxy S25","6.2-inch Dynamic AMOLED 2X, 120Hz","Snapdragon 8 Elite for Galaxy","50MP triple camera system","4000mAh","128GB / 256GB / 512GB"],
 
-["Galaxy S20 Ultra","6.9-inch Dynamic AMOLED 2X, 120Hz","Snapdragon 865 / Exynos 990","108MP camera","5000mAh","128GB / 256GB / 512GB"],
-["Galaxy S20+","6.7-inch Dynamic AMOLED 2X, 120Hz","Snapdragon 865 / Exynos 990","64MP camera","4500mAh","128GB / 256GB"],
-["Galaxy S20","6.2-inch Dynamic AMOLED 2X, 120Hz","Snapdragon 865 / Exynos 990","64MP camera","4000mAh","128GB / 256GB"],
+["Galaxy S24 Ultra","6.8-inch Dynamic AMOLED 2X, QHD+, 120Hz","Snapdragon 8 Gen 3 for Galaxy","200MP + 50MP + 10MP + 12MP","5000mAh","256GB / 512GB / 1TB"],
 
-["Galaxy Z Fold7","Foldable Dynamic AMOLED 2X","Snapdragon 8 Elite for Galaxy","200MP camera","4400mAh","256GB / 512GB / 1TB"],
-["Galaxy Z Flip7","Foldable AMOLED","Exynos 2500","50MP camera","4300mAh","256GB / 512GB"],
-["Galaxy Z Fold6","7.6-inch Dynamic AMOLED 2X","Snapdragon 8 Gen 3 for Galaxy","50MP camera","4400mAh","256GB / 512GB / 1TB"],
-["Galaxy Z Flip6","6.7-inch Dynamic AMOLED 2X","Snapdragon 8 Gen 3 for Galaxy","50MP camera","4000mAh","256GB / 512GB"],
+["Galaxy S24+","6.7-inch Dynamic AMOLED 2X, 120Hz","Exynos 2400 / Snapdragon 8 Gen 3","50MP triple camera system","4900mAh","256GB / 512GB"],
 
-["Galaxy A56 5G","6.7-inch Super AMOLED, 120Hz","Exynos 1580","50MP camera","5000mAh","128GB / 256GB"],
-["Galaxy A55 5G","6.6-inch Super AMOLED, 120Hz","Exynos 1480","50MP camera","5000mAh","128GB / 256GB"],
-["Galaxy A54 5G","6.4-inch Super AMOLED, 120Hz","Exynos 1380","50MP camera","5000mAh","128GB / 256GB"],
-["Galaxy A53 5G","6.5-inch Super AMOLED, 120Hz","Exynos 1280","64MP camera","5000mAh","128GB / 256GB"],
-["Galaxy A52","6.5-inch Super AMOLED, 90Hz","Snapdragon 720G","64MP camera","4500mAh","128GB / 256GB"]
+["Galaxy S24","6.2-inch Dynamic AMOLED 2X, 120Hz","Exynos 2400 / Snapdragon 8 Gen 3","50MP triple camera system","4000mAh","128GB / 256GB"],
+
+["Galaxy S23 Ultra","6.8-inch Dynamic AMOLED 2X, QHD+, 120Hz","Snapdragon 8 Gen 2 for Galaxy","200MP + 12MP + 10MP + 10MP","5000mAh","256GB / 512GB / 1TB"],
+
+["Galaxy S23+","6.6-inch Dynamic AMOLED 2X, 120Hz","Snapdragon 8 Gen 2 for Galaxy","50MP triple camera system","4700mAh","256GB / 512GB"],
+
+["Galaxy S23","6.1-inch Dynamic AMOLED 2X, 120Hz","Snapdragon 8 Gen 2 for Galaxy","50MP triple camera system","3900mAh","128GB / 256GB"],
+
+["Galaxy S22 Ultra","6.8-inch Dynamic AMOLED 2X, 120Hz","Snapdragon 8 Gen 1 / Exynos 2200","108MP quad camera","5000mAh","128GB / 256GB / 512GB / 1TB"],
+
+["Galaxy S22+","6.6-inch Dynamic AMOLED 2X, 120Hz","Snapdragon 8 Gen 1 / Exynos 2200","50MP triple camera system","4500mAh","128GB / 256GB"],
+
+["Galaxy S22","6.1-inch Dynamic AMOLED 2X, 120Hz","Snapdragon 8 Gen 1 / Exynos 2200","50MP triple camera system","3700mAh","128GB / 256GB"],
+
+["Galaxy S21 Ultra","6.8-inch Dynamic AMOLED 2X, 120Hz","Snapdragon 888 / Exynos 2100","108MP quad camera","5000mAh","128GB / 256GB / 512GB"],
+
+["Galaxy S21+","6.7-inch Dynamic AMOLED 2X, 120Hz","Snapdragon 888 / Exynos 2100","12MP triple camera system","4800mAh","128GB / 256GB"],
+
+["Galaxy S21","6.2-inch Dynamic AMOLED 2X, 120Hz","Snapdragon 888 / Exynos 2100","12MP triple camera system","4000mAh","128GB / 256GB"],
+
+["Galaxy S20 Ultra","6.9-inch Dynamic AMOLED 2X, 120Hz","Snapdragon 865 / Exynos 990","108MP quad camera","5000mAh","128GB / 256GB / 512GB"],
+
+["Galaxy S20+","6.7-inch Dynamic AMOLED 2X, 120Hz","Snapdragon 865 / Exynos 990","64MP quad camera","4500mAh","128GB / 256GB"],
+
+["Galaxy S20","6.2-inch Dynamic AMOLED 2X, 120Hz","Snapdragon 865 / Exynos 990","64MP triple camera","4000mAh","128GB / 256GB"],
+
+["Galaxy Z Fold7","8.0-inch foldable AMOLED","Snapdragon 8 Elite for Galaxy","200MP triple camera","4400mAh","256GB / 512GB / 1TB"],
+
+["Galaxy Z Flip7","6.9-inch foldable AMOLED","Exynos 2500","50MP dual camera","4300mAh","256GB / 512GB"],
+
+["Galaxy Z Fold6","7.6-inch Dynamic AMOLED 2X","Snapdragon 8 Gen 3 for Galaxy","50MP triple camera","4400mAh","256GB / 512GB / 1TB"],
+
+["Galaxy Z Flip6","6.7-inch Dynamic AMOLED 2X","Snapdragon 8 Gen 3 for Galaxy","50MP dual camera","4000mAh","256GB / 512GB"],
+
+["Galaxy Z Fold5","7.6-inch Dynamic AMOLED 2X","Snapdragon 8 Gen 2 for Galaxy","50MP triple camera","4400mAh","256GB / 512GB / 1TB"],
+
+["Galaxy Z Flip5","6.7-inch Dynamic AMOLED 2X","Snapdragon 8 Gen 2 for Galaxy","12MP dual camera","3700mAh","256GB / 512GB"],
+
+["Galaxy A56 5G","6.7-inch Super AMOLED, 120Hz","Exynos 1580","50MP triple camera","5000mAh","128GB / 256GB"],
+
+["Galaxy A55 5G","6.6-inch Super AMOLED, 120Hz","Exynos 1480","50MP triple camera","5000mAh","128GB / 256GB"],
+
+["Galaxy A54 5G","6.4-inch Super AMOLED, 120Hz","Exynos 1380","50MP triple camera","5000mAh","128GB / 256GB"],
+
+["Galaxy A53 5G","6.5-inch Super AMOLED, 120Hz","Exynos 1280","64MP quad camera","5000mAh","128GB / 256GB"],
+
+["Galaxy A52","6.5-inch Super AMOLED, 90Hz","Snapdragon 720G","64MP quad camera","4500mAh","128GB / 256GB"],
+
+["Galaxy A36 5G","6.7-inch Super AMOLED, 120Hz","Snapdragon chipset","50MP triple camera","5000mAh","128GB / 256GB"],
+
+["Galaxy A35 5G","6.6-inch Super AMOLED, 120Hz","Exynos 1380","50MP triple camera","5000mAh","128GB / 256GB"],
+
+["Galaxy A34 5G","6.6-inch Super AMOLED, 120Hz","Dimensity 1080","48MP triple camera","5000mAh","128GB / 256GB"],
+
+["Galaxy A25 5G","6.5-inch Super AMOLED, 120Hz","Exynos 1280","50MP triple camera","5000mAh","128GB / 256GB"],
+
+["Galaxy A15","6.5-inch Super AMOLED","MediaTek Helio G99","50MP triple camera","5000mAh","128GB / 256GB"],
+
+["Galaxy M56","6.7-inch Super AMOLED","Exynos chipset","50MP camera system","5000mAh","128GB / 256GB"],
+
+["Galaxy M55","6.7-inch Super AMOLED, 120Hz","Snapdragon 7 Gen 1","50MP triple camera","5000mAh","128GB / 256GB"],
+
+["Galaxy M34","6.5-inch Super AMOLED, 120Hz","Exynos 1280","50MP triple camera","6000mAh","128GB / 256GB"]
+
 ],
+
 
 Apple:[
-["iPhone 17 Pro Max","6.9-inch Super Retina XDR OLED, 120Hz","A19 Pro","48MP Pro Fusion","Up to 39h video","256GB / 512GB / 1TB / 2TB"],
-["iPhone 17 Pro","6.3-inch Super Retina XDR OLED, 120Hz","A19 Pro","48MP Pro Fusion","All-day","256GB / 512GB / 1TB"],
-["iPhone 17","6.3-inch Super Retina XDR OLED, 120Hz","A19","48MP camera","All-day","256GB / 512GB"],
-["iPhone 16 Pro Max","6.9-inch Super Retina XDR OLED, 120Hz","A18 Pro","48MP Pro system","Up to 33h","256GB / 512GB / 1TB"],
-["iPhone 16 Pro","6.3-inch Super Retina XDR OLED, 120Hz","A18 Pro","48MP Pro system","Up to 27h","128GB / 256GB / 512GB / 1TB"],
-["iPhone 16 Plus","6.7-inch Super Retina XDR OLED","A18","48MP camera","Up to 27h","128GB / 256GB / 512GB"],
-["iPhone 16","6.1-inch Super Retina XDR OLED","A18","48MP camera","Up to 22h","128GB / 256GB / 512GB"],
-["iPhone 15 Pro Max","6.7-inch Super Retina XDR OLED, 120Hz","A17 Pro","48MP Pro system","Up to 29h","256GB / 512GB / 1TB"],
-["iPhone 15 Pro","6.1-inch Super Retina XDR OLED, 120Hz","A17 Pro","48MP Pro system","Up to 23h","128GB / 256GB / 512GB / 1TB"],
-["iPhone 15","6.1-inch Super Retina XDR OLED","A16 Bionic","48MP camera","Up to 20h","128GB / 256GB / 512GB"],
-["iPhone 14 Pro Max","6.7-inch Super Retina XDR OLED, 120Hz","A16 Bionic","48MP Pro system","Up to 29h","128GB / 256GB / 512GB / 1TB"],
-["iPhone 14 Pro","6.1-inch Super Retina XDR OLED, 120Hz","A16 Bionic","48MP Pro system","Up to 23h","128GB / 256GB / 512GB / 1TB"],
-["iPhone 14","6.1-inch Super Retina XDR OLED","A15 Bionic","12MP dual camera","Up to 20h","128GB / 256GB / 512GB"],
-["iPhone 13 Pro Max","6.7-inch OLED, 120Hz","A15 Bionic","12MP Pro system","Up to 28h","128GB / 256GB / 512GB / 1TB"],
-["iPhone 13 Pro","6.1-inch OLED, 120Hz","A15 Bionic","12MP Pro system","Up to 22h","128GB / 256GB / 512GB / 1TB"],
-["iPhone 13","6.1-inch OLED","A15 Bionic","12MP dual camera","Up to 19h","128GB / 256GB / 512GB"],
-["iPhone 12 Pro Max","6.7-inch OLED","A14 Bionic","12MP Pro system","Up to 20h","128GB / 256GB / 512GB"],
-["iPhone 12","6.1-inch OLED","A14 Bionic","12MP dual camera","Up to 17h","64GB / 128GB / 256GB"]
+
+["iPhone 17 Pro Max","6.9-inch Super Retina XDR OLED, ProMotion 120Hz","A19 Pro","48MP Pro Fusion camera system","Up to 39 hours video playback","256GB / 512GB / 1TB / 2TB"],
+
+["iPhone 17 Pro","6.3-inch Super Retina XDR OLED, ProMotion 120Hz","A19 Pro","48MP Pro Fusion camera system","Up to 33 hours video playback","256GB / 512GB / 1TB"],
+
+["iPhone 17","6.3-inch Super Retina XDR OLED, 120Hz","A19","48MP main camera system","All-day battery","256GB / 512GB"],
+
+["iPhone 16 Pro Max","6.9-inch Super Retina XDR OLED, ProMotion 120Hz","A18 Pro","48MP Pro camera system","Up to 33 hours video playback","256GB / 512GB / 1TB"],
+
+["iPhone 16 Pro","6.3-inch Super Retina XDR OLED, ProMotion 120Hz","A18 Pro","48MP Pro camera system","Up to 27 hours video playback","128GB / 256GB / 512GB / 1TB"],
+
+["iPhone 16 Plus","6.7-inch Super Retina XDR OLED","A18","48MP dual camera system","Up to 27 hours video playback","128GB / 256GB / 512GB"],
+
+["iPhone 16","6.1-inch Super Retina XDR OLED","A18","48MP dual camera system","Up to 22 hours video playback","128GB / 256GB / 512GB"],
+
+["iPhone 15 Pro Max","6.7-inch Super Retina XDR OLED, ProMotion 120Hz","A17 Pro","48MP Pro camera system","Up to 29 hours video playback","256GB / 512GB / 1TB"],
+
+["iPhone 15 Pro","6.1-inch Super Retina XDR OLED, ProMotion 120Hz","A17 Pro","48MP Pro camera system","Up to 23 hours video playback","128GB / 256GB / 512GB / 1TB"],
+
+["iPhone 15","6.1-inch Super Retina XDR OLED","A16 Bionic","48MP dual camera system","Up to 20 hours video playback","128GB / 256GB / 512GB"],
+
+["iPhone 14 Pro Max","6.7-inch Super Retina XDR OLED, ProMotion 120Hz","A16 Bionic","48MP Pro camera system","Up to 29 hours video playback","128GB / 256GB / 512GB / 1TB"],
+
+["iPhone 14 Pro","6.1-inch Super Retina XDR OLED, ProMotion 120Hz","A16 Bionic","48MP Pro camera system","Up to 23 hours video playback","128GB / 256GB / 512GB / 1TB"],
+
+["iPhone 14","6.1-inch Super Retina XDR OLED","A15 Bionic","12MP dual camera system","Up to 20 hours video playback","128GB / 256GB / 512GB"],
+
+["iPhone 13 Pro Max","6.7-inch Super Retina XDR OLED, ProMotion 120Hz","A15 Bionic","12MP Pro camera system","Up to 28 hours video playback","128GB / 256GB / 512GB / 1TB"],
+
+["iPhone 13 Pro","6.1-inch Super Retina XDR OLED, ProMotion 120Hz","A15 Bionic","12MP Pro camera system","Up to 22 hours video playback","128GB / 256GB / 512GB / 1TB"],
+
+["iPhone 13","6.1-inch Super Retina XDR OLED","A15 Bionic","12MP dual camera system","Up to 19 hours video playback","128GB / 256GB / 512GB"],
+
+["iPhone 13 mini","5.4-inch Super Retina XDR OLED","A15 Bionic","12MP dual camera system","Up to 17 hours video playback","128GB / 256GB / 512GB"],
+
+["iPhone 12 Pro Max","6.7-inch Super Retina XDR OLED","A14 Bionic","12MP Pro camera system","Up to 20 hours video playback","128GB / 256GB / 512GB"],
+
+["iPhone 12 Pro","6.1-inch Super Retina XDR OLED","A14 Bionic","12MP Pro camera system","Up to 17 hours video playback","128GB / 256GB / 512GB"],
+
+["iPhone 12","6.1-inch Super Retina XDR OLED","A14 Bionic","12MP dual camera system","Up to 17 hours video playback","64GB / 128GB / 256GB"],
+
+["iPhone 12 mini","5.4-inch Super Retina XDR OLED","A14 Bionic","12MP dual camera system","Up to 15 hours video playback","64GB / 128GB / 256GB"],
+
+["iPhone 11 Pro Max","6.5-inch Super Retina XDR OLED","A13 Bionic","12MP triple camera system","Up to 20 hours video playback","64GB / 256GB / 512GB"],
+
+["iPhone 11 Pro","5.8-inch Super Retina XDR OLED","A13 Bionic","12MP triple camera system","Up to 18 hours video playback","64GB / 256GB / 512GB"],
+
+["iPhone 11","6.1-inch Liquid Retina LCD","A13 Bionic","12MP dual camera system","Up to 17 hours video playback","64GB / 128GB / 256GB"],
+
+["iPhone SE 3","4.7-inch Retina HD LCD","A15 Bionic","12MP single camera","Up to 15 hours video playback","64GB / 128GB / 256GB"]
+
 ],
+
 
 Xiaomi:[
-["Xiaomi 15 Ultra","6.73-inch AMOLED, 120Hz","Snapdragon 8 Elite","Leica quad, 200MP telephoto","5410mAh","512GB / 1TB"],
-["Xiaomi 15 Pro","6.73-inch AMOLED, 120Hz","Snapdragon 8 Elite","Leica triple","6100mAh","256GB / 512GB / 1TB"],
-["Xiaomi 15","6.36-inch AMOLED, 120Hz","Snapdragon 8 Elite","Leica triple","5240mAh","256GB / 512GB"],
-["Xiaomi 14 Ultra","6.73-inch AMOLED, 120Hz","Snapdragon 8 Gen 3","Leica quad","5000mAh","512GB / 1TB"],
-["Xiaomi 14","6.36-inch AMOLED, 120Hz","Snapdragon 8 Gen 3","Leica triple","4610mAh","256GB / 512GB"],
-["Xiaomi 13 Ultra","6.73-inch AMOLED, 120Hz","Snapdragon 8 Gen 2","Leica quad","5000mAh","256GB / 512GB / 1TB"],
-["Xiaomi 13 Pro","6.73-inch AMOLED, 120Hz","Snapdragon 8 Gen 2","Leica triple","4820mAh","128GB / 256GB / 512GB"],
-["Xiaomi 13","6.36-inch AMOLED, 120Hz","Snapdragon 8 Gen 2","Leica triple","4500mAh","128GB / 256GB / 512GB"],
-["Redmi Note 14 Pro+","6.67-inch AMOLED, 120Hz","Snapdragon 7s Gen 3","200MP","5110mAh","256GB / 512GB"],
-["Redmi Note 14 Pro","6.67-inch AMOLED, 120Hz","Dimensity 7300-Ultra","200MP","5500mAh","256GB / 512GB"],
-["POCO F7 Ultra","6.67-inch AMOLED, 120Hz","Snapdragon 8 Elite","50MP triple","5300mAh","256GB / 512GB"],
-["POCO F7 Pro","6.67-inch AMOLED, 120Hz","Snapdragon 8 Gen 3","50MP","6000mAh","256GB / 512GB"],
-["POCO X7 Pro","6.67-inch AMOLED, 120Hz","Dimensity 8400-Ultra","50MP","6000mAh","256GB / 512GB"],
-["POCO X6 Pro","6.67-inch AMOLED, 120Hz","Dimensity 8300-Ultra","64MP","5000mAh","256GB / 512GB"]
+
+["Xiaomi 15 Ultra","6.73-inch AMOLED, 120Hz","Snapdragon 8 Elite","Leica quad camera, 200MP telephoto","5410mAh","512GB / 1TB"],
+
+["Xiaomi 15 Pro","6.73-inch AMOLED, 120Hz","Snapdragon 8 Elite","Leica triple camera","6100mAh","256GB / 512GB / 1TB"],
+
+["Xiaomi 15","6.36-inch AMOLED, 120Hz","Snapdragon 8 Elite","Leica triple camera","5240mAh","256GB / 512GB"],
+
+["Xiaomi 14 Ultra","6.73-inch AMOLED, 120Hz","Snapdragon 8 Gen 3","Leica quad camera","5000mAh","512GB / 1TB"],
+
+["Xiaomi 14 Pro","6.73-inch AMOLED, 120Hz","Snapdragon 8 Gen 3","Leica triple camera","4880mAh","256GB / 512GB / 1TB"],
+
+["Xiaomi 14","6.36-inch AMOLED, 120Hz","Snapdragon 8 Gen 3","Leica triple camera","4610mAh","256GB / 512GB"],
+
+["Xiaomi 13 Ultra","6.73-inch AMOLED, 120Hz","Snapdragon 8 Gen 2","Leica quad 50MP camera","5000mAh","256GB / 512GB / 1TB"],
+
+["Xiaomi 13 Pro","6.73-inch AMOLED, 120Hz","Snapdragon 8 Gen 2","Leica triple camera","4820mAh","128GB / 256GB / 512GB"],
+
+["Xiaomi 13","6.36-inch AMOLED, 120Hz","Snapdragon 8 Gen 2","Leica triple camera","4500mAh","128GB / 256GB / 512GB"],
+
+["Xiaomi 12 Pro","6.73-inch AMOLED, 120Hz","Snapdragon 8 Gen 1","50MP triple camera","4600mAh","128GB / 256GB"],
+
+["Xiaomi 12","6.28-inch AMOLED, 120Hz","Snapdragon 8 Gen 1","50MP triple camera","4500mAh","128GB / 256GB"],
+
+["Redmi Note 14 Pro+","6.67-inch AMOLED, 120Hz","Snapdragon 7s Gen 3","200MP main camera","5110mAh","256GB / 512GB"],
+
+["Redmi Note 14 Pro","6.67-inch AMOLED, 120Hz","Dimensity 7300-Ultra","200MP main camera","5500mAh","256GB / 512GB"],
+
+["Redmi Note 14","6.67-inch AMOLED, 120Hz","Dimensity 7025-Ultra","108MP main camera","5110mAh","128GB / 256GB"],
+
+["Redmi Note 13 Pro+","6.67-inch AMOLED, 120Hz","Dimensity 7200-Ultra","200MP main camera","5000mAh","256GB / 512GB"],
+
+["Redmi Note 13 Pro","6.67-inch AMOLED, 120Hz","Snapdragon 7s Gen 2","200MP main camera","5100mAh","128GB / 256GB / 512GB"],
+
+["Redmi Note 13","6.67-inch AMOLED, 120Hz","Snapdragon 685","108MP main camera","5000mAh","128GB / 256GB"],
+
+["POCO F7 Ultra","6.67-inch AMOLED, 120Hz","Snapdragon 8 Elite","50MP triple camera","5300mAh","256GB / 512GB"],
+
+["POCO F7 Pro","6.67-inch AMOLED, 120Hz","Snapdragon 8 Gen 3","50MP dual camera","6000mAh","256GB / 512GB"],
+
+["POCO F6 Pro","6.67-inch AMOLED, 120Hz","Snapdragon 8 Gen 2","50MP triple camera","5000mAh","256GB / 512GB"],
+
+["POCO F6","6.67-inch AMOLED, 120Hz","Snapdragon 8s Gen 3","50MP dual camera","5000mAh","256GB / 512GB"],
+
+["POCO X7 Pro","6.67-inch AMOLED, 120Hz","Dimensity 8400-Ultra","50MP dual camera","6000mAh","256GB / 512GB"],
+
+["POCO X6 Pro","6.67-inch AMOLED, 120Hz","Dimensity 8300-Ultra","64MP triple camera","5000mAh","256GB / 512GB"]
+
 ],
+
 
 Google:[
-["Pixel 10 Pro XL","6.8-inch OLED, 120Hz","Google Tensor","Pro triple camera","Large capacity","256GB / 512GB / 1TB / 2TB"],
-["Pixel 10 Pro","6.3-inch OLED, 120Hz","Google Tensor","Pro triple camera","Large capacity","128GB / 256GB / 512GB / 1TB"],
-["Pixel 9 Pro XL","6.8-inch LTPO OLED, 120Hz","Tensor G4","50MP + 48MP + 48MP","5060mAh","128GB / 256GB / 512GB / 1TB"],
-["Pixel 9 Pro","6.3-inch LTPO OLED, 120Hz","Tensor G4","50MP + 48MP + 48MP","4700mAh","128GB / 256GB / 512GB / 1TB"],
-["Pixel 9","6.3-inch OLED, 120Hz","Tensor G4","50MP + 48MP","4700mAh","128GB / 256GB"],
-["Pixel 8 Pro","6.7-inch LTPO OLED, 120Hz","Tensor G3","50MP + 48MP + 48MP","5050mAh","128GB / 256GB / 512GB / 1TB"],
-["Pixel 8","6.2-inch OLED, 120Hz","Tensor G3","50MP + 12MP","4575mAh","128GB / 256GB"],
-["Pixel 7 Pro","6.7-inch LTPO OLED, 120Hz","Tensor G2","50MP + 12MP + 48MP","5000mAh","128GB / 256GB / 512GB"],
-["Pixel 7","6.3-inch OLED, 90Hz","Tensor G2","50MP + 12MP","4355mAh","128GB / 256GB"]
+
+["Pixel 10 Pro XL","6.8-inch LTPO OLED, 120Hz","Google Tensor G5","50MP + 48MP + 48MP","5200mAh","256GB / 512GB / 1TB / 2TB"],
+
+["Pixel 10 Pro","6.3-inch LTPO OLED, 120Hz","Google Tensor G5","50MP + 48MP + 48MP","4870mAh","128GB / 256GB / 512GB / 1TB"],
+
+["Pixel 10","6.3-inch OLED, 120Hz","Google Tensor G5","48MP dual camera","4970mAh","128GB / 256GB"],
+
+["Pixel 9 Pro XL","6.8-inch LTPO OLED, 120Hz","Google Tensor G4","50MP + 48MP + 48MP","5060mAh","128GB / 256GB / 512GB / 1TB"],
+
+["Pixel 9 Pro","6.3-inch LTPO OLED, 120Hz","Google Tensor G4","50MP + 48MP + 48MP","4700mAh","128GB / 256GB / 512GB / 1TB"],
+
+["Pixel 9","6.3-inch OLED, 120Hz","Google Tensor G4","50MP + 48MP","4700mAh","128GB / 256GB"],
+
+["Pixel 8 Pro","6.7-inch LTPO OLED, 120Hz","Google Tensor G3","50MP + 48MP + 48MP","5050mAh","128GB / 256GB / 512GB / 1TB"],
+
+["Pixel 8","6.2-inch OLED, 120Hz","Google Tensor G3","50MP + 12MP","4575mAh","128GB / 256GB"],
+
+["Pixel 7 Pro","6.7-inch LTPO OLED, 120Hz","Google Tensor G2","50MP + 12MP + 48MP","5000mAh","128GB / 256GB / 512GB"],
+
+["Pixel 7","6.3-inch OLED, 90Hz","Google Tensor G2","50MP + 12MP","4355mAh","128GB / 256GB"],
+
+["Pixel 6 Pro","6.7-inch LTPO OLED, 120Hz","Google Tensor","50MP + 12MP + 48MP","5003mAh","128GB / 256GB"],
+
+["Pixel 6","6.4-inch OLED, 90Hz","Google Tensor","50MP + 12MP","4614mAh","128GB / 256GB"],
+
+["Pixel 6a","6.1-inch OLED","Google Tensor","12.2MP + 12MP","4410mAh","128GB"]
+
 ],
+
 
 OnePlus:[
-["OnePlus 13","6.82-inch LTPO AMOLED, 120Hz","Snapdragon 8 Elite","50MP triple","6000mAh","256GB / 512GB / 1TB"],
-["OnePlus 13R","6.78-inch AMOLED, 120Hz","Snapdragon 8 Gen 3","50MP triple","6000mAh","256GB"],
+
+["OnePlus 13","6.82-inch LTPO AMOLED, 120Hz","Snapdragon 8 Elite","50MP triple camera","6000mAh","256GB / 512GB / 1TB"],
+
+["OnePlus 13R","6.78-inch AMOLED, 120Hz","Snapdragon 8 Gen 3","50MP triple camera","6000mAh","256GB"],
+
 ["OnePlus 12","6.82-inch LTPO AMOLED, 120Hz","Snapdragon 8 Gen 3","50MP + 64MP + 48MP","5400mAh","256GB / 512GB / 1TB"],
-["OnePlus 12R","6.78-inch AMOLED, 120Hz","Snapdragon 8 Gen 2","50MP","5500mAh","128GB / 256GB"],
-["OnePlus 11","6.7-inch LTPO AMOLED, 120Hz","Snapdragon 8 Gen 2","50MP + 48MP + 32MP","5000mAh","128GB / 256GB / 512GB"]
+
+["OnePlus 12R","6.78-inch AMOLED, 120Hz","Snapdragon 8 Gen 2","50MP triple camera","5500mAh","128GB / 256GB"],
+
+["OnePlus 11","6.7-inch LTPO AMOLED, 120Hz","Snapdragon 8 Gen 2","50MP + 48MP + 32MP","5000mAh","128GB / 256GB / 512GB"],
+
+["OnePlus 10 Pro","6.7-inch LTPO AMOLED, 120Hz","Snapdragon 8 Gen 1","48MP triple camera","5000mAh","128GB / 256GB"],
+
+["OnePlus 10T","6.7-inch AMOLED, 120Hz","Snapdragon 8+ Gen 1","50MP triple camera","4800mAh","128GB / 256GB"],
+
+["OnePlus 9 Pro","6.7-inch LTPO AMOLED, 120Hz","Snapdragon 888","48MP quad camera","4500mAh","128GB / 256GB"],
+
+["OnePlus 9","6.55-inch AMOLED, 120Hz","Snapdragon 888","48MP triple camera","4500mAh","128GB / 256GB"],
+
+["OnePlus Nord 4","6.74-inch AMOLED, 120Hz","Snapdragon 7+ Gen 3","50MP dual camera","5500mAh","128GB / 256GB / 512GB"],
+
+["OnePlus Nord 3","6.74-inch AMOLED, 120Hz","Dimensity 9000","50MP triple camera","5000mAh","128GB / 256GB"],
+
+["OnePlus Nord 2T","6.43-inch AMOLED, 90Hz","Dimensity 1300","50MP triple camera","4500mAh","128GB / 256GB"]
+
 ],
+
 
 Huawei:[
-["Huawei Pura 70 Ultra","6.8-inch LTPO OLED","Kirin","50MP + 40MP + 50MP","5050mAh","512GB / 1TB"],
-["Huawei Pura 70 Pro","6.8-inch LTPO OLED","Kirin","50MP system","5050mAh","256GB / 512GB"],
-["Huawei Mate 70 Pro","6.7-inch OLED","Kirin","50MP system","5500mAh","256GB / 512GB / 1TB"],
-["Huawei Mate 60 Pro","6.82-inch OLED","Kirin 9000S","50MP system","5000mAh","256GB / 512GB / 1TB"]
+
+["Huawei Pura 70 Ultra","6.8-inch LTPO OLED","Kirin 9010","50MP + 40MP + 50MP","5050mAh","512GB / 1TB"],
+
+["Huawei Pura 70 Pro","6.8-inch LTPO OLED","Kirin 9010","50MP + 48MP + 12.5MP","5050mAh","256GB / 512GB"],
+
+["Huawei Pura 70","6.6-inch OLED","Kirin chipset","50MP triple camera","4900mAh","256GB / 512GB"],
+
+["Huawei Mate 70 Pro","6.7-inch OLED","Kirin chipset","50MP triple camera","5500mAh","256GB / 512GB / 1TB"],
+
+["Huawei Mate 60 Pro","6.82-inch OLED","Kirin 9000S","50MP triple camera","5000mAh","256GB / 512GB / 1TB"],
+
+["Huawei P60 Pro","6.67-inch LTPO OLED","Snapdragon 8+ Gen 1 4G","48MP triple camera","4815mAh","256GB / 512GB"],
+
+["Huawei Mate 50 Pro","6.74-inch OLED, 120Hz","Snapdragon 8+ Gen 1 4G","50MP triple camera","4700mAh","256GB / 512GB"],
+
+["Huawei Nova 13 Pro","6.76-inch OLED, 120Hz","Kirin chipset","50MP dual camera","5000mAh","256GB / 512GB"],
+
+["Huawei Nova 12 Pro","6.76-inch OLED, 120Hz","Kirin chipset","50MP dual camera","4600mAh","256GB / 512GB"]
+
 ],
+
 
 Honor:[
-["Honor Magic7 Pro","6.8-inch LTPO OLED, 120Hz","Snapdragon 8 Elite","200MP telephoto + triple","5850mAh","512GB / 1TB"],
-["Honor Magic6 Pro","6.8-inch LTPO OLED, 120Hz","Snapdragon 8 Gen 3","180MP telephoto","5600mAh","512GB / 1TB"],
-["Honor 400 Pro","6.7-inch AMOLED","Snapdragon chipset","200MP","Large capacity","256GB / 512GB"],
-["Honor 200 Pro","6.78-inch OLED, 120Hz","Snapdragon 8s Gen 3","50MP triple","5200mAh","512GB"]
+
+["Honor Magic7 Pro","6.8-inch LTPO OLED, 120Hz","Snapdragon 8 Elite","50MP + 50MP + 200MP","5850mAh","512GB / 1TB"],
+
+["Honor Magic7","6.8-inch OLED, 120Hz","Snapdragon 8 Elite","50MP triple camera","5650mAh","256GB / 512GB"],
+
+["Honor Magic6 Pro","6.8-inch LTPO OLED, 120Hz","Snapdragon 8 Gen 3","50MP + 50MP + 180MP","5600mAh","512GB / 1TB"],
+
+["Honor Magic6","6.8-inch OLED, 120Hz","Snapdragon 8 Gen 3","50MP triple camera","5450mAh","256GB / 512GB"],
+
+["Honor 400 Pro","6.7-inch AMOLED","Snapdragon chipset","200MP triple camera","6000mAh","256GB / 512GB"],
+
+["Honor 200 Pro","6.78-inch OLED, 120Hz","Snapdragon 8s Gen 3","50MP triple camera","5200mAh","512GB"],
+
+["Honor 200","6.7-inch OLED, 120Hz","Snapdragon 7 Gen 3","50MP triple camera","5200mAh","256GB / 512GB"],
+
+["Honor X60 Pro","6.8-inch OLED, 120Hz","Snapdragon chipset","108MP camera","6600mAh","128GB / 256GB / 512GB"],
+
+["Honor X50 Pro","6.78-inch AMOLED, 120Hz","Snapdragon 8+ Gen 1","108MP camera","5800mAh","256GB"]
+
 ],
+
 
 Oppo:[
-["OPPO Find X8 Pro","6.78-inch LTPO AMOLED, 120Hz","Dimensity 9400","Hasselblad quad","5910mAh","512GB"],
-["OPPO Find X8","6.59-inch AMOLED, 120Hz","Dimensity 9400","50MP triple","5630mAh","256GB / 512GB"],
-["OPPO Reno13 Pro","6.83-inch AMOLED, 120Hz","Dimensity","50MP system","5800mAh","512GB"],
-["OPPO Reno12 Pro","6.7-inch AMOLED, 120Hz","Dimensity 7300","50MP system","5000mAh","256GB / 512GB"]
+
+["OPPO Find X8 Pro","6.78-inch LTPO AMOLED, 120Hz","Dimensity 9400","Hasselblad quad camera","5910mAh","512GB"],
+
+["OPPO Find X8","6.59-inch AMOLED, 120Hz","Dimensity 9400","50MP triple camera","5630mAh","256GB / 512GB"],
+
+["OPPO Find X7 Ultra","6.82-inch LTPO AMOLED, 120Hz","Snapdragon 8 Gen 3","Hasselblad quad camera","5000mAh","256GB / 512GB"],
+
+["OPPO Find X7","6.78-inch AMOLED, 120Hz","Dimensity 9300","50MP triple camera","5000mAh","256GB / 512GB"],
+
+["OPPO Reno13 Pro","6.83-inch AMOLED, 120Hz","Dimensity 8350","50MP triple camera","5800mAh","512GB"],
+
+["OPPO Reno13","6.59-inch AMOLED, 120Hz","Dimensity 8350","50MP triple camera","5600mAh","256GB / 512GB"],
+
+["OPPO Reno12 Pro","6.7-inch AMOLED, 120Hz","Dimensity 7300","50MP triple camera","5000mAh","256GB / 512GB"],
+
+["OPPO Reno12","6.7-inch AMOLED, 120Hz","Dimensity 7300","50MP triple camera","5000mAh","256GB / 512GB"],
+
+["OPPO Reno11 Pro","6.7-inch AMOLED, 120Hz","Dimensity 8200","50MP triple camera","4600mAh","256GB"]
+
 ],
+
 
 Vivo:[
-["vivo X200 Pro","6.78-inch LTPO AMOLED, 120Hz","Dimensity 9400","200MP ZEISS telephoto","6000mAh","512GB / 1TB"],
-["vivo X200","6.67-inch AMOLED, 120Hz","Dimensity 9400","50MP triple","5800mAh","256GB / 512GB"],
-["vivo X100 Pro","6.78-inch LTPO AMOLED, 120Hz","Dimensity 9300","50MP ZEISS triple","5400mAh","512GB"],
-["vivo V50","6.77-inch AMOLED, 120Hz","Snapdragon","50MP ZEISS","6000mAh","256GB / 512GB"]
+
+["vivo X200 Pro","6.78-inch LTPO AMOLED, 120Hz","Dimensity 9400","50MP + 50MP + 200MP ZEISS","6000mAh","512GB / 1TB"],
+
+["vivo X200","6.67-inch AMOLED, 120Hz","Dimensity 9400","50MP triple camera","5800mAh","256GB / 512GB"],
+
+["vivo X100 Pro","6.78-inch LTPO AMOLED, 120Hz","Dimensity 9300","50MP triple ZEISS camera","5400mAh","512GB"],
+
+["vivo X100","6.78-inch AMOLED, 120Hz","Dimensity 9300","50MP triple camera","5400mAh","256GB / 512GB"],
+
+["vivo X90 Pro","6.78-inch AMOLED, 120Hz","Dimensity 9200","50MP triple camera","4870mAh","256GB / 512GB"],
+
+["vivo X80 Pro","6.78-inch AMOLED, 120Hz","Snapdragon 8 Gen 1","50MP quad camera","4700mAh","256GB / 512GB"],
+
+["vivo V50","6.77-inch AMOLED, 120Hz","Snapdragon chipset","50MP ZEISS camera system","6000mAh","256GB / 512GB"],
+
+["vivo V40 Pro","6.78-inch AMOLED, 120Hz","Dimensity 9200+","50MP triple camera","5500mAh","256GB / 512GB"],
+
+["vivo V40","6.78-inch AMOLED, 120Hz","Snapdragon 7 Gen 3","50MP dual camera","5500mAh","256GB / 512GB"],
+
+["vivo V30 Pro","6.78-inch AMOLED, 120Hz","Dimensity 8200","50MP triple camera","5000mAh","256GB / 512GB"]
+
 ],
+
 
 Realme:[
-["Realme GT 7 Pro","6.78-inch LTPO AMOLED, 120Hz","Snapdragon 8 Elite","50MP system","6500mAh","256GB / 512GB"],
-["Realme GT 6","6.78-inch LTPO AMOLED, 120Hz","Snapdragon 8s Gen 3","50MP","5500mAh","256GB / 512GB"],
-["Realme 14 Pro+","6.83-inch OLED, 120Hz","Snapdragon","50MP periscope","6000mAh","256GB / 512GB"]
+
+["Realme GT 7 Pro","6.78-inch LTPO AMOLED, 120Hz","Snapdragon 8 Elite","50MP triple camera","6500mAh","256GB / 512GB"],
+
+["Realme GT 7","6.78-inch AMOLED, 120Hz","Dimensity chipset","50MP triple camera","7000mAh","256GB / 512GB"],
+
+["Realme GT 6","6.78-inch LTPO AMOLED, 120Hz","Snapdragon 8s Gen 3","50MP triple camera","5500mAh","256GB / 512GB"],
+
+["Realme GT 6T","6.78-inch AMOLED, 120Hz","Snapdragon 7+ Gen 3","50MP dual camera","5500mAh","128GB / 256GB"],
+
+["Realme 14 Pro+","6.83-inch OLED, 120Hz","Snapdragon chipset","50MP periscope camera","6000mAh","256GB / 512GB"],
+
+["Realme 14 Pro","6.77-inch OLED, 120Hz","Dimensity chipset","50MP triple camera","6000mAh","128GB / 256GB"],
+
+["Realme 13 Pro+","6.7-inch OLED, 120Hz","Snapdragon 7s Gen 2","50MP triple camera","5200mAh","256GB / 512GB"],
+
+["Realme 13 Pro","6.7-inch OLED, 120Hz","Snapdragon 7s Gen 2","50MP triple camera","5200mAh","128GB / 256GB"],
+
+["Realme C75","6.72-inch LCD, 90Hz","MediaTek chipset","50MP camera","6000mAh","128GB / 256GB"],
+
+["Realme C65","6.67-inch LCD, 90Hz","MediaTek chipset","50MP camera","5000mAh","128GB / 256GB"]
+
 ],
+
 
 Nothing:[
-["Nothing Phone (3)","6.67-inch OLED","Snapdragon","50MP system","5150mAh","256GB / 512GB"],
-["Nothing Phone (3a) Pro","6.77-inch AMOLED, 120Hz","Snapdragon","50MP system","5000mAh","256GB"],
-["Nothing Phone (3a)","6.77-inch AMOLED, 120Hz","Snapdragon","50MP system","5000mAh","128GB / 256GB"],
-["Nothing Phone (2)","6.7-inch OLED, 120Hz","Snapdragon 8+ Gen 1","50MP dual","4700mAh","128GB / 256GB / 512GB"],
-["Nothing Phone (1)","6.55-inch OLED, 120Hz","Snapdragon 778G+","50MP dual","4500mAh","128GB / 256GB"]
+
+["Nothing Phone (3)","6.67-inch OLED, 120Hz","Snapdragon 8s Gen 4","50MP triple camera","5150mAh","256GB / 512GB"],
+
+["Nothing Phone (3a) Pro","6.77-inch AMOLED, 120Hz","Snapdragon 7s Gen 3","50MP triple camera","5000mAh","256GB"],
+
+["Nothing Phone (3a)","6.77-inch AMOLED, 120Hz","Snapdragon 7s Gen 3","50MP triple camera","5000mAh","128GB / 256GB"],
+
+["Nothing Phone (2)","6.7-inch OLED, 120Hz","Snapdragon 8+ Gen 1","50MP dual camera","4700mAh","128GB / 256GB / 512GB"],
+
+["Nothing Phone (2a) Plus","6.7-inch AMOLED, 120Hz","Dimensity 7350 Pro","50MP dual camera","5000mAh","256GB"],
+
+["Nothing Phone (2a)","6.7-inch AMOLED, 120Hz","Dimensity 7200 Pro","50MP dual camera","5000mAh","128GB / 256GB"],
+
+["Nothing Phone (1)","6.55-inch OLED, 120Hz","Snapdragon 778G+","50MP dual camera","4500mAh","128GB / 256GB"],
+
+["CMF Phone 2 Pro","6.77-inch AMOLED, 120Hz","Dimensity 7300 Pro","50MP triple camera","5000mAh","128GB / 256GB"],
+
+["CMF Phone 1","6.67-inch AMOLED, 120Hz","Dimensity 7300","50MP dual camera","5000mAh","128GB / 256GB"]
+
 ],
+
 
 Motorola:[
-["Motorola Edge 60 Pro","6.7-inch pOLED, 120Hz","Dimensity","50MP","6000mAh","256GB / 512GB"],
-["Motorola Razr 60 Ultra","Foldable pOLED","Snapdragon","50MP dual","4700mAh","512GB"],
-["Motorola Edge 50 Ultra","6.67-inch pOLED, 144Hz","Snapdragon 8s Gen 3","50MP triple","4500mAh","512GB / 1TB"]
+
+["Motorola Edge 60 Pro","6.7-inch pOLED, 120Hz","Dimensity chipset","50MP triple camera","6000mAh","256GB / 512GB"],
+
+["Motorola Edge 60","6.7-inch pOLED, 120Hz","Dimensity chipset","50MP triple camera","5200mAh","256GB / 512GB"],
+
+["Motorola Razr 60 Ultra","Foldable pOLED","Snapdragon chipset","50MP dual camera","4700mAh","512GB"],
+
+["Motorola Razr 60","Foldable pOLED","Dimensity chipset","50MP dual camera","4500mAh","256GB"],
+
+["Motorola Edge 50 Ultra","6.67-inch pOLED, 144Hz","Snapdragon 8s Gen 3","50MP triple camera","4500mAh","512GB / 1TB"],
+
+["Motorola Edge 50 Pro","6.7-inch pOLED, 144Hz","Snapdragon 7 Gen 3","50MP triple camera","4500mAh","256GB / 512GB"],
+
+["Motorola Edge 50","6.7-inch pOLED, 120Hz","Snapdragon 7 Gen 1 Accelerated Edition","50MP triple camera","5000mAh","256GB / 512GB"],
+
+["Motorola Moto G85","6.67-inch pOLED, 120Hz","Snapdragon 6s Gen 3","50MP dual camera","5000mAh","256GB"],
+
+["Motorola Moto G75","6.78-inch LCD, 120Hz","Snapdragon 6 Gen 3","50MP dual camera","5000mAh","256GB"]
+
 ],
+
 
 Sony:[
-["Sony Xperia 1 VII","6.5-inch OLED","Snapdragon","Triple camera","5000mAh","256GB"],
+
+["Sony Xperia 1 VII","6.5-inch OLED, 120Hz","Snapdragon 8 Elite","48MP triple camera","5000mAh","256GB"],
+
 ["Sony Xperia 1 VI","6.5-inch OLED, 120Hz","Snapdragon 8 Gen 3","48MP + 12MP + 12MP","5000mAh","256GB / 512GB"],
-["Sony Xperia 5 V","6.1-inch OLED, 120Hz","Snapdragon 8 Gen 2","48MP dual","5000mAh","128GB"]
+
+["Sony Xperia 1 V","6.5-inch OLED, 120Hz","Snapdragon 8 Gen 2","48MP + 12MP + 12MP","5000mAh","256GB / 512GB"],
+
+["Sony Xperia 5 V","6.1-inch OLED, 120Hz","Snapdragon 8 Gen 2","48MP dual camera","5000mAh","128GB"],
+
+["Sony Xperia 10 VII","6.1-inch OLED, 120Hz","Snapdragon chipset","50MP dual camera","5000mAh","128GB"],
+
+["Sony Xperia 10 VI","6.1-inch OLED, 60Hz","Snapdragon 6 Gen 1","48MP dual camera","5000mAh","128GB / 256GB"]
+
 ],
+
 
 ASUS:[
-["ASUS ROG Phone 9 Pro","6.78-inch AMOLED, 185Hz","Snapdragon 8 Elite","50MP triple","5800mAh","512GB / 1TB"],
-["ASUS ROG Phone 8 Pro","6.78-inch AMOLED, 165Hz","Snapdragon 8 Gen 3","50MP triple","5500mAh","512GB / 1TB"],
-["ASUS Zenfone 12 Ultra","6.78-inch AMOLED, 120Hz","Snapdragon 8 Elite","50MP triple","5500mAh","256GB / 512GB"]
+
+["ASUS ROG Phone 9 Pro","6.78-inch AMOLED, 185Hz","Snapdragon 8 Elite","50MP triple camera","5800mAh","512GB / 1TB"],
+
+["ASUS ROG Phone 9","6.78-inch AMOLED, 185Hz","Snapdragon 8 Elite","50MP triple camera","5800mAh","256GB / 512GB"],
+
+["ASUS ROG Phone 8 Pro","6.78-inch AMOLED, 165Hz","Snapdragon 8 Gen 3","50MP triple camera","5500mAh","512GB / 1TB"],
+
+["ASUS ROG Phone 8","6.78-inch AMOLED, 165Hz","Snapdragon 8 Gen 3","50MP triple camera","5500mAh","256GB / 512GB"],
+
+["ASUS ROG Phone 7 Ultimate","6.78-inch AMOLED, 165Hz","Snapdragon 8 Gen 2","50MP triple camera","6000mAh","512GB"],
+
+["ASUS ROG Phone 7","6.78-inch AMOLED, 165Hz","Snapdragon 8 Gen 2","50MP triple camera","6000mAh","256GB / 512GB"],
+
+["ASUS Zenfone 12 Ultra","6.78-inch AMOLED, 120Hz","Snapdragon 8 Elite","50MP triple camera","5500mAh","256GB / 512GB"],
+
+["ASUS Zenfone 11 Ultra","6.78-inch AMOLED, 144Hz","Snapdragon 8 Gen 3","50MP triple camera","5500mAh","256GB / 512GB"]
+
 ],
+
 
 Infinix:[
-["Infinix GT 30 Pro","AMOLED, high refresh rate","Dimensity","50MP","Large capacity","256GB / 512GB"],
-["Infinix Note 50 Pro+","AMOLED","MediaTek","50MP","Large capacity","256GB / 512GB"],
-["Infinix Note 40 Pro+","AMOLED, 120Hz","Dimensity","108MP","4600mAh","256GB"]
+
+["Infinix GT 30 Pro","6.78-inch AMOLED, 144Hz","Dimensity 8350 Ultimate","108MP + 8MP","5500mAh","256GB / 512GB"],
+
+["Infinix GT 20 Pro","6.78-inch AMOLED, 144Hz","Dimensity 8200 Ultimate","108MP triple camera","5000mAh","256GB"],
+
+["Infinix Note 50 Pro+","6.78-inch AMOLED, 144Hz","Dimensity chipset","50MP triple camera","5200mAh","256GB"],
+
+["Infinix Note 50 Pro","6.78-inch AMOLED, 144Hz","MediaTek chipset","50MP camera","5200mAh","256GB"],
+
+["Infinix Note 40 Pro+","6.78-inch AMOLED, 120Hz","Dimensity 7020","108MP camera","4600mAh","256GB"],
+
+["Infinix Note 40 Pro","6.78-inch AMOLED, 120Hz","Helio G99 Ultimate","108MP camera","5000mAh","256GB"],
+
+["Infinix Zero 40 Pro","6.78-inch AMOLED, 144Hz","Dimensity 8200","108MP triple camera","5000mAh","256GB / 512GB"],
+
+["Infinix Hot 60 Pro","6.78-inch AMOLED, 144Hz","MediaTek chipset","50MP camera","5160mAh","128GB / 256GB"],
+
+["Infinix Hot 50 Pro","6.78-inch AMOLED, 120Hz","Helio G100","50MP camera","5000mAh","128GB / 256GB"]
+
 ],
+
 
 ZTE:[
-["ZTE Axon 60 Ultra","OLED","Qualcomm","50MP","6000mAh","256GB / 512GB"],
-["ZTE Axon 50 Ultra","OLED, 120Hz","Snapdragon","64MP","5000mAh","256GB / 512GB"]
+
+["ZTE Axon 60 Ultra","6.78-inch OLED","Qualcomm chipset","50MP camera system","6000mAh","256GB / 512GB"],
+
+["ZTE Axon 60","6.72-inch AMOLED","Unisoc chipset","50MP camera","5000mAh","256GB"],
+
+["ZTE Axon 50 Ultra","6.67-inch OLED, 120Hz","Snapdragon chipset","64MP triple camera","5000mAh","256GB / 512GB"],
+
+["ZTE Axon 50 Pro","6.67-inch AMOLED, 120Hz","Snapdragon chipset","100MP camera","5000mAh","256GB"],
+
+["ZTE Axon 40 Ultra","6.8-inch AMOLED, 120Hz","Snapdragon 8 Gen 1","64MP triple camera","5000mAh","256GB / 512GB"],
+
+["ZTE Axon 40 Pro","6.67-inch AMOLED, 144Hz","Snapdragon 870","100MP camera","5000mAh","128GB / 256GB"],
+
+["ZTE Blade V70","6.7-inch LCD","Unisoc chipset","108MP camera","5000mAh","128GB / 256GB"],
+
+["ZTE Blade V60","6.72-inch LCD","Unisoc chipset","50MP camera","5000mAh","128GB / 256GB"]
+
 ],
+
 
 TCL:[
-["TCL 60 Ultra","NXTPAPER","MediaTek","50MP","Large capacity","256GB"],
-["TCL 50 Pro","AMOLED","MediaTek","50MP","5000mAh","256GB"],
-["TCL 40 NXTPAPER","6.78-inch NXTPAPER","MediaTek","50MP","5010mAh","256GB"]
+
+["TCL 60 Ultra","NXTPAPER display","MediaTek chipset","50MP camera","5200mAh","256GB"],
+
+["TCL 60 Pro","NXTPAPER display","MediaTek chipset","50MP camera","5200mAh","256GB"],
+
+["TCL 60","NXTPAPER display","MediaTek chipset","50MP camera","5200mAh","128GB / 256GB"],
+
+["TCL 50 Pro","AMOLED","MediaTek chipset","50MP camera","5000mAh","256GB"],
+
+["TCL 50","LCD","MediaTek chipset","50MP camera","5010mAh","128GB / 256GB"],
+
+["TCL 40 NXTPAPER","6.78-inch NXTPAPER display","MediaTek chipset","50MP camera","5010mAh","256GB"],
+
+["TCL 40","6.75-inch LCD","MediaTek chipset","50MP camera","5010mAh","128GB / 256GB"]
+
 ],
+
 
 Nubia:[
+
 ["nubia Z70 Ultra","6.85-inch AMOLED, 144Hz","Snapdragon 8 Elite","50MP + 64MP + 50MP","6150mAh","256GB / 512GB / 1TB"],
-["nubia Z60 Ultra","6.8-inch AMOLED, 120Hz","Snapdragon 8 Gen 3","50MP triple","6000mAh","256GB / 512GB / 1TB"],
-["nubia RedMagic 10 Pro","6.85-inch AMOLED, 144Hz","Snapdragon 8 Elite","50MP triple","7050mAh","256GB / 512GB / 1TB"],
-["nubia RedMagic 9 Pro","6.8-inch AMOLED, 120Hz","Snapdragon 8 Gen 3","50MP dual","6500mAh","256GB / 512GB"]
+
+["nubia Z70S Ultra","6.85-inch AMOLED, 144Hz","Snapdragon chipset","50MP triple camera","6600mAh","256GB / 512GB"],
+
+["nubia Z60 Ultra","6.8-inch AMOLED, 120Hz","Snapdragon 8 Gen 3","50MP triple camera","6000mAh","256GB / 512GB / 1TB"],
+
+["nubia Z60S Pro","6.78-inch AMOLED, 120Hz","Snapdragon 8 Gen 2","50MP triple camera","5100mAh","256GB / 512GB"],
+
+["nubia Z50 Ultra","6.8-inch AMOLED, 120Hz","Snapdragon 8 Gen 2","64MP quad camera","5000mAh","256GB / 512GB / 1TB"],
+
+["nubia RedMagic 10 Pro","6.85-inch AMOLED, 144Hz","Snapdragon 8 Elite","50MP triple camera","7050mAh","256GB / 512GB / 1TB"],
+
+["nubia RedMagic 9 Pro","6.8-inch AMOLED, 120Hz","Snapdragon 8 Gen 3","50MP dual camera","6500mAh","256GB / 512GB"],
+
+["nubia RedMagic 8 Pro","6.8-inch AMOLED, 120Hz","Snapdragon 8 Gen 2","50MP dual camera","6000mAh","256GB / 512GB"],
+
+["nubia Neo 3 GT","6.8-inch AMOLED, high refresh rate","Unisoc chipset","50MP camera","6000mAh","256GB"]
+
 ],
 
+
 Tecno:[
-["Tecno Phantom V Fold2","Foldable LTPO AMOLED","Dimensity","50MP triple","5750mAh","512GB"],
-["Tecno Phantom V Flip2","Foldable AMOLED","Dimensity","50MP dual","4720mAh","256GB"],
-["Tecno Camon 40 Premier","AMOLED, 120Hz","Dimensity","50MP system","5100mAh","512GB"],
-["Tecno Pova 7 Pro","AMOLED, high refresh","Dimensity","50MP","6000mAh","256GB"]
+
+["Tecno Phantom V Fold2","7.85-inch foldable LTPO AMOLED","Dimensity 9000+","50MP triple camera","5750mAh","512GB"],
+
+["Tecno Phantom V Flip2","6.9-inch foldable AMOLED","Dimensity 8020","50MP dual camera","4720mAh","256GB"],
+
+["Tecno Phantom X2 Pro","6.8-inch AMOLED, 120Hz","Dimensity 9000","50MP triple camera","5160mAh","256GB"],
+
+["Tecno Camon 40 Premier","6.77-inch AMOLED, 120Hz","Dimensity 8350","50MP triple camera","5100mAh","512GB"],
+
+["Tecno Camon 40 Pro","6.78-inch AMOLED, 120Hz","MediaTek chipset","50MP triple camera","5200mAh","256GB"],
+
+["Tecno Camon 30 Premier","6.77-inch AMOLED, 120Hz","Dimensity 8200 Ultimate","50MP triple camera","5000mAh","512GB"],
+
+["Tecno Camon 30 Pro","6.78-inch AMOLED, 120Hz","Dimensity 8200 Ultimate","50MP triple camera","5000mAh","512GB"],
+
+["Tecno Pova 7 Pro","6.78-inch AMOLED, 144Hz","Dimensity chipset","50MP camera","6000mAh","256GB"],
+
+["Tecno Pova 6 Pro","6.78-inch AMOLED, 120Hz","Dimensity 6080","108MP camera","6000mAh","256GB"],
+
+["Tecno Spark 40 Pro","6.78-inch AMOLED, 144Hz","MediaTek chipset","50MP camera","5200mAh","128GB / 256GB"],
+
+["Tecno Spark 30 Pro","6.78-inch AMOLED, 120Hz","Helio G100","108MP camera","5000mAh","128GB / 256GB"]
+
 ]
 
 };
+
+
+/* =====================================================
+   CONVERT DATABASE
+   ===================================================== */
+
+Object.keys(phones).forEach(brand=>{
+
+phones[brand]=phones[brand].map(p=>({
+
+name:p[0],
+display:p[1],
+processor:p[2],
+camera:p[3],
+battery:p[4],
+storage:p[5]
+
+}));
+
+});
+
+
+/* =====================================================
+   STATE
+   ===================================================== */
+
+let firstPhone=null;
+
+let secondPhone=null;
+
+let choosingSecond=false;
+
+let currentBrand=null;
+
+
+/* =====================================================
+   OPEN COMPARE
+   ===================================================== */
+
+function openCompare(){
+
+document.getElementById("home").style.display="none";
+
+document.getElementById("compare").classList.add("active");
+
+firstPhone=null;
+
+secondPhone=null;
+
+choosingSecond=false;
+
+currentBrand=null;
+
+document.getElementById("brandSearch").value="";
+
+document.getElementById("modelArea").innerHTML="";
+
+document.getElementById("comparisonArea").innerHTML="";
+
+showBrands();
+
+window.scrollTo(0,0);
+
+}
+
+
+/* =====================================================
+   HOME
+   ===================================================== */
+
+function goHome(){
+
+document.getElementById("compare").classList.remove("active");
+
+document.getElementById("home").style.display="block";
+
+window.scrollTo(0,0);
+
+}
+
+
+/* =====================================================
+   SHOW BRANDS
+   ===================================================== */
+
+function showBrands(){
+
+document.getElementById("brandList").style.display="grid";
+
+document.getElementById("modelArea").innerHTML="";
+
+document.getElementById("comparisonArea").innerHTML="";
+
+document.getElementById("brandSearch").value="";
+
+document.getElementById("pageDescription").innerText=
+
+choosingSecond
+
+? "Choose the brand for your second phone."
+
+: "Choose the brand for your first phone.";
+
+renderBrands("");
+
+}
+
+
+/* =====================================================
+   RENDER BRANDS
+   ===================================================== */
+
+function renderBrands(search){
+
+const list=document.getElementById("brandList");
+
+const query=search.toLowerCase().trim();
+
+const filtered=Object.keys(phones).filter(brand=>
+
+brand.toLowerCase().includes(query)
+
+);
+
+if(filtered.length===0){
+
+list.innerHTML=`
+
+<div class="no-results">
+No brand found.
+</div>
+
+`;
+
+return;
+
+}
+
+list.innerHTML=filtered.map(brand=>`
+
+<div
+class="item brand-card"
+onclick="chooseBrand('${brand}')"
+>
+
+<div class="brand-logo-box">
+
+<img
+class="brand-logo"
+src="${logo(brand)}"
+alt="${brand}"
+onerror="brandFallback(this,'${brand}')"
+>
+
+</div>
+
+<div class="brand-info">
+
+<h3>
+${brand}
+</h3>
+
+<p>
+${phones[brand].length} models
+</p>
+
+</div>
+
+</div>
+
+`).join("");
+
+}
+
+
+/* =====================================================
+   LOGO FALLBACK
+   ===================================================== */
+
+function brandFallback(img,brand){
+
+img.style.display="none";
+
+const box=img.parentElement;
+
+box.innerHTML=
+
+`<span style="
+font-weight:900;
+font-size:11px;
+letter-spacing:.5px;
+color:#fff;
+">${brand}</span>`;
+
+}
+
+
+/* =====================================================
+   BRAND SEARCH
+   ===================================================== */
+
+function searchBrands(){
+
+renderBrands(
+
+document.getElementById("brandSearch").value
+
+);
+
+}
+
+
+/* =====================================================
+   CHOOSE BRAND
+   ===================================================== */
+
+function chooseBrand(brand){
+
+currentBrand=brand;
+
+document.getElementById("brandList").style.display="none";
+
+document.getElementById("brandSearch").value="";
+
+const area=document.getElementById("modelArea");
+
+area.innerHTML=`
+
+<button
+class="back"
+onclick="showBrands()"
+>
+← Back to brands
+</button>
+
+<div class="model-header">
+
+<div class="brand-logo-box">
+
+<img
+class="brand-logo"
+src="${logo(brand)}"
+alt="${brand}"
+onerror="brandFallback(this,'${brand}')"
+>
+
+</div>
+
+<div>
+
+<h2>
+${brand}
+</h2>
+
+<div class="model-count">
+${phones[brand].length} smartphones available
+</div>
+
+</div>
+
+</div>
+
+<p class="description">
+
+${
+choosingSecond
+?
+"Choose your second phone."
+:
+"Choose your first phone."
+}
+
+</p>
+
+<div class="model-search-title">
+Search any ${brand} model
+</div>
+
+<div class="search-box">
+
+<span class="search-icon">
+⌕
+</span>
+
+<input
+id="modelSearch"
+type="text"
+placeholder="Search ${brand} models..."
+oninput="searchModels()"
+autocomplete="off"
+>
+
+</div>
+
+<div
+id="modelList"
+class="items"
+>
+</div>
+
+`;
+
+renderModels("");
+
+window.scrollTo(0,0);
+
+}
+
+
+/* =====================================================
+   MODEL SEARCH
+   ===================================================== */
+
+function renderModels(search){
+
+const list=document.getElementById("modelList");
+
+if(!list)return;
+
+const query=search.toLowerCase().trim();
+
+const all=phones[currentBrand];
+
+let filtered;
+
+if(!query){
+
+filtered=all;
+
+}else{
+
+filtered=all.filter(phone=>
+
+phone.name.toLowerCase().includes(query)
+
+);
+
+}
+
+if(filtered.length===0){
+
+list.innerHTML=`
+
+<div class="no-results">
+
+No ${currentBrand} phone found.
+
+<br><br>
+
+Try another model name.
+
+</div>
+
+`;
+
+return;
+
+}
+
+list.innerHTML=filtered.map(phone=>`
+
+<div
+class="item phone-item"
+onclick="choosePhone('${escapeQuotes(phone.name)}')"
+>
+
+<div class="phone-icon">
+📱
+</div>
+
+<h3>
+${phone.name}
+</h3>
+
+<p class="phone-brand">
+${currentBrand}
+</p>
+
+</div>
+
+`).join("");
+
+}
+
+
+function searchModels(){
+
+renderModels(
+
+document.getElementById("modelSearch").value
+
+);
+
+}
+
+
+function escapeQuotes(text){
+
+return text
+.replace(/\\/g,"\\\\")
+.replace(/'/g,"\\'");
+
+}
+
+
+/* =====================================================
+   PHONE SELECTION
+   ===================================================== */
+
+function choosePhone(name){
+
+const phone=phones[currentBrand].find(
+
+p=>p.name===name
+
+);
+
+const selected={
+
+...phone,
+
+brand:currentBrand
+
+};
+
+if(!choosingSecond){
+
+firstPhone=selected;
+
+choosingSecond=true;
+
+currentBrand=null;
+
+document.getElementById("modelArea").innerHTML="";
+
+showBrands();
+
+window.scrollTo(0,0);
+
+return;
+
+}
+
+secondPhone=selected;
+
+showComparison();
+
+}
+
+
+/* =====================================================
+   COMPARISON
+   ===================================================== */
+
+function showComparison(){
+
+document.getElementById("brandList").style.display="none";
+
+document.getElementById("modelArea").innerHTML="";
+
+document.getElementById("pageDescription").innerText=
+
+"Your selected phones";
+
+document.getElementById("comparisonArea").innerHTML=`
+
+<div class="compare-box">
+
+<div class="compare-title">
+
+${firstPhone.name}
+
+<br>
+
+<span style="color:#666">
+VS
+</span>
+
+<br>
+
+${secondPhone.name}
+
+</div>
+
+<div class="compare-grid">
+
+${createPhoneCard(firstPhone)}
+
+${createPhoneCard(secondPhone)}
+
+</div>
+
+</div>
+
+<button
+class="back"
+style="margin-top:15px"
+onclick="openCompare()"
+>
+
+Compare Again
+
+</button>
+
+`;
+
+window.scrollTo(0,0);
+
+}
+
+
+/* =====================================================
+   PHONE CARD
+   ===================================================== */
+
+function createPhoneCard(phone){
+
+return `
+
+<div class="phone-result">
+
+<h3>
+
+📱 ${phone.name}
+
+</h3>
+
+<div class="spec">
+
+<span>
+Brand
+</span>
+
+${phone.brand}
+
+</div>
+
+<div class="spec">
+
+<span>
+Display
+</span>
+
+${phone.display}
+
+</div>
+
+<div class="spec">
+
+<span>
+Processor
+</span>
+
+${phone.processor}
+
+</div>
+
+<div class="spec">
+
+<span>
+Camera
+</span>
+
+${phone.camera}
+
+</div>
+
+<div class="spec">
+
+<span>
+Battery
+</span>
+
+${phone.battery}
+
+</div>
+
+<div class="spec">
+
+<span>
+Storage
+</span>
+
+${phone.storage}
+
+</div>
+
+</div>
+
+`;
+
+}
+
+
+/* =====================================================
+   OTHER FEATURES
+   ===================================================== */
+
+function comingSoon(name){
+
+alert(name+" — Coming Soon 🚀");
+
+}
+
+
+</script>
