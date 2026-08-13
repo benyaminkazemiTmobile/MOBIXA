@@ -1813,112 +1813,106 @@ alert(name+" — Coming Soon 🚀");
 
 
 </script>
-<!-- =========================================================
-     MOBIXA GAMING — OPEN ONLY WHEN GAMING IS CLICKED
-========================================================= -->
-
 <style>
+/* =========================================================
+   MOBIXA GAMING MODAL
+========================================================= */
 
-.mx-gaming-overlay{
+#mxGamingModal{
   position:fixed;
   inset:0;
-  z-index:99999;
+  z-index:999999;
+  display:none;
   background:#050608;
   overflow-y:auto;
-  display:none;
-  opacity:0;
-  transform:translateY(20px);
-  transition:.35s ease;
+  -webkit-overflow-scrolling:touch;
 }
 
-.mx-gaming-overlay.active{
+#mxGamingModal.mx-open{
   display:block;
-  opacity:1;
-  transform:translateY(0);
+  animation:mxGamingIn .25s ease;
 }
 
-.mx-gaming-page{
-  width:min(1180px,calc(100% - 30px));
-  margin:auto;
-  padding:28px 0 50px;
+@keyframes mxGamingIn{
+  from{opacity:0;transform:scale(.98)}
+  to{opacity:1;transform:scale(1)}
 }
 
-/* TOP */
+.mx-gaming-wrap{
+  width:min(1180px,calc(100% - 28px));
+  margin:0 auto;
+  padding:25px 0 45px;
+}
+
+/* TOP BAR */
 
 .mx-gaming-top{
+  position:sticky;
+  top:0;
+  z-index:10;
   display:flex;
   align-items:center;
   justify-content:space-between;
-  margin-bottom:25px;
+  padding:16px 0;
+  background:rgba(5,6,8,.92);
+  backdrop-filter:blur(18px);
+  border-bottom:1px solid #1d2028;
 }
 
-.mx-gaming-back{
-  width:42px;
-  height:42px;
-  border:1px solid #292d35;
-  border-radius:50%;
-  background:#101319;
-  color:#fff;
-  font-size:20px;
-  cursor:pointer;
-}
-
-.mx-gaming-title{
-  text-align:center;
-  flex:1;
-}
-
-.mx-gaming-title small{
-  display:block;
-  color:#727988;
-  font-size:9px;
-  letter-spacing:2px;
-  font-weight:800;
-  margin-bottom:5px;
-}
-
-.mx-gaming-title h2{
-  margin:0;
-  color:#f1f3f8;
-  font-size:25px;
+.mx-gaming-logo{
+  font-size:18px;
   font-weight:900;
+  letter-spacing:3px;
+  color:#f0f2f7;
+}
+
+.mx-gaming-close{
+  width:40px;
+  height:40px;
+  border:1px solid #303541;
+  border-radius:50%;
+  background:#11141a;
+  color:#fff;
+  font-size:22px;
+  cursor:pointer;
 }
 
 /* HERO */
 
 .mx-gaming-hero{
-  padding:28px;
+  margin-top:22px;
+  padding:30px 22px;
+  text-align:center;
   border:1px solid #252a34;
   border-radius:24px;
-  text-align:center;
   background:
-    radial-gradient(circle at 50% 0%,rgba(100,110,255,.15),transparent 55%),
-    linear-gradient(145deg,#11141b,#090b0f);
-  margin-bottom:18px;
+    radial-gradient(circle at 50% 0%,rgba(105,115,255,.16),transparent 55%),
+    linear-gradient(145deg,#11141c,#090b10);
 }
 
 .mx-gaming-badge{
   display:inline-block;
-  padding:7px 13px;
-  border:1px solid #303541;
+  padding:8px 13px;
+  border:1px solid #303646;
   border-radius:30px;
-  color:#8d95a5;
+  color:#8d96aa;
   font-size:9px;
-  letter-spacing:1.5px;
   font-weight:800;
+  letter-spacing:1.5px;
 }
 
 .mx-gaming-hero h1{
-  margin:15px 0 8px;
-  color:#f4f5f8;
+  margin:16px 0 9px;
+  color:#f1f3f8;
   font-size:30px;
+  font-weight:900;
 }
 
 .mx-gaming-hero p{
   max-width:650px;
   margin:auto;
-  color:#777f8f;
-  font-size:11px;
+  color:#737b8c;
+  font-size:12px;
   line-height:1.8;
 }
 
@@ -1929,47 +1923,48 @@ alert(name+" — Coming Soon 🚀");
   grid-template-columns:1fr 55px 1fr;
   gap:12px;
   align-items:center;
-  margin:18px 0;
+  margin:20px 0;
 }
 
 .mx-gaming-select{
   width:100%;
-  padding:15px;
-  border:1px solid #292e38;
-  border-radius:15px;
-  outline:none;
+  height:50px;
+  padding:0 14px;
+  border:1px solid #2a2f39;
+  border-radius:14px;
   background:#101319;
-  color:#e8ebf2;
+  color:#e8ebf1;
+  outline:none;
   font-size:12px;
 }
 
 .mx-vs{
-  width:46px;
-  height:46px;
-  margin:auto;
+  width:48px;
+  height:48px;
   display:grid;
   place-items:center;
+  margin:auto;
   border-radius:50%;
+  background:#161a22;
   border:1px solid #343a47;
-  background:#141720;
-  color:#858da0;
+  color:#8992a4;
   font-size:11px;
   font-weight:900;
 }
 
-/* PHONE COMPARISON */
+/* PHONE CARDS */
 
 .mx-gaming-compare{
   display:grid;
   grid-template-columns:1fr 260px 1fr;
-  gap:12px;
+  gap:14px;
 }
 
 .mx-phone-card,
 .mx-verdict-card{
-  border:1px solid #272c35;
+  border:1px solid #282d37;
   border-radius:20px;
-  background:#0e1116;
+  background:#101319;
 }
 
 .mx-phone-card{
@@ -1978,228 +1973,220 @@ alert(name+" — Coming Soon 🚀");
 
 .mx-phone-top{
   display:grid;
-  grid-template-columns:42px 1fr auto;
-  gap:10px;
+  grid-template-columns:45px 1fr auto;
+  gap:11px;
   align-items:center;
-  margin-bottom:15px;
+  padding-bottom:15px;
+  border-bottom:1px solid #252a33;
 }
 
 .mx-phone-icon{
-  width:42px;
-  height:42px;
+  width:45px;
+  height:45px;
   display:grid;
   place-items:center;
   border-radius:13px;
-  background:#171b23;
-  font-size:20px;
+  background:#171b24;
+  font-size:21px;
 }
 
 .mx-phone-top h3{
   margin:0 0 4px;
-  color:#e8ebf1;
-  font-size:13px;
+  color:#edf0f6;
+  font-size:14px;
 }
 
 .mx-phone-top span{
-  color:#686f7d;
+  color:#737b8c;
   font-size:9px;
 }
 
 .mx-score{
-  text-align:right;
+  text-align:center;
 }
 
 .mx-score strong{
   display:block;
-  color:#f1f3f8;
+  color:#f2f4f8;
   font-size:22px;
 }
 
 .mx-score small{
-  color:#606877;
+  color:#666e7d;
   font-size:7px;
+  letter-spacing:.8px;
 }
 
 .mx-stat{
   display:grid;
   grid-template-columns:1fr 1fr;
   gap:8px;
+  margin-top:14px;
 }
 
 .mx-stat-box{
+  min-width:0;
   padding:11px;
   border-radius:12px;
-  background:#13161c;
-  border:1px solid #20252e;
+  background:#0c0f14;
+  border:1px solid #20242d;
 }
 
 .mx-stat-box small{
   display:block;
-  color:#5f6674;
+  margin-bottom:5px;
+  color:#606979;
   font-size:7px;
   font-weight:800;
-  margin-bottom:5px;
   letter-spacing:.7px;
 }
 
 .mx-stat-box b{
-  display:block;
   color:#aeb5c2;
   font-size:9px;
-  line-height:1.5;
-  font-weight:600;
+  line-height:1.55;
 }
 
 /* VERDICT */
 
 .mx-verdict-card{
-  position:relative;
-  padding:20px 16px;
+  padding:20px 15px;
   display:flex;
   flex-direction:column;
   justify-content:center;
   text-align:center;
   background:
-    radial-gradient(circle at 50% 20%,rgba(102,114,255,.15),transparent 45%),
+    radial-gradient(circle at 50% 20%,rgba(102,114,255,.15),transparent 50%),
     linear-gradient(145deg,#11141c,#0a0c11);
 }
 
-.mx-verdict-label{
-  color:#777f90;
-  font-size:8px;
-  font-weight:800;
-  letter-spacing:1.4px;
-  margin-bottom:9px;
+.mx-trophy{
+  font-size:28px;
+  margin-bottom:8px;
 }
 
-.mx-trophy{
-  font-size:27px;
-  margin-bottom:5px;
+.mx-verdict-label{
+  color:#737c8d;
+  font-size:8px;
+  font-weight:900;
+  letter-spacing:1.4px;
+  margin-bottom:10px;
 }
 
 .mx-winner{
-  color:#f1f3f8;
+  color:#f1f3f7;
   font-size:16px;
   font-weight:900;
-  line-height:1.35;
+  line-height:1.4;
 }
 
 .mx-winner-sub{
-  color:#777f8e;
+  color:#777f90;
   font-size:9px;
   line-height:1.6;
 }
 
 .mx-win-score{
-  margin:13px auto;
-  width:75px;
-  height:75px;
-  border-radius:50%;
+  width:78px;
+  height:78px;
   display:grid;
   place-items:center;
-  border:1px solid #383f4c;
+  margin:14px auto;
+  border-radius:50%;
+  border:1px solid #3a4150;
   background:#151821;
 }
 
 .mx-win-score strong{
   display:block;
   color:#fff;
-  font-size:21px;
+  font-size:22px;
 }
 
 .mx-win-score span{
-  display:block;
-  color:#6e7583;
+  color:#666e7c;
   font-size:7px;
 }
 
-.mx-verdict-reasons{
-  text-align:left;
-  margin-top:7px;
-}
-
 .mx-reason{
-  padding:7px 0;
-  border-bottom:1px solid #242933;
-  color:#959dac;
+  padding:8px 0;
+  border-bottom:1px solid #252a33;
+  text-align:left;
+  color:#969eae;
   font-size:9px;
 }
 
 .mx-reason:last-child{
-  border:0;
+  border-bottom:0;
 }
 
-/* COMPLETE GAMING FEATURES */
+/* COMPLETE GAMING */
 
-.mx-gaming-section-title{
-  margin:22px 0 10px;
-  color:#e4e7ee;
+.mx-gaming-title{
+  margin:25px 0 12px;
+  color:#e7eaf0;
   font-size:13px;
-  font-weight:800;
+  font-weight:900;
 }
 
 .mx-all-features{
   display:grid;
   grid-template-columns:repeat(3,1fr);
-  gap:9px;
+  gap:10px;
 }
 
 .mx-feature{
-  padding:13px;
-  border:1px solid #252a33;
+  padding:14px;
+  border:1px solid #282d36;
   border-radius:15px;
-  background:#0e1116;
+  background:#101319;
 }
 
 .mx-feature-title{
-  display:flex;
-  align-items:center;
-  gap:7px;
-  margin-bottom:8px;
-  color:#e5e8ef;
-  font-size:10px;
-  font-weight:800;
-}
-
-.mx-feature-title i{
-  font-style:normal;
-  font-size:14px;
+  margin-bottom:9px;
+  color:#e4e8ef;
+  font-size:11px;
+  font-weight:900;
 }
 
 .mx-feature-value{
-  color:#777f8e;
+  color:#7d8595;
   font-size:9px;
-  line-height:1.65;
+  line-height:1.7;
+}
+
+.mx-feature-value b{
+  color:#c1c6d0;
 }
 
 /* PERFORMANCE */
 
 .mx-performance{
-  margin-top:15px;
+  margin-top:20px;
   padding:17px;
-  border:1px solid #252a33;
-  border-radius:17px;
-  background:#0e1116;
+  border:1px solid #292e38;
+  border-radius:18px;
+  background:#101319;
 }
 
 .mx-performance-row{
   display:grid;
-  grid-template-columns:75px 1fr 35px;
+  grid-template-columns:70px 1fr 35px;
   gap:9px;
   align-items:center;
-  margin:10px 0;
+  margin:13px 0;
 }
 
 .mx-performance-row span{
-  color:#777f8e;
-  font-size:8px;
+  color:#737b8b;
+  font-size:9px;
 }
 
 .mx-bar{
   height:6px;
   overflow:hidden;
   border-radius:20px;
-  background:#20242d;
+  background:#232732;
 }
 
 .mx-bar i{
@@ -2211,42 +2198,43 @@ alert(name+" — Coming Soon 🚀");
 
 .mx-performance-row b{
   text-align:right;
-  color:#dfe3ea;
+  color:#dfe3eb;
   font-size:9px;
 }
 
 /* SIGNATURE */
 
-.mx-gaming-signature{
-  margin-top:45px;
-  padding:28px 15px 10px;
+.mx-gaming-footer{
+  margin-top:50px;
+  padding:35px 15px 15px;
   text-align:center;
-  border-top:1px solid #1d2129;
+  border-top:1px solid #20242d;
 }
 
 .mx-signature{
   display:inline-block;
-  color:#f4f5f8;
+  margin-bottom:10px;
+  color:#f3f5fa;
   font-family:"Brush Script MT","Segoe Script","Snell Roundhand",cursive;
-  font-size:36px;
+  font-size:38px;
   font-weight:600;
   letter-spacing:1px;
   text-shadow:
-    0 0 7px rgba(255,255,255,.35),
-    0 0 18px rgba(110,120,255,.25);
+    0 0 8px rgba(255,255,255,.35),
+    0 0 20px rgba(110,120,255,.25);
 }
 
 .mx-signature-line{
-  width:70px;
+  width:65px;
   height:1px;
-  margin:8px auto 13px;
-  background:#454b58;
+  margin:0 auto 14px;
+  background:#414754;
 }
 
-.mx-signature-text{
-  color:#555d6b;
-  font-size:8px;
-  letter-spacing:.8px;
+.mx-gaming-footer p{
+  margin:0;
+  color:#565e6d;
+  font-size:9px;
 }
 
 /* MOBILE */
@@ -2259,32 +2247,30 @@ alert(name+" — Coming Soon 🚀");
 
   .mx-verdict-card{
     order:-1;
-    min-height:200px;
   }
 
   .mx-all-features{
     grid-template-columns:1fr 1fr;
   }
-
 }
 
 @media(max-width:560px){
 
-  .mx-gaming-page{
+  .mx-gaming-wrap{
     width:calc(100% - 18px);
-    padding-top:18px;
-  }
-
-  .mx-gaming-hero{
-    padding:22px 15px;
   }
 
   .mx-gaming-hero h1{
-    font-size:24px;
+    font-size:25px;
   }
 
   .mx-gaming-selectors{
     grid-template-columns:1fr 42px 1fr;
+  }
+
+  .mx-gaming-select{
+    font-size:10px;
+    padding:0 8px;
   }
 
   .mx-vs{
@@ -2292,44 +2278,37 @@ alert(name+" — Coming Soon 🚀");
     height:40px;
   }
 
-  .mx-stat{
-    grid-template-columns:1fr;
-  }
-
   .mx-all-features{
     grid-template-columns:1fr;
   }
 
+  .mx-stat{
+    grid-template-columns:1fr;
+  }
 }
-
 </style>
 
 
 <!-- =========================================================
-     GAMING OVERLAY
+     GAMING MODAL
+     این بخش هنگام باز شدن Gaming نمایش داده می‌شود
 ========================================================= -->
 
-<section class="mx-gaming-overlay" id="mxGamingOverlay">
+<div id="mxGamingModal">
 
-  <div class="mx-gaming-page">
+  <div class="mx-gaming-wrap">
 
     <div class="mx-gaming-top">
+      <div class="mx-gaming-logo">MOBIXA</div>
 
-      <button class="mx-gaming-back" id="mxGamingClose">
-        ←
+      <button
+        class="mx-gaming-close"
+        onclick="closeMobixaGaming()"
+        aria-label="Close Gaming">
+        ×
       </button>
-
-      <div class="mx-gaming-title">
-        <small>MOBIXA</small>
-        <h2>Gaming</h2>
-      </div>
-
-      <div style="width:42px"></div>
-
     </div>
 
-
-    <!-- HERO -->
 
     <div class="mx-gaming-hero">
 
@@ -2340,9 +2319,8 @@ alert(name+" — Coming Soon 🚀");
       <h1>Gaming Performance Lab</h1>
 
       <p>
-        Compare gaming performance, chipset, GPU, display,
-        cooling, battery, touch response, controls,
-        audio, network and gaming software.
+        Compare gaming power, GPU, CPU, cooling,
+        display, touch response, battery and more.
       </p>
 
     </div>
@@ -2354,16 +2332,45 @@ alert(name+" — Coming Soon 🚀");
 
       <select class="mx-gaming-select" id="mxGamePhone1">
 
-        <option value="rog9pro">ASUS ROG Phone 9 Pro</option>
-        <option value="redmagic11pro">REDMAGIC 11 Pro</option>
-        <option value="redmagic11spro">REDMAGIC 11S Pro</option>
-        <option value="redmagic10spro">REDMAGIC 10S Pro</option>
-        <option value="redmagic10air">REDMAGIC 10 Air</option>
-        <option value="rog8pro">ASUS ROG Phone 8 Pro</option>
-        <option value="iqoo13">iQOO 13</option>
-        <option value="oneplus13">OnePlus 13</option>
-        <option value="s26ultra">Samsung Galaxy S26 Ultra</option>
-        <option value="iphone17promax">iPhone 17 Pro Max</option>
+        <option value="rog9pro">
+          ASUS ROG Phone 9 Pro
+        </option>
+
+        <option value="redmagic11pro">
+          REDMAGIC 11 Pro
+        </option>
+
+        <option value="redmagic11spro">
+          REDMAGIC 11S Pro
+        </option>
+
+        <option value="redmagic10spro">
+          REDMAGIC 10S Pro
+        </option>
+
+        <option value="redmagic10air">
+          REDMAGIC 10 Air
+        </option>
+
+        <option value="rog8pro">
+          ASUS ROG Phone 8 Pro
+        </option>
+
+        <option value="iqoo13">
+          iQOO 13
+        </option>
+
+        <option value="oneplus13">
+          OnePlus 13
+        </option>
+
+        <option value="s26ultra">
+          Samsung Galaxy S26 Ultra
+        </option>
+
+        <option value="iphone17promax">
+          iPhone 17 Pro Max
+        </option>
 
       </select>
 
@@ -2373,16 +2380,45 @@ alert(name+" — Coming Soon 🚀");
 
       <select class="mx-gaming-select" id="mxGamePhone2">
 
-        <option value="redmagic11pro">REDMAGIC 11 Pro</option>
-        <option value="rog9pro">ASUS ROG Phone 9 Pro</option>
-        <option value="redmagic11spro">REDMAGIC 11S Pro</option>
-        <option value="redmagic10spro">REDMAGIC 10S Pro</option>
-        <option value="redmagic10air">REDMAGIC 10 Air</option>
-        <option value="rog8pro">ASUS ROG Phone 8 Pro</option>
-        <option value="iqoo13">iQOO 13</option>
-        <option value="oneplus13">OnePlus 13</option>
-        <option value="s26ultra">Samsung Galaxy S26 Ultra</option>
-        <option value="iphone17promax">iPhone 17 Pro Max</option>
+        <option value="redmagic11pro">
+          REDMAGIC 11 Pro
+        </option>
+
+        <option value="rog9pro">
+          ASUS ROG Phone 9 Pro
+        </option>
+
+        <option value="redmagic11spro">
+          REDMAGIC 11S Pro
+        </option>
+
+        <option value="redmagic10spro">
+          REDMAGIC 10S Pro
+        </option>
+
+        <option value="redmagic10air">
+          REDMAGIC 10 Air
+        </option>
+
+        <option value="rog8pro">
+          ASUS ROG Phone 8 Pro
+        </option>
+
+        <option value="iqoo13">
+          iQOO 13
+        </option>
+
+        <option value="oneplus13">
+          OnePlus 13
+        </option>
+
+        <option value="s26ultra">
+          Samsung Galaxy S26 Ultra
+        </option>
+
+        <option value="iphone17promax">
+          iPhone 17 Pro Max
+        </option>
 
       </select>
 
@@ -2393,81 +2429,89 @@ alert(name+" — Coming Soon 🚀");
 
     <div class="mx-gaming-compare">
 
-      <article class="mx-phone-card" id="mxCard1"></article>
+      <article
+        class="mx-phone-card"
+        id="mxCard1">
+      </article>
 
-      <aside class="mx-verdict-card" id="mxVerdict"></aside>
+      <aside
+        class="mx-verdict-card"
+        id="mxVerdict">
+      </aside>
 
-      <article class="mx-phone-card" id="mxCard2"></article>
+      <article
+        class="mx-phone-card"
+        id="mxCard2">
+      </article>
 
     </div>
 
 
-    <!-- COMPLETE FEATURES -->
+    <!-- COMPLETE GAMING FEATURES -->
 
-    <div class="mx-gaming-section-title">
+    <div class="mx-gaming-title">
       Complete Gaming Specifications
     </div>
-
 
     <div class="mx-all-features">
 
       <div class="mx-feature">
-        <div class="mx-feature-title"><i>🧠</i> Chipset & CPU</div>
+        <div class="mx-feature-title">🧠 Chipset & CPU</div>
         <div class="mx-feature-value" id="mxCpu"></div>
       </div>
 
       <div class="mx-feature">
-        <div class="mx-feature-title"><i>🎮</i> GPU</div>
+        <div class="mx-feature-title">🎮 GPU</div>
         <div class="mx-feature-value" id="mxGpu"></div>
       </div>
 
       <div class="mx-feature">
-        <div class="mx-feature-title"><i>🖥️</i> Display</div>
+        <div class="mx-feature-title">🖥️ Display</div>
         <div class="mx-feature-value" id="mxDisplay"></div>
       </div>
 
       <div class="mx-feature">
-        <div class="mx-feature-title"><i>👆</i> Touch System</div>
+        <div class="mx-feature-title">👆 Touch System</div>
         <div class="mx-feature-value" id="mxTouch"></div>
       </div>
 
       <div class="mx-feature">
-        <div class="mx-feature-title"><i>❄️</i> Cooling</div>
+        <div class="mx-feature-title">❄️ Cooling</div>
         <div class="mx-feature-value" id="mxCooling"></div>
       </div>
 
       <div class="mx-feature">
-        <div class="mx-feature-title"><i>🔋</i> Battery & Charging</div>
+        <div class="mx-feature-title">🔋 Battery & Charging</div>
         <div class="mx-feature-value" id="mxBattery"></div>
       </div>
 
       <div class="mx-feature">
-        <div class="mx-feature-title"><i>🎯</i> FPS & Stability</div>
+        <div class="mx-feature-title">🎯 FPS & Stability</div>
         <div class="mx-feature-value" id="mxFps"></div>
       </div>
 
       <div class="mx-feature">
-        <div class="mx-feature-title"><i>🎛️</i> Gaming Controls</div>
+        <div class="mx-feature-title">🎛️ Gaming Controls</div>
         <div class="mx-feature-value" id="mxControls"></div>
       </div>
 
       <div class="mx-feature">
-        <div class="mx-feature-title"><i>🔊</i> Audio & Haptics</div>
+        <div class="mx-feature-title">🔊 Audio & Haptics</div>
         <div class="mx-feature-value" id="mxAudio"></div>
       </div>
 
       <div class="mx-feature">
-        <div class="mx-feature-title"><i>📶</i> Network & Latency</div>
+        <div class="mx-feature-title">📶 Network & Latency</div>
         <div class="mx-feature-value" id="mxNetwork"></div>
       </div>
 
       <div class="mx-feature">
-        <div class="mx-feature-title"><i>💾</i> RAM & Storage</div>
+        <div class="mx-feature-title">💾 RAM & Storage</div>
         <div class="mx-feature-value" id="mxMemory"></div>
       </div>
 
       <div class="mx-feature">
-        <div class="mx-feature-title"><i>⚙️</i> Gaming Software</div>
+        <div class="mx-feature-title">⚙️ Gaming Software</div>
         <div class="mx-feature-value" id="mxSoftware"></div>
       </div>
 
@@ -2478,43 +2522,55 @@ alert(name+" — Coming Soon 🚀");
 
     <div class="mx-performance">
 
-      <div class="mx-gaming-section-title" style="margin-top:0">
+      <div class="mx-gaming-title" style="margin-top:0">
         Gaming Performance Breakdown
       </div>
 
       <div class="mx-performance-row">
         <span>CPU</span>
-        <div class="mx-bar"><i id="barCpu"></i></div>
+        <div class="mx-bar">
+          <i id="barCpu"></i>
+        </div>
         <b id="scoreCpu">0</b>
       </div>
 
       <div class="mx-performance-row">
         <span>GPU</span>
-        <div class="mx-bar"><i id="barGpu"></i></div>
+        <div class="mx-bar">
+          <i id="barGpu"></i>
+        </div>
         <b id="scoreGpu">0</b>
       </div>
 
       <div class="mx-performance-row">
         <span>Cooling</span>
-        <div class="mx-bar"><i id="barCooling"></i></div>
+        <div class="mx-bar">
+          <i id="barCooling"></i>
+        </div>
         <b id="scoreCooling">0</b>
       </div>
 
       <div class="mx-performance-row">
         <span>Display</span>
-        <div class="mx-bar"><i id="barDisplay"></i></div>
+        <div class="mx-bar">
+          <i id="barDisplay"></i>
+        </div>
         <b id="scoreDisplay">0</b>
       </div>
 
       <div class="mx-performance-row">
         <span>Battery</span>
-        <div class="mx-bar"><i id="barBattery"></i></div>
+        <div class="mx-bar">
+          <i id="barBattery"></i>
+        </div>
         <b id="scoreBattery">0</b>
       </div>
 
       <div class="mx-performance-row">
         <span>Touch</span>
-        <div class="mx-bar"><i id="barTouch"></i></div>
+        <div class="mx-bar">
+          <i id="barTouch"></i>
+        </div>
         <b id="scoreTouch">0</b>
       </div>
 
@@ -2523,7 +2579,7 @@ alert(name+" — Coming Soon 🚀");
 
     <!-- SIGNATURE -->
 
-    <footer class="mx-gaming-signature">
+    <footer class="mx-gaming-footer">
 
       <div class="mx-signature">
         MOBIXA
@@ -2531,21 +2587,20 @@ alert(name+" — Coming Soon 🚀");
 
       <div class="mx-signature-line"></div>
 
-      <div class="mx-signature-text">
-        GAMING • PERFORMANCE • TECHNOLOGY
-      </div>
+      <p>
+        Gaming comparison by MOBIXA
+      </p>
 
     </footer>
 
   </div>
 
-</section>
+</div>
 
 
 <script>
-
 /* =========================================================
-   GAMING DATABASE
+   MOBIXA GAMING DATABASE
 ========================================================= */
 
 const MX_GAMING = {
@@ -2555,20 +2610,25 @@ const MX_GAMING = {
     brand:"ASUS ROG",
     cpu:"Snapdragon 8 Elite • up to 4.3GHz",
     gpu:"Adreno 830",
-    display:"6.78″ AMOLED • FHD+ • LTPO",
+    display:"6.78″ Flexible AMOLED • FHD+ • LTPO",
     refresh:"Up to 185Hz in Game Genie",
     brightness:"2500 nits peak • HDR10",
     touch:"10-point multitouch • gaming optimized",
-    cooling:"ROG GameCool advanced thermal system",
+    cooling:"ROG GameCool advanced cooling",
     battery:"5800mAh • 65W wired",
-    fps:"High-FPS flagship gaming",
-    controls:"AirTrigger • Game Genie • macros",
-    audio:"Stereo speakers • 3.5mm jack",
+    fps:"High-FPS gaming • strong sustained performance",
+    controls:"AirTrigger ultrasonic controls • macros",
+    audio:"Stereo speakers • 3.5mm headphone jack",
     network:"5G • Wi-Fi 7 • Bluetooth",
-    memory:"16/24GB LPDDR5X • up to 1TB",
+    memory:"16/24GB RAM • up to 1TB",
     software:"Armoury Crate • Game Genie",
-    cpuScore:96,gpuScore:97,coolingScore:92,
-    displayScore:96,batteryScore:89,touchScore:95,score:94
+    cpuScore:96,
+    gpuScore:97,
+    coolingScore:92,
+    displayScore:96,
+    batteryScore:89,
+    touchScore:95,
+    score:94
   },
 
   redmagic11pro:{
@@ -2576,20 +2636,25 @@ const MX_GAMING = {
     brand:"REDMAGIC",
     cpu:"Snapdragon 8 Elite Gen 5",
     gpu:"Adreno GPU + RedCore R4",
-    display:"6.85″ AMOLED • 2688×1216",
+    display:"6.85″ BOE X10 AMOLED • 2688×1216",
     refresh:"Up to 144Hz",
     brightness:"1800 nits • 100% DCI-P3",
     touch:"Up to 3000Hz touch sampling",
-    cooling:"Liquid cooling • vapor chamber • turbo fan",
-    battery:"7500mAh • 80W wired",
-    fps:"Extreme high-FPS gaming",
+    cooling:"AquaCore liquid cooling • vapor chamber • 24,000RPM fan",
+    battery:"7500mAh • 80W wired • 80W wireless",
+    fps:"Designed for sustained high-FPS gaming",
     controls:"Shoulder triggers • gaming controls",
     audio:"Stereo speakers • 3.5mm jack",
-    network:"5G • Wi-Fi • Bluetooth",
-    memory:"Up to 24GB RAM • 1TB storage",
+    network:"5G • tri-band Wi-Fi • Bluetooth 5.4",
+    memory:"12/16/24GB • up to 1TB",
     software:"REDMAGIC OS • Game Space",
-    cpuScore:100,gpuScore:100,coolingScore:100,
-    displayScore:97,batteryScore:100,touchScore:100,score:99
+    cpuScore:100,
+    gpuScore:100,
+    coolingScore:100,
+    displayScore:97,
+    batteryScore:100,
+    touchScore:100,
+    score:99
   },
 
   redmagic11spro:{
@@ -2600,17 +2665,22 @@ const MX_GAMING = {
     display:"6.85″ AMOLED gaming display",
     refresh:"144Hz",
     brightness:"High-brightness AMOLED",
-    touch:"High-rate gaming touch",
-    cooling:"Liquid cooling • high-speed fan",
-    battery:"7500mAh • 80W",
+    touch:"High-rate gaming touch response",
+    cooling:"AquaCore liquid cooling + high-speed fan",
+    battery:"7500mAh • 80W fast charging",
     fps:"High-FPS sustained gaming",
-    controls:"Shoulder triggers",
-    audio:"Stereo speakers • 3.5mm",
+    controls:"Gaming shoulder triggers",
+    audio:"Stereo speakers • 3.5mm jack",
     network:"5G • Wi-Fi • Bluetooth",
     memory:"Up to 16GB RAM • 512GB",
     software:"REDMAGIC OS • Game Space",
-    cpuScore:100,gpuScore:100,coolingScore:100,
-    displayScore:97,batteryScore:100,touchScore:99,score:98
+    cpuScore:100,
+    gpuScore:100,
+    coolingScore:100,
+    displayScore:97,
+    batteryScore:100,
+    touchScore:99,
+    score:98
   },
 
   redmagic10spro:{
@@ -2620,18 +2690,23 @@ const MX_GAMING = {
     gpu:"Adreno 830 + RedCore R3 Pro",
     display:"6.85″ AMOLED • 1216×2688",
     refresh:"144Hz",
-    brightness:"High-brightness AMOLED",
-    touch:"High-rate gaming touch",
-    cooling:"ICE-X liquid metal cooling • fan",
+    brightness:"High-brightness BOE AMOLED",
+    touch:"High-rate touch sampling",
+    cooling:"ICE-X liquid metal cooling + fan",
     battery:"7050mAh • up to 100W",
     fps:"High-FPS gaming",
     controls:"Shoulder triggers • Game Space",
-    audio:"Stereo speakers • 3.5mm",
+    audio:"Stereo speakers • 3.5mm jack",
     network:"5G • Wi-Fi • Bluetooth",
-    memory:"Up to 24GB RAM • 1TB",
+    memory:"12/16/24GB • up to 1TB",
     software:"REDMAGIC OS",
-    cpuScore:98,gpuScore:98,coolingScore:98,
-    displayScore:96,batteryScore:98,touchScore:99,score:98
+    cpuScore:98,
+    gpuScore:98,
+    coolingScore:98,
+    displayScore:96,
+    batteryScore:98,
+    touchScore:99,
+    score:98
   },
 
   redmagic10air:{
@@ -2639,20 +2714,25 @@ const MX_GAMING = {
     brand:"REDMAGIC",
     cpu:"Snapdragon 8 Elite",
     gpu:"Adreno GPU",
-    display:"6.8″ AMOLED gaming display",
+    display:"6.8″ AMOLED",
     refresh:"120Hz+",
     brightness:"High-brightness AMOLED",
-    touch:"Gaming touch optimization",
+    touch:"Gaming optimized touch",
     cooling:"Advanced thermal system",
     battery:"7000mAh class • fast charging",
-    fps:"High-FPS gaming",
+    fps:"High-FPS support",
     controls:"Gaming software controls",
     audio:"Stereo speakers",
     network:"5G • Wi-Fi • Bluetooth",
-    memory:"Up to 12GB RAM • 256GB",
+    memory:"Up to 12GB RAM",
     software:"Game Space",
-    cpuScore:93,gpuScore:94,coolingScore:91,
-    displayScore:94,batteryScore:98,touchScore:94,score:94
+    cpuScore:93,
+    gpuScore:94,
+    coolingScore:91,
+    displayScore:94,
+    batteryScore:98,
+    touchScore:94,
+    score:94
   },
 
   rog8pro:{
@@ -2666,14 +2746,19 @@ const MX_GAMING = {
     touch:"High-rate gaming touch",
     cooling:"GameCool thermal system",
     battery:"5500mAh • 65W",
-    fps:"High-FPS gaming",
+    fps:"High-FPS flagship gaming",
     controls:"AirTrigger • Game Genie",
     audio:"Stereo speakers • 3.5mm",
     network:"5G • Wi-Fi 7",
     memory:"Up to 24GB RAM • 1TB",
-    software:"Armoury Crate • X Mode",
-    cpuScore:89,gpuScore:91,coolingScore:91,
-    displayScore:95,batteryScore:86,touchScore:94,score:91
+    software:"Armoury Crate • Game Genie",
+    cpuScore:89,
+    gpuScore:91,
+    coolingScore:91,
+    displayScore:95,
+    batteryScore:86,
+    touchScore:94,
+    score:91
   },
 
   iqoo13:{
@@ -2692,9 +2777,14 @@ const MX_GAMING = {
     audio:"Stereo speakers",
     network:"5G • Wi-Fi • Bluetooth",
     memory:"LPDDR5X • UFS storage",
-    software:"iQOO gaming optimization",
-    cpuScore:96,gpuScore:97,coolingScore:94,
-    displayScore:95,batteryScore:94,touchScore:95,score:95
+    software:"OriginOS / iQOO gaming tools",
+    cpuScore:96,
+    gpuScore:97,
+    coolingScore:94,
+    displayScore:95,
+    batteryScore:94,
+    touchScore:95,
+    score:95
   },
 
   oneplus13:{
@@ -2705,8 +2795,8 @@ const MX_GAMING = {
     display:"LTPO AMOLED",
     refresh:"Up to 120Hz",
     brightness:"High brightness • HDR",
-    touch:"High-rate touch",
-    cooling:"Large vapor chamber",
+    touch:"High-rate touch response",
+    cooling:"Large-area vapor chamber",
     battery:"Large battery • fast charging",
     fps:"Excellent flagship gaming",
     controls:"Gaming mode",
@@ -2714,14 +2804,19 @@ const MX_GAMING = {
     network:"5G • Wi-Fi • Bluetooth",
     memory:"LPDDR5X • UFS",
     software:"OxygenOS gaming tools",
-    cpuScore:96,gpuScore:97,coolingScore:94,
-    displayScore:94,batteryScore:96,touchScore:94,score:95
+    cpuScore:96,
+    gpuScore:97,
+    coolingScore:94,
+    displayScore:94,
+    batteryScore:96,
+    touchScore:94,
+    score:95
   },
 
   s26ultra:{
     name:"Samsung Galaxy S26 Ultra",
     brand:"Samsung Galaxy",
-    cpu:"Flagship Snapdragon/Exynos platform",
+    cpu:"Flagship high-end platform",
     gpu:"High-end mobile GPU",
     display:"Dynamic AMOLED 2X",
     refresh:"Up to 120Hz",
@@ -2733,10 +2828,15 @@ const MX_GAMING = {
     controls:"Game Booster",
     audio:"Stereo speakers",
     network:"5G • Wi-Fi • Bluetooth",
-    memory:"High-speed LPDDR • UFS",
-    software:"Game Booster • Gaming Hub",
-    cpuScore:97,gpuScore:98,coolingScore:94,
-    displayScore:97,batteryScore:91,touchScore:94,score:96
+    memory:"High-speed RAM • UFS",
+    software:"Samsung Game Booster",
+    cpuScore:97,
+    gpuScore:98,
+    coolingScore:94,
+    displayScore:97,
+    batteryScore:91,
+    touchScore:94,
+    score:96
   },
 
   iphone17promax:{
@@ -2745,34 +2845,65 @@ const MX_GAMING = {
     cpu:"Apple A19 Pro",
     gpu:"Apple GPU",
     display:"Super Retina XDR OLED",
-    refresh:"ProMotion",
+    refresh:"ProMotion high refresh",
     brightness:"High brightness • HDR",
     touch:"Low-latency touchscreen",
-    cooling:"Advanced thermal design",
+    cooling:"Vapor chamber thermal design",
     battery:"Large battery • fast charging",
     fps:"Excellent optimized gaming",
     controls:"iOS gaming controls",
     audio:"Stereo speakers",
     network:"5G • Wi-Fi • Bluetooth",
-    memory:"Unified memory • fast storage",
-    software:"iOS gaming APIs • Game Mode",
-    cpuScore:98,gpuScore:99,coolingScore:95,
-    displayScore:96,batteryScore:91,touchScore:95,score:97
+    memory:"High-speed unified memory",
+    software:"iOS Game Mode",
+    cpuScore:98,
+    gpuScore:99,
+    coolingScore:95,
+    displayScore:96,
+    batteryScore:91,
+    touchScore:95,
+    score:97
   }
 
 };
 
 
 /* =========================================================
+   OPEN / CLOSE
+========================================================= */
+
+function openMobixaGaming(){
+
+  const modal=document.getElementById("mxGamingModal");
+
+  if(!modal) return;
+
+  modal.classList.add("mx-open");
+
+  document.body.style.overflow="hidden";
+
+  mxRenderGaming();
+}
+
+
+function closeMobixaGaming(){
+
+  const modal=document.getElementById("mxGamingModal");
+
+  if(!modal) return;
+
+  modal.classList.remove("mx-open");
+
+  document.body.style.overflow="";
+}
+
+
+/* =========================================================
    HELPERS
 ========================================================= */
 
-function mxGet(id){
-  return document.getElementById(id);
-}
-
 function mxPhone(key){
-  return MX_GAMING[key];
+  return MX_GAMING[key] || MX_GAMING.rog9pro;
 }
 
 
@@ -2786,16 +2917,24 @@ function mxPhoneCard(phone){
 
     <div class="mx-phone-top">
 
-      <div class="mx-phone-icon">🎮</div>
+      <div class="mx-phone-icon">
+        🎮
+      </div>
 
       <div>
+
         <h3>${phone.name}</h3>
+
         <span>${phone.brand}</span>
+
       </div>
 
       <div class="mx-score">
+
         <strong>${phone.score}</strong>
+
         <small>GAMING SCORE</small>
+
       </div>
 
     </div>
@@ -2844,7 +2983,6 @@ function mxPhoneCard(phone){
       </div>
 
     </div>
-
   `;
 }
 
@@ -2855,39 +2993,39 @@ function mxPhoneCard(phone){
 
 function mxVerdict(a,b){
 
-  const winner = a.score >= b.score ? a : b;
-  const loser = winner === a ? b : a;
+  const winner=a.score>=b.score ? a : b;
+  const loser=winner===a ? b : a;
 
-  const diff = Math.abs(a.score-b.score);
+  const diff=Math.abs(a.score-b.score);
 
-  let reasons=[];
+  const reasons=[];
 
-  if(winner.cpuScore > loser.cpuScore)
+  if(winner.cpuScore>loser.cpuScore)
     reasons.push("CPU performance");
 
-  if(winner.gpuScore > loser.gpuScore)
+  if(winner.gpuScore>loser.gpuScore)
     reasons.push("GPU performance");
 
-  if(winner.coolingScore > loser.coolingScore)
+  if(winner.coolingScore>loser.coolingScore)
     reasons.push("Cooling");
 
-  if(winner.displayScore > loser.displayScore)
+  if(winner.displayScore>loser.displayScore)
     reasons.push("Gaming display");
 
-  if(winner.batteryScore > loser.batteryScore)
+  if(winner.batteryScore>loser.batteryScore)
     reasons.push("Battery");
 
-  if(winner.touchScore > loser.touchScore)
+  if(winner.touchScore>loser.touchScore)
     reasons.push("Touch response");
 
   if(!reasons.length)
-    reasons.push("Overall balance");
-
-  reasons=reasons.slice(0,4);
+    reasons.push("Overall gaming balance");
 
   return `
 
-    <div class="mx-trophy">🏆</div>
+    <div class="mx-trophy">
+      🏆
+    </div>
 
     <div class="mx-verdict-label">
       MOBIXA GAMING VERDICT
@@ -2904,8 +3042,11 @@ function mxVerdict(a,b){
     <div class="mx-win-score">
 
       <div>
+
         <strong>${winner.score}</strong>
+
         <span>GAMING</span>
+
       </div>
 
     </div>
@@ -2913,44 +3054,45 @@ function mxVerdict(a,b){
     <div class="mx-winner-sub">
 
       ${
-        diff === 0
+        diff===0
         ? "Almost perfectly matched"
         : `${diff} point advantage`
       }
 
     </div>
 
-    <div class="mx-verdict-reasons">
+    <div style="margin-top:12px">
 
-      ${reasons.map(x => `
+      ${
+        reasons.slice(0,4).map(reason=>`
 
-        <div class="mx-reason">
-          ✓ Stronger ${x}
-        </div>
+          <div class="mx-reason">
+            ✓ ${reason}
+          </div>
 
-      `).join("")}
+        `).join("")
+      }
 
     </div>
-
   `;
 }
 
 
 /* =========================================================
-   FEATURES
+   COMPLETE FEATURES
 ========================================================= */
 
 function mxFeatureData(a,b){
 
-  mxGet("mxCpu").innerHTML =
+  document.getElementById("mxCpu").innerHTML=
     `<b>${a.name}:</b> ${a.cpu}<br><br>
      <b>${b.name}:</b> ${b.cpu}`;
 
-  mxGet("mxGpu").innerHTML =
+  document.getElementById("mxGpu").innerHTML=
     `<b>${a.name}:</b> ${a.gpu}<br><br>
      <b>${b.name}:</b> ${b.gpu}`;
 
-  mxGet("mxDisplay").innerHTML =
+  document.getElementById("mxDisplay").innerHTML=
     `<b>${a.name}:</b> ${a.display}<br>
      ${a.refresh}<br>
      ${a.brightness}<br><br>
@@ -2958,42 +3100,41 @@ function mxFeatureData(a,b){
      ${b.refresh}<br>
      ${b.brightness}`;
 
-  mxGet("mxTouch").innerHTML =
+  document.getElementById("mxTouch").innerHTML=
     `<b>${a.name}:</b> ${a.touch}<br><br>
      <b>${b.name}:</b> ${b.touch}`;
 
-  mxGet("mxCooling").innerHTML =
+  document.getElementById("mxCooling").innerHTML=
     `<b>${a.name}:</b> ${a.cooling}<br><br>
      <b>${b.name}:</b> ${b.cooling}`;
 
-  mxGet("mxBattery").innerHTML =
+  document.getElementById("mxBattery").innerHTML=
     `<b>${a.name}:</b> ${a.battery}<br><br>
      <b>${b.name}:</b> ${b.battery}`;
 
-  mxGet("mxFps").innerHTML =
+  document.getElementById("mxFps").innerHTML=
     `<b>${a.name}:</b> ${a.fps}<br><br>
      <b>${b.name}:</b> ${b.fps}`;
 
-  mxGet("mxControls").innerHTML =
+  document.getElementById("mxControls").innerHTML=
     `<b>${a.name}:</b> ${a.controls}<br><br>
      <b>${b.name}:</b> ${b.controls}`;
 
-  mxGet("mxAudio").innerHTML =
+  document.getElementById("mxAudio").innerHTML=
     `<b>${a.name}:</b> ${a.audio}<br><br>
      <b>${b.name}:</b> ${b.audio}`;
 
-  mxGet("mxNetwork").innerHTML =
+  document.getElementById("mxNetwork").innerHTML=
     `<b>${a.name}:</b> ${a.network}<br><br>
      <b>${b.name}:</b> ${b.network}`;
 
-  mxGet("mxMemory").innerHTML =
+  document.getElementById("mxMemory").innerHTML=
     `<b>${a.name}:</b> ${a.memory}<br><br>
      <b>${b.name}:</b> ${b.memory}`;
 
-  mxGet("mxSoftware").innerHTML =
+  document.getElementById("mxSoftware").innerHTML=
     `<b>${a.name}:</b> ${a.software}<br><br>
      <b>${b.name}:</b> ${b.software}`;
-
 }
 
 
@@ -3001,51 +3142,32 @@ function mxFeatureData(a,b){
    PERFORMANCE
 ========================================================= */
 
-function mxSetBar(id,value){
-
-  const bar=mxGet(id);
-
-  if(bar)
-    bar.style.width=value+"%";
-
-}
-
-function mxSetScore(id,value){
-
-  const el=mxGet(id);
-
-  if(el)
-    el.textContent=value;
-
-}
-
 function mxPerformance(a,b){
 
   const values={
-
     Cpu:Math.round((a.cpuScore+b.cpuScore)/2),
     Gpu:Math.round((a.gpuScore+b.gpuScore)/2),
     Cooling:Math.round((a.coolingScore+b.coolingScore)/2),
     Display:Math.round((a.displayScore+b.displayScore)/2),
     Battery:Math.round((a.batteryScore+b.batteryScore)/2),
     Touch:Math.round((a.touchScore+b.touchScore)/2)
-
   };
 
   Object.keys(values).forEach(key=>{
 
-    mxSetBar(
-      "bar"+key,
-      values[key]
-    );
+    const value=values[key];
 
-    mxSetScore(
-      "score"+key,
-      values[key]
-    );
+    const bar=document.getElementById("bar"+key);
+
+    const score=document.getElementById("score"+key);
+
+    if(bar)
+      bar.style.width=value+"%";
+
+    if(score)
+      score.textContent=value;
 
   });
-
 }
 
 
@@ -3055,117 +3177,51 @@ function mxPerformance(a,b){
 
 function mxRenderGaming(){
 
-  const a=mxPhone(
-    mxGet("mxGamePhone1").value
-  );
+  const select1=document.getElementById("mxGamePhone1");
 
-  const b=mxPhone(
-    mxGet("mxGamePhone2").value
-  );
+  const select2=document.getElementById("mxGamePhone2");
 
-  mxGet("mxCard1").innerHTML=mxPhoneCard(a);
+  if(!select1 || !select2) return;
 
-  mxGet("mxCard2").innerHTML=mxPhoneCard(b);
+  const a=mxPhone(select1.value);
 
-  mxGet("mxVerdict").innerHTML=mxVerdict(a,b);
+  const b=mxPhone(select2.value);
+
+  document.getElementById("mxCard1").innerHTML=
+    mxPhoneCard(a);
+
+  document.getElementById("mxCard2").innerHTML=
+    mxPhoneCard(b);
+
+  document.getElementById("mxVerdict").innerHTML=
+    mxVerdict(a,b);
 
   mxFeatureData(a,b);
 
   mxPerformance(a,b);
-
 }
 
 
 /* =========================================================
-   OPEN GAMING
+   EVENTS
 ========================================================= */
 
-function mxOpenGaming(){
-
-  const overlay=mxGet("mxGamingOverlay");
-
-  if(!overlay)
-    return;
-
-  overlay.classList.add("active");
-
-  document.body.style.overflow="hidden";
-
-  mxRenderGaming();
-
-}
-
-
-/* =========================================================
-   CLOSE GAMING
-========================================================= */
-
-function mxCloseGaming(){
-
-  const overlay=mxGet("mxGamingOverlay");
-
-  if(!overlay)
-    return;
-
-  overlay.classList.remove("active");
-
-  document.body.style.overflow="";
-
-}
-
-
-/* =========================================================
-   GAMING CARD CLICK
-========================================================= */
-
-document.addEventListener("click",function(e){
-
-  const card=e.target.closest(
-    ".feature-card,.category-card,.mx-feature-card,.card"
-  );
-
-  if(!card)
-    return;
-
-  const text=card.textContent
-    .trim()
-    .toLowerCase();
-
-  if(
-    text === "gaming" ||
-    text.startsWith("gaming ")
-  ){
-
-    e.preventDefault();
-
-    mxOpenGaming();
-
-  }
-
-});
-
-
-/* =========================================================
-   BUTTONS
-========================================================= */
-
-mxGet("mxGamingClose")
-  .addEventListener("click",mxCloseGaming);
-
-mxGet("mxGamePhone1")
+document
+  .getElementById("mxGamePhone1")
   .addEventListener("change",mxRenderGaming);
 
-mxGet("mxGamePhone2")
+document
+  .getElementById("mxGamePhone2")
   .addEventListener("change",mxRenderGaming);
 
 
-/* ESC */
+/* ESC CLOSE */
 
 document.addEventListener("keydown",function(e){
 
-  if(e.key==="Escape")
-    mxCloseGaming();
+  if(e.key==="Escape"){
+    closeMobixaGaming();
+  }
 
 });
-
 </script>
